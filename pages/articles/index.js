@@ -38,7 +38,7 @@ export default function Articles({ playlists, headerLectures, qnaCategories }) {
       <section className="bg-gradient-to-br from-[#1a1f2e] to-[#2a3142] py-12 lg:py-16">
         <div className="container max-w-[1260px] mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-3xl lg:text-4xl font-bold text-white mb-3">Islamic Articles</h1>
+            <h1 className="page-title text-white mb-3">Islamic Articles</h1>
             <p className="text-gray-300 max-w-2xl mx-auto">
               Authentic Islamic knowledge and guidance through well-researched articles
             </p>

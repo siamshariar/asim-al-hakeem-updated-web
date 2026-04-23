@@ -35,7 +35,7 @@ export default function NewsletterSection() {
             </div>
           </div>
           
-          <h2 className="text-2xl text-white sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4">Stay Updated</h2>
+          <h2 className="section-title text-white mb-2 sm:mb-4">Stay Updated</h2>
           <p className="text-white/90 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             Subscribe to receive notifications about new lectures, books, articles, 
             and answers to frequently asked questions.

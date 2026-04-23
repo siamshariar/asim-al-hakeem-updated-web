@@ -137,7 +137,7 @@ export default function RecentLecturesEnhanced({ lectures }) {
           >
             <div className="min-w-0">
               <span className="text-[#10b981] font-semibold uppercase tracking-wider text-xs sm:text-sm">Latest Content</span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1a1f2e] mt-1 sm:mt-2">Recent Lectures</h2>
+              <h2 className="section-title text-[#1a1f2e] mt-1 sm:mt-2">Recent Lectures</h2>
             </div>
             <Link href="/lectures/UUWsdcrre0WbCWML_PnuzoAg" className="ml-auto">
               <motion.button

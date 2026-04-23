@@ -14,7 +14,7 @@ export default function AboutPreview() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-[#10b981] font-semibold uppercase tracking-wider text-sm">About Sheikh Assim</span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#1a1f2e] mt-2 mb-4 leading-tight">
+            <h2 className="section-title text-[#1a1f2e] mt-2 mb-4 leading-tight">
               Guiding the Ummah with Authentic Knowledge
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">

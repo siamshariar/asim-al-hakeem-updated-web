@@ -26,7 +26,7 @@ export default function StatsSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-accent font-semibold uppercase tracking-wider text-sm">Our Impact</span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#1a1f2e] mt-2">Quick Stats</h2>
+            <h2 className="section-title text-[#1a1f2e] mt-2">Quick Stats</h2>
           </div>
           <p className="text-gray-500 max-w-xl">
             Measurable results from Sheikh Assim Al Hakeem’s global lectures, books, and question-answer sessions.

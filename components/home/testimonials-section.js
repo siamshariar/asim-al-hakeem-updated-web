@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
           className="text-center mb-8 sm:mb-10"
         >
           <span className="text-[#10b981] font-semibold uppercase tracking-wider text-xs sm:text-sm">Testimonials</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1a1f2e] mt-1 sm:mt-2 mb-2 sm:mb-3">What People Say</h2>
+          <h2 className="section-title text-[#1a1f2e] mt-1 sm:mt-2 mb-2 sm:mb-3">What People Say</h2>
           <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
             Hear from those who have benefited from Sheikh Assim's guidance and teachings
           </p>

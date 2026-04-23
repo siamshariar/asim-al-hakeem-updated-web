@@ -33,7 +33,7 @@ export default function About({ playlists, headerLectures, qna_categories }) {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#1a1f2e] to-[#2a3142] py-8 sm:py-12 lg:py-16">
         <div className="container max-w-[1260px] mx-auto px-4 text-center">
-          <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-4">About Sheikh Assim Al Hakeem</motion.h1>
+          <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-title text-white mb-2 sm:mb-4">About Sheikh Assim Al Hakeem</motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-3xl mx-auto">A lifetime dedicated to spreading authentic Islamic knowledge</motion.p>
         </div>
       </section>

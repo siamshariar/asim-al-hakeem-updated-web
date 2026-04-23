@@ -95,7 +95,7 @@ export default function CounsellingSession({ playlists, headerLectures, qna_cate
         <div className="container max-w-[1260px] mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Calendar size={36} className="sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#10b981] mx-auto mb-3 sm:mb-4" />
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">Counselling Session</h1>
+            <h1 className="page-title text-white mb-2 sm:mb-3">Counselling Session</h1>
             <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto px-4">
               One-to-one Live Counseling with Sheikh Assim Al-Hakeem via Skype, FaceTime, or Phone Call
             </p>

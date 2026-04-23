@@ -41,28 +41,28 @@ function BookCard({ book }) {
                 <div>
                     <div className="flex items-center gap-1.5 text-[#10b981] mb-2">
                         <BookOpen size={14} />
-                        <span className="text-sm font-medium uppercase tracking-wider">Book</span>
+                        <span className="text-xs font-semibold uppercase tracking-wider">Book</span>
                     </div>
-                    <h3 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-semibold text-gray-700 mb-2 group-hover:text-gray-500 transition-colors duration-200 line-clamp-2 overflow-hidden break-words max-h-[5.5rem]">
+                    <h4 className="h4 text-card-title font-semibold font-primary text-primary mb-2 group-hover:text-gray-500 transition-colors duration-200 line-clamp-2 overflow-hidden break-words whitespace-normal max-h-[7rem]">
                         <Link href={`/books/${bookSlug}`} className="text-current">
                             {bookName}
                         </Link>
-                    </h3>
-                    <div className="flex items-center gap-1.5 text-gray-500 text-sm sm:text-base md:text-base lg:text-base mb-2">
-                        <User size={14} />
-                        <span className="text-gray-500">{writer}</span>
+                    </h4>
+                    <div className="flex items-center gap-1.5 text-card-meta text-gray-500 mb-2">
+                        <User size={12} />
+                        <span className="text-card-meta text-gray-500">{writer}</span>
                     </div>
                     {bookExcerpt && (
-                        <p className="text-gray-600 text-base sm:text-base md:text-base lg:text-base leading-relaxed line-clamp-3 mb-3">
+                        <p className="text-card-description text-gray-600 line-clamp-3 mb-3">
                             {bookExcerpt}
                         </p>
                     )}
                 </div>
 
-                <div className="mt-auto inline-flex items-center gap-1.5 text-[#10b981] text-xs lg:text-xs font-medium transition-all duration-300">
+                <div className="mt-auto inline-flex items-center gap-1.5 text-[#10b981] text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem] font-semibold transition-all duration-300">
                     <Link href={`/books/${bookSlug}`} className="inline-flex items-center gap-1.5">
-                        <span>View Details</span>
-                        <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
+                        <span className="text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]">View Details</span>
+                        <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                 </div>
             </div>
@@ -131,7 +131,7 @@ export default function BookList({
                         <div className="flex items-center justify-center gap-3 mb-4">
                             <BookOpen size={40} className="text-[#10b981]" />
                         </div>
-                        <h1 className="text-white text-4xl lg:text-5xl font-bold mb-4">Islamic Books</h1>
+                        <h1 className="page-title text-white mb-4">Islamic Books</h1>
                         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                             Authentic Islamic literature to deepen your understanding of the Deen
                         </p>

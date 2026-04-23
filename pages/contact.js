@@ -60,7 +60,7 @@ export default function Contact({ playlists, headerLectures, qna_categories }) {
             <section className="bg-gradient-to-br from-[#1a1f2e] to-[#2a3142] py-8 sm:py-10 lg:py-14">
                 <div className="container max-w-[1260px] mx-auto px-4 text-center">
                     <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                        <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-4">Get In Touch</h1>
+                        <h1 className="page-title text-white mb-2 sm:mb-4">Get In Touch</h1>
                         <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
                             Have questions or need guidance? We're here to help. Reach out to us anytime.
                         </p>

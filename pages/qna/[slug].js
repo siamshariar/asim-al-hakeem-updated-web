@@ -22,7 +22,7 @@ export default function QnaCategoryPage({ playlists, headerLectures, qnaCategori
           <Link href="/qna" className="inline-flex items-center gap-1.5 sm:gap-2 text-gray-300 hover:text-white mb-3 sm:mb-4 transition-colors text-sm sm:text-base">
             <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" /> Back to Q&A
           </Link>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{categoryTitle}</h1>
+          <h1 className="page-title text-white">{categoryTitle}</h1>
           <p className="text-sm sm:text-base text-gray-400 mt-1 sm:mt-2">
             {qnaItems?.length || 0} {qnaItems?.length === 1 ? 'question' : 'questions'} in this category
           </p>

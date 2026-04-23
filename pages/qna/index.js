@@ -45,7 +45,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
         <div className="max-w-[1260px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
             <HelpCircle size={28} className="xs:w-8 xs:h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#10b981] mx-auto mb-2 xs:mb-3 sm:mb-4" />
-            <h1 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 xs:mb-2 sm:mb-3">Questions & Answers</h1>
+            <h1 className="page-title text-white mb-1 xs:mb-2 sm:mb-3">Questions & Answers</h1>
             <p className="text-xs xs:text-sm sm:text-base text-gray-300 max-w-2xl mx-auto px-2 xs:px-4">
               Find authentic Islamic answers from Sheikh Assim Al Hakeem
             </p>

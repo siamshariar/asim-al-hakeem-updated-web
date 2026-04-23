@@ -124,8 +124,8 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-[#1a1f2e] text-white py-1.5 lg:py-2 hidden lg:block">
-        <div className="max-w-[1260px] mx-auto px-4 sm:px-5 lg:px-6 xl:px-8">
+      <div className={`bg-[#1a1f2e] text-white py-1.5 lg:py-2 hidden lg:block transition-all duration-300 ${showHeader ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}>
+        <div className="max-w-[1260px] mx-auto px-4 sm:px-5 lg:px-6 xl:px-5">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4 lg:space-x-6 text-xs lg:text-sm">
               <div className="flex items-center space-x-1.5 lg:space-x-2">
@@ -156,7 +156,7 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
 
       {/* Main Header */}
       <header className={`bg-white transition-all duration-300 ${isSticky ? "fixed top-0 left-0 right-0 shadow-xl z-[9998]" : "relative z-[9998]"} ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
-        <div className="max-w-[1260px] mx-auto px-3 sm:px-4 lg:px-5 xl:px-8">
+        <div className="max-w-[1260px] mx-auto px-3 sm:px-4 lg:px-5 xl:px-5">
           <div className="flex items-center justify-between py-2 lg:py-2.5">
             {/* Logo */}
             <Link href="/" className="flex items-center flex-shrink-0">
@@ -185,7 +185,7 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
                         setActiveDropdown((prev) => (prev === link.name ? null : link.name));
                       }
                     }}
-                    className={`flex items-center space-x-0.5 px-2 lg:px-2.5 xl:px-3 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-200 whitespace-nowrap
+                    className={`flex items-center space-x-0.5 px-2 lg:px-2.5 xl:px-2.5 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-200 whitespace-nowrap
                       ${router.pathname === link.href || (link.href !== "/" && router.pathname.startsWith(link.href))
                         ? "text-[#10b981] bg-[#10b981]/5" 
                         : "text-[#1a1f2e] hover:text-[#10b981] hover:bg-gray-50"}`}>

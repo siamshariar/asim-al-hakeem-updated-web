@@ -2,10 +2,10 @@
     .slide-content {
       display: flex;
       align-items: center;
-      font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
+      font-family: "Inter", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
     }
   
     .left-image {
@@ -22,7 +22,8 @@
         display: flex;
     }
     .right-content h3{
-      font-size: 24px;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      line-height: 1.4;
     }
 
     
@@ -51,23 +52,25 @@
       padding-left: 20px;
   }
   .slider-content h1 {
-      font-size: 24px;
+      font-size: clamp(1.6rem, 2.5vw, 2.5rem);
       color: #333;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      line-height: 1.2;
   }
   .slider-content p {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 20px;
+      font-size: clamp(1rem, 1vw, 1.1rem);
+      color: #4b5563;
+      margin-bottom: 22px;
+      line-height: 1.85;
   }
   .slider-content .announcement-btn {
       background-color: #333;
       color: #fff;
-      padding: 10px 20px;
+      padding: 12px 22px;
       text-decoration: none;
       border-radius: 5px;
       display: inline-block;
-      font-size: 14px;
+      font-size: clamp(0.95rem, 1vw, 1rem);
   }
   .slider-content .announcement-btn:hover {
       background-color: #555;

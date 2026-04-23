@@ -25,7 +25,7 @@ export default function ArticlesSection({ articles }) {
         >
           <div className="min-w-0">
             <span className="text-accent font-semibold uppercase tracking-wider text-sm">Insights & Knowledge</span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mt-2">Latest Articles</h2>
+            <h2 className="section-title text-primary mt-2">Latest Articles</h2>
           </div>
           <div className="flex-shrink-0 ml-auto">
             <Link href="/articles">
@@ -67,10 +67,10 @@ export default function ArticlesSection({ articles }) {
                         Sheikh Assim Al Hakeem
                       </span>
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                    <h4 className="h4 text-article-title font-bold text-primary mb-4 group-hover:text-gray-500 transition-colors">
                       {featuredArticle.postTitle || featuredArticle.title}
-                    </h3>
-                    <p className="text-gray-600 mb-6 line-clamp-3">
+                    </h4>
+                    <p className="text-article-desc text-gray-600 mb-6 line-clamp-3">
                       {featuredArticle.postExcerpt || featuredArticle.description}
                     </p>
                     <div className="flex items-center text-accent font-medium group-hover:gap-2 transition-all">
@@ -116,10 +116,10 @@ export default function ArticlesSection({ articles }) {
                       <Calendar size={12} className="mr-1" />
                       <span>{article.postDate || article.date}</span>
                     </div>
-                    <h4 className="font-semibold text-primary mb-2 line-clamp-2 group-hover:text-accent transition-colors">
+                    <h4 className="h4 text-card-title font-semibold text-primary mb-2 line-clamp-2 group-hover:text-accent transition-colors">
                       {article.postTitle || article.title}
                     </h4>
-                    <p className="text-gray-600 text-sm line-clamp-2">
+                    <p className="text-card-description text-gray-600 line-clamp-2">
                       {article.postExcerpt || article.description}
                     </p>
                   </div>

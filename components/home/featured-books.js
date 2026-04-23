@@ -31,28 +31,28 @@ function HomeBookCard({ book }) {
                 <div>
                     <div className="flex items-center gap-1.5 text-[#10b981] mb-2">
                         <BookOpen size={14} />
-                        <span className="text-xs font-medium uppercase tracking-wider">Book</span>
+                        <span className="text-xs font-semibold uppercase tracking-wider">Book</span>
                     </div>
-                    <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl font-medium text-gray-700 mb-2 group-hover:text-gray-500 transition-colors duration-200">
+                    <h4 className="h4 text-card-title font-semibold font-primary text-primary mb-2 group-hover:text-gray-500 transition-colors duration-200 line-clamp-2 overflow-hidden break-words whitespace-normal max-h-[6rem]">
                         <Link href={`/books/${bookSlug}`} className="text-current">
                             {bookName}
                         </Link>
-                    </h3>
-                    <div className="flex items-center gap-1.5 text-gray-500 text-sm sm:text-sm md:text-sm lg:text-sm mb-2">
+                    </h4>
+                    <div className="flex items-center gap-1.5 text-card-meta text-gray-500 mb-2">
                         <User size={12} />
-                        <span className="text-gray-500">{writer}</span>
+                        <span className="text-card-meta text-gray-500">{writer}</span>
                     </div>
                     {bookExcerpt && (
-                        <p className="text-gray-600 text-sm sm:text-sm md:text-sm lg:text-sm leading-relaxed line-clamp-3 mb-3">
+                        <p className="text-card-description text-gray-600 line-clamp-3 mb-3">
                             {bookExcerpt}
                         </p>
                     )}
                 </div>
 
-                <div className="mt-auto inline-flex items-center gap-1.5 text-[#10b981] text-xs lg:text-xs font-medium transition-all duration-300">
+                <div className="mt-auto inline-flex items-center gap-1.5 text-[#10b981] text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem] font-semibold transition-all duration-300">
                     <Link href={`/books/${bookSlug}`} className="inline-flex items-center gap-1.5">
-                        <span>View Details</span>
-                        <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
+                        <span className="text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]">View Details</span>
+                        <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                 </div>
             </div>
@@ -89,7 +89,7 @@ export default function FeaturedBooks({ books }) {
                 >
                     <div className="min-w-0">
                         <span className="text-[#10b981] font-semibold uppercase tracking-wider text-sm">Knowledge Library</span>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-[#1a1f2e] mt-2">Featured Islamic Books</h2>
+                        <h2 className="section-title text-[#1a1f2e] mt-2">Featured Islamic Books</h2>
                         <p className="text-gray-600 max-w-2xl mt-3">
                             Explore authentic Islamic literature to deepen your understanding of the Deen
                         </p>
@@ -97,10 +97,10 @@ export default function FeaturedBooks({ books }) {
                     <Link href="/books" className="ml-auto">
                         <motion.button
                             whileHover={{ x: 4 }}
-                            className="inline-flex items-center gap-2 text-[#10b981] font-medium hover:text-[#0f766e] transition-colors text-sm sm:text-base"
+                            className="inline-flex items-center gap-2 text-[#10b981] font-semibold hover:text-[#0f766e] transition-colors text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]"
                         >
-                            <span>View All Books</span>
-                            <ArrowRight size={16} />
+                            <span className="text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]">View All Books</span>
+                            <ArrowRight size={18} />
                         </motion.button>
                     </Link>
                 </motion.div>

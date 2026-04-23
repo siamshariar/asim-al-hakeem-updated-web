@@ -74,7 +74,7 @@ const BookSlider = ({ playlists, headerLectures, qnaCategories }) => {
       {isHomePage && (
        <section className="books pb-100 py-6 section pb-[100px]">
        <div className="container mx-auto">
-         <h2 className="books__title text-4xl font-bold mb-[50px]  text-center md:text-left">Books</h2>
+         <h2 className="books__title page-title mb-[50px] text-center md:text-left">Books</h2>
          <div className="books__slider swiper min-h-[430px]">
            <div className="swiper-wrapper">
              {books.map((book, index) => {
@@ -101,10 +101,10 @@ const BookSlider = ({ playlists, headerLectures, qnaCategories }) => {
                                {books[index].title}
                              </h4>
                            </Link>
-                           <div className="text-[#9AB4B7] text-[18px] mb-[6px] text-center md:text-left max-w-[320px]">
+                           <div className="text-card-meta text-[#9AB4B7] mb-[6px] text-center md:text-left max-w-[320px]">
                              {books[index].author}
                            </div>
-                           <p className="font-light text-[#777F81] text-[18px] mb-[26px] text-center md:text-left max-w-[320px]">
+                           <p className="text-card-description text-[#777F81] mb-[26px] text-center md:text-left max-w-[320px]">
                              {books[index].description}
                            </p>
                          </div>
