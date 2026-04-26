@@ -31,14 +31,15 @@ export default function BookDetail({ detail, playlists, headerLectures, qnaCateg
 
       <section className="blog-detail-ctn mt-0">
         <div className="py-6 lg:py-12">
+          
           <div className="container max-w-[1260px] mx-auto">
-            <div className="blog-area mx-4 lg:mx-0">
-              <div className="row margin-bottom-0">
-                <div className="col s12 l12 mb-4">
+                            <div className="col s12 l12 mb-4">
                   <Link href="/books" className="inline-flex items-center gap-1.5 sm:gap-2 text-gray-600 hover:text-[#10b981] transition-colors text-sm sm:text-base">
                     <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" /> Back to Books
                   </Link>
                 </div>
+            <div className="blog-area lg:mx-0">
+              <div className="row margin-bottom-0">
 
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="blog-detail book-detail">
                   <div className="row margin-bottom-0">
