@@ -2,7 +2,7 @@ import { server, youtube, constants } from "../../lib/config";
 import { getAllPlaylists2, getYoutubeVideoListByUrl, getAllQnaCategory } from "../../lib/fetch";
 import { useState, useEffect, useRef } from "react";
 import Meta from "../../components/meta";
-import VideoCardEnhanced from "../../components/card/video-card-enhanced";
+import PostCardVideo2 from "../../components/card/post-card-video2";
 import Loader from "../../components/loader";
 import VideoModal from "../../components/modal/VideoModal";
 import Header2 from "../../components/header1";
@@ -151,15 +151,15 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">{pageTitle}</h1>
             </div>
             
-            {/* Playlist Selector Dropdown - Pushes content down when open */}
-            <div className="relative" ref={dropdownRef}>
+            {/* Playlist Selector Dropdown - Overlay menu on top of content */}
+            <div className="relative inline-block" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center justify-between w-full sm:w-auto min-w-[250px] sm:min-w-[300px] lg:min-w-[350px] px-4 sm:px-5 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg sm:rounded-xl text-white hover:bg-white/20 transition-all group"
+                className="flex items-center justify-between w-[320px] sm:w-[350px] lg:w-[400px] max-w-full px-4 sm:px-5 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg sm:rounded-xl text-white hover:bg-white/20 transition-all group"
               >
-                <div className="flex items-center gap-2 sm:gap-3">
+                <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3">
                   <List size={16} className="sm:w-[18px] sm:h-[18px] text-[#10b981]" />
-                  <span className="text-sm sm:text-base font-medium truncate max-w-[180px] sm:max-w-[250px]">
+                  <span className="text-sm sm:text-base font-medium whitespace-normal break-words text-left leading-snug">
                     {currentPlaylistTitle}
                   </span>
                 </div>
@@ -171,15 +171,15 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
                 </motion.div>
               </button>
 
-              {/* Dropdown Menu - Appears below button and pushes content */}
+              {/* Dropdown Menu - Overlay on top of page content */}
               <AnimatePresence>
                 {dropdownOpen && (
                   <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.2 }}
-                    className="relative mt-4 w-full sm:w-[350px] lg:w-[400px] bg-white rounded-lg sm:rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+                    className="absolute left-0 top-full mt-2 w-full sm:w-[350px] lg:w-[400px] bg-white rounded-lg sm:rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50"
                   >
                     {/* Search Input */}
                     <div className="p-3 border-b border-gray-100 sticky top-0 bg-white">
@@ -204,7 +204,7 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
                     </div>
 
                     {/* Playlist List */}
-                    <div className="max-h-[300px] overflow-y-auto">
+                    <div className="max-h-[380px] sm:max-h-[420px] overflow-y-auto">
                       {filteredPlaylists.length > 0 ? (
                         filteredPlaylists.map((playlist) => (
                           <button
@@ -216,7 +216,7 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
                           >
                             <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                               <Video size={14} className={`flex-shrink-0 ${playlist.id === selectedPlaylist ? 'text-[#10b981]' : 'text-gray-400'}`} />
-                              <span className={`truncate ${playlist.id === selectedPlaylist ? 'text-[#10b981] font-medium' : 'text-[#1a1f2e]'}`}>
+                              <span className={`whitespace-normal break-words ${playlist.id === selectedPlaylist ? 'text-[#10b981] font-medium' : 'text-[#1a1f2e]'}`}>
                                 {playlist.title}
                               </span>
                             </div>
@@ -250,7 +250,7 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
           </div> */}
 
           {datas.length > 0 && datas[0]?.videoLists?.videos?.length > 0 ? (
-            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
               {datas.map((data) =>
                 data.videoLists.videos.map((video) => (
                   <motion.div
@@ -260,7 +260,7 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
                     whileHover={{ y: -4 }}
 
                   >
-                    <VideoCardEnhanced
+                    <PostCardVideo2
                     video={{
                       id: video.id,
                       title: video.title,

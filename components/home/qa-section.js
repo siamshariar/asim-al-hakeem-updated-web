@@ -26,26 +26,27 @@ export default function QASection({ qna }) {
       {recentQuestions.length > 0 ? (
         <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
           {recentQuestions.map((item, idx) => (
-            <motion.div
-              key={item.id || idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-md transition-all"
-            >
-              <div className="flex items-start gap-2 sm:gap-3">
-                <MessageCircle size={16} className="sm:w-[18px] sm:h-[18px] text-[#10b981] mt-0.5 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <p className="text-[#1a1f2e] font-medium text-sm sm:text-base mb-1 sm:mb-2 line-clamp-2">
-                    {item.question || item.title}
-                  </p>
-                  <p className="text-gray-600 text-xs sm:text-sm line-clamp-2">
-                    {item.answer || item.excerpt}
-                  </p>
+            <Link key={item.id || idx} href={`/qna/answer/${item.id}`} className="block">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <MessageCircle size={16} className="sm:w-[18px] sm:h-[18px] text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[#1a1f2e] font-medium text-sm sm:text-base mb-1 sm:mb-2 line-clamp-2">
+                      {item.question || item.title}
+                    </p>
+                    <p className="text-gray-600 text-xs sm:text-sm line-clamp-2">
+                      {item.answer || item.excerpt}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       ) : (

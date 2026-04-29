@@ -162,32 +162,24 @@ export default function RecentLecturesEnhanced({ lectures }) {
                 key={video.id}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
-                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="card card-r pc-video group hover:shadow-xl transition-all duration-300 cursor-pointer"
                 onClick={() => openModal(video)}
               >
-                <div className="relative h-40 sm:h-44 lg:h-48 overflow-hidden">
-                  <img
-                    src={video.image || `/img/post/youtube-default.jpg`}
-                    alt={video.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="eager"
-                  />
-                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-[#10b981] rounded-full flex items-center justify-center shadow-lg"
-                    >
-                      <Play size={18} className="sm:w-5 sm:h-5 text-white ml-0.5" fill="white" />
-                    </motion.div>
+                <div className="card-image">
+                  <div className="image-r">
+                    <img
+                      src={video.image || `/img/post/youtube-default.jpg`}
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                    />
                   </div>
                 </div>
-                <div className="p-3 sm:p-4">
-                  <div className="mb-3">
-                    <h3 className="font-semibold text-[#1a1f2e] text-sm sm:text-base line-clamp-2 group-hover:text-[#10b981] transition-colors text-left">
-                      {video.title}
-                    </h3>
-                  </div>
-                  <div className="flex justify-between items-center text-xs sm:text-sm text-gray-500">
+                <div className="card-content">
+                  <a className="heading-r">
+                    {video.title}
+                  </a>
+                  <div className="data-line">
                     <span>{video.views?.toLocaleString() || 0} views</span>
                     <span>{video.date}</span>
                   </div>

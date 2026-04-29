@@ -47,7 +47,7 @@ export default function PostCardRecent({ item, statistics, videoId, playlistId, 
     };
 
     return (
-        <div className="card card-recent pc-video" onClick={handleClick}> 
+        <div className="card card-r pc-video" onClick={handleClick}> 
             <div className="card-image">
                 <a  className="image-r"
                   href={getVideoUrl(item.slug, pathname, urlParams)}

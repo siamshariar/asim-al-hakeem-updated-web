@@ -4,7 +4,7 @@ import { Award, BookOpen, Users, ArrowRight } from "lucide-react";
 
 export default function AboutPreview() {
   return (
-    <section className="py-12 lg:py-24 bg-gradient-to-br from-[#f0fdf4] via-[#ffffff] to-[#e6fffa]">
+    <section className="py-12 lg:py-20 bg-gradient-to-br from-[#f0fdf4] via-[#ffffff] to-[#e6fffa]">
       <div className="container max-w-[1260px] mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div

@@ -3,41 +3,29 @@ import { date } from '../../lib/format';
 import { useState, useEffect } from "react";
 import { generateVParam } from '../../pages/lectures/[pid]';
 
-export default function PostCardVideo2({ item, statistics, videoId, playlistId, onClick }) {
+export default function PostCardVideo2({ video, views, playlistId, onClick }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const id = item.id;
-    const image = item.image;
-    const title = item.title;
-    const publishedAt = date(item.date);
-    const viewCount = statistics ? statistics[id] : '';
-	  const [urlParams, setUrlParams] = useState(null);
+    const id = video?.id;
+    const image = video?.image;
+    const title = video?.title;
+    const publishedAt = date(video?.date);
+    const viewCount = views || '';
     const [pathname, setPathname] = useState("");
 
-    const getVideoUrl = (slug) => {
-		if (urlParams) {
-			urlParams.set("v", slug);
-			return `${pathname}`;
-		}
-		return pathname;
-		};
-	
+    const getVideoUrl = () => pathname || '#';
 
     useEffect(() => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== "undefined" && id && title && playlistId) {
         const generatedPathname = `/lectures/${playlistId}?v=${generateVParam(id, title)}`;
-        const params = new URLSearchParams(window.location.search);
-        params.set("v", generateVParam(id, videoId, title));
-    
         setPathname(generatedPathname);
-        setUrlParams(params);
       }
-      }, [id, title, videoId]);
+    }, [id, title, playlistId]);
 	
 
     const handleVideoClick = () => {
         setIsModalOpen(true);
         if (onClick) {
-            onClick({ id, title, videoId, playlistId, viewCount, publishedAt });
+            onClick({ id, title, playlistId, viewCount, publishedAt });
         }
     };
 
@@ -47,11 +35,15 @@ export default function PostCardVideo2({ item, statistics, videoId, playlistId, 
         handleVideoClick();
     };
 
+    if (!video) {
+      return null;
+    }
+
     return (
-        <div className="card card-recent pc-video" onClick={handleClick}> 
-            <div className="card-image ">
-                <a  className="image-r"
-                  href={getVideoUrl(item.slug, pathname, urlParams)}
+        <div className="card card-r pc-video" onClick={handleClick}> 
+            <div className="card-image">
+                <a className="image-r"
+                  href={getVideoUrl()}
                   onClick={(e) => {
                       if (!isModalOpen) {
                           e.preventDefault();
@@ -78,7 +70,7 @@ export default function PostCardVideo2({ item, statistics, videoId, playlistId, 
 
             <div className="card-content">
                 <a
-                    href={getVideoUrl(item.slug, pathname, urlParams)}
+                    href={getVideoUrl()}
                     onClick={(e) => {
                         if (!isModalOpen) {
                             e.preventDefault();

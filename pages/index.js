@@ -21,6 +21,7 @@ import TestimonialsSection from "../components/home/testimonials-section";
 import NewsletterSection from "../components/home/newsletter-section";
 import StatsSection from "../components/home/stats-section";
 import AboutPreview from "../components/home/about-preview";
+import AskQuestionCounselling from "../components/home/askquestion-counselling";
 
 export default function Home({
   lectures = null,
@@ -58,17 +59,19 @@ export default function Home({
         {/* Recent Lectures - Light Gray Background */}
         <RecentLecturesEnhanced lectures={lectures} />
 
+        {/* Articles Section - Light Gray Background */}
+        <ArticlesSection articles={articles} />
+        
         {/* About Preview - White Background */}
         <AboutPreview />
 
         {/* Featured Books - Light Gray Background */}
         <FeaturedBooks books={books} />
 
-        {/* Articles Section - White Background */}
-        <ArticlesSection articles={articles} />
+        <AskQuestionCounselling />
 
         {/* Q&A and Counselling - Distinct Light Blue Background */}
-        <section className="py-16 lg:py-24 bg-gradient-to-br from-[#eef2ff] via-[#f7f7fe] to-white">
+        <section className="py-12 lg:py-20 bg-gradient-to-br from-[#eef2ff] via-[#f7f7fe] to-white">
           <div className="container max-w-[1260px] mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-8">
               <QASection qna={qna} />

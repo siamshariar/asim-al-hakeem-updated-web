@@ -185,7 +185,7 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
                         setActiveDropdown((prev) => (prev === link.name ? null : link.name));
                       }
                     }}
-                    className={`flex items-center space-x-0.5 px-2 lg:px-2.5 xl:px-2.5 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-200 whitespace-nowrap
+                    className={`flex items-center space-x-0.5 px-2  xl:px-2.5 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-200 whitespace-nowrap
                       ${router.pathname === link.href || (link.href !== "/" && router.pathname.startsWith(link.href))
                         ? "text-[#10b981] bg-[#10b981]/5" 
                         : "text-[#1a1f2e] hover:text-[#10b981] hover:bg-gray-50"}`}>
