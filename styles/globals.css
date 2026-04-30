@@ -145,7 +145,7 @@
     }
 
     a:hover {
-        color: #059669;
+        color: #059669 !important;
     }
 
     /* Small Text */

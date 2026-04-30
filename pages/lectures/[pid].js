@@ -240,7 +240,7 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
       </section>
 
       {/* Videos Grid */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-gray-50 min-h-[60vh]">
+      <section className="py-8 sm:py-8 lg:py-10 bg-gray-50 min-h-[60vh]">
         <div className="container max-w-[1260px] mx-auto px-4">
           {/* Results Count */}
           {/* <div className="mb-4 sm:mb-5">
@@ -286,13 +286,14 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
           )}
 
           {/* Load More Trigger */}
-          <div ref={ref} className="mt-6 sm:mt-8">
-            {isLoadingMore && !isLoadingInitialData && (
-              <div className="flex justify-center py-6 sm:py-8">
-                <Loader />
-              </div>
-            )}
-          </div>
+<div ref={ref} className="mt-6 sm:mt-8">
+  {isLoadingMore && !isLoadingInitialData && (
+    <div className="flex items-center justify-center gap-3 py-6 sm:py-8">
+      <Loader />
+      <span>Load More Videos</span>
+    </div>
+  )}
+</div>
 
           {/* Load More Button */}
           {!isReachingEnd && !isLoadingMore && datas.length > 0 && (

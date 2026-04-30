@@ -185,7 +185,7 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
                         setActiveDropdown((prev) => (prev === link.name ? null : link.name));
                       }
                     }}
-                    className={`flex items-center space-x-0.5 px-2  xl:px-2.5 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-200 whitespace-nowrap
+                    className={`flex items-center space-x-0.5 px-2 md:px-2 xl:px-3.5 py-1.5 lg:py-2 rounded-lg text-xs lg:text-sm font-medium transition-all duration-200 whitespace-nowrap
                       ${router.pathname === link.href || (link.href !== "/" && router.pathname.startsWith(link.href))
                         ? "text-[#10b981] bg-[#10b981]/5" 
                         : "text-[#1a1f2e] hover:text-[#10b981] hover:bg-gray-50"}`}>
@@ -232,17 +232,17 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
 
             {/* Right Actions */}
             <div className="flex items-center space-x-0.5 sm:space-x-1">
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+              {/* <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="hidden lg:flex p-2 rounded-full hover:bg-gray-100 transition-colors">
                 <Search size={18} className="text-[#1a1f2e]" />
-              </motion.button>
+              </motion.button> */}
 
-              <motion.button whileTap={{ scale: 0.95 }}
+              {/* <motion.button whileTap={{ scale: 0.95 }}
                 onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
                 className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors">
                 <Search size={18} className="text-[#1a1f2e]" />
-              </motion.button>
+              </motion.button> */}
 
               <Link href="/ask-question" className="hidden sm:block">
                 <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}

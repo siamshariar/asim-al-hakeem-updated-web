@@ -61,7 +61,7 @@ function BookCard({ book }) {
 
                 <div className="mt-auto inline-flex items-center gap-1.5 text-[#10b981] text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem] font-semibold transition-all duration-300">
                     <Link href={`/books/${bookSlug}`} className="inline-flex items-center gap-1.5">
-                        <span className="text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]">View Details</span>
+                        <span className="text-[0.875rem]">View Details</span>
                         <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                 </div>
@@ -165,7 +165,7 @@ export default function BookList({
             </section>
 
             {/* Books Grid */}
-            <section className="py-12 lg:py-16 bg-gray-50">
+            <section className="py-8 lg:py-16 bg-gray-50">
                 <div className="container max-w-[1260px] mx-auto px-4">
                     {filteredBooks.length > 0 ? (
                         <motion.div

@@ -63,7 +63,7 @@ export default function Articles({ playlists, headerLectures, qnaCategories }) {
       </section>
 
       {/* Articles Grid */}
-      <section className="py-0 md:py-12 lg:py-12 lg:py-16 bg-gray-50">
+      <section className="py-8 md:py-12 lg:py-12 lg:py-16 bg-gray-50">
         <div className="container max-w-[1260px] mx-auto px-4">
           {filteredArticles.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

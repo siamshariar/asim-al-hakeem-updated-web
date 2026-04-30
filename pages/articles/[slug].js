@@ -33,7 +33,7 @@ export default function ArticleDetail({ article, playlists, headerLectures, qnaC
 
       <Header2 playlists={playlists} lectures={headerLectures} qna_categories={qnaCategories} />
 
-      <article className="py-6 sm:py-8 lg:py-10 bg-gray-50">
+      <article className="py-8 sm:py-8 lg:py-10 bg-gray-50">
         <div className="container max-w-[900px] mx-auto px-4">
           <Link href="/articles" className="inline-flex items-center gap-1.5 sm:gap-2 text-gray-600 hover:text-[#10b981] mb-4 sm:mb-6 transition-colors text-sm sm:text-base">
             <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" /> Back to Articles

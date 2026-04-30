@@ -157,7 +157,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
       </section>
 
       {/* Q&A List */}
-      <section className="py-6 xs:py-8 sm:py-10 lg:py-4 bg-gray-50 min-h-[60vh]">
+      <section className="py-8 xs:py-8 sm:py-10 lg:py-4 bg-gray-50 min-h-[60vh]">
         <div className="max-w-[1000px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
           {filteredQna.length > 0 ? (
             <div className="space-y-2.5 xs:space-y-3 sm:space-y-4">

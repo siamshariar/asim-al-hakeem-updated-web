@@ -94,15 +94,17 @@ export default function FeaturedBooks({ books }) {
                             Explore authentic Islamic literature to deepen your understanding of the Deen
                         </p>
                     </div>
-                    <Link href="/books" className="ml-auto">
+                    <div className="flex-shrink-0 ml-auto">
+                        <Link href="/books">
                         <motion.button
-                            whileHover={{ x: 4 }}
-                            className="inline-flex items-center gap-2 text-[#10b981] font-semibold hover:text-[#0f766e] transition-colors text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]"
+                            whileHover={{ x: 5 }}
+                            className="inline-flex items-center gap-2 text-accent font-medium hover:text-accent-secondary transition-colors text-sm"
                         >
-                            <span className="text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]">View All Books</span>
-                            <ArrowRight size={18} />
+                            <span>View All Books</span>
+                            <ArrowRight size={16} />
                         </motion.button>
-                    </Link>
+                        </Link>
+                    </div>
                 </motion.div>
 
                 {/* Books Grid - grid-cols-1 under 1024px, grid-cols-2 above 1024px */}
