@@ -1,0 +1,4742 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-06T16:08:31.781Z",
+  "entries": {
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,DY9oRYm2L0c,BLqD5UqpNAk,yk3Cc_VBtLI,1hYCVs2Gj50,VLOzmCMygIs,MKpB7UZI5AI,gtFri_cECx4,6T78dzt4xZo,AbY-wroVLP0,XtU8MUdpGnU,Vubug3iaYIc,9wIQChdSF4I&maxResults=12": {
+      "cachedAt": "2026-05-06T16:06:08.142Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "P042pd6owH079gTX9JM9IW5ByEU",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "-JQQB8t3XCWP32yzU6WrC0rDo0o",
+            "id": "DY9oRYm2L0c",
+            "statistics": {
+              "viewCount": "6287",
+              "likeCount": "130",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "4CP1MVgs_z6J7PNNl4ABL_ZWHds",
+            "id": "BLqD5UqpNAk",
+            "statistics": {
+              "viewCount": "3597",
+              "likeCount": "72",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "q_IlCXRiVTcxjGGQC0BNfr8HU60",
+            "id": "yk3Cc_VBtLI",
+            "statistics": {
+              "viewCount": "3779",
+              "likeCount": "70",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "7Hn-Yyh7HfRQKpuaHN8nVNY3uxc",
+            "id": "1hYCVs2Gj50",
+            "statistics": {
+              "viewCount": "3792",
+              "likeCount": "75",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "07zE9iUzKmD_HNiwVegVV8l8PBI",
+            "id": "VLOzmCMygIs",
+            "statistics": {
+              "viewCount": "3247",
+              "likeCount": "81",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "87qGK8oxp56PlE2nm6YOnzUCDz0",
+            "id": "MKpB7UZI5AI",
+            "statistics": {
+              "viewCount": "3514",
+              "likeCount": "95",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "AkyzMdQdGNN7M9THrTJQ1Y8CXYs",
+            "id": "gtFri_cECx4",
+            "statistics": {
+              "viewCount": "3524",
+              "likeCount": "86",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "qcBaK6Oaf8z5X1S6ctLr4rgzgcQ",
+            "id": "6T78dzt4xZo",
+            "statistics": {
+              "viewCount": "3935",
+              "likeCount": "98",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "tU35hk5i3H3DX82sXag9Nuyq45g",
+            "id": "AbY-wroVLP0",
+            "statistics": {
+              "viewCount": "5172",
+              "likeCount": "135",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "-O_iMymoCR3dCPIDTuuQL07r1zU",
+            "id": "XtU8MUdpGnU",
+            "statistics": {
+              "viewCount": "13030",
+              "likeCount": "372",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "Dd3dBvs5VjRDKKv_gv9MggqhJXE",
+            "id": "Vubug3iaYIc",
+            "statistics": {
+              "viewCount": "1634",
+              "likeCount": "46",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "-KvY-TvTEKzCXs2QQ2MQUiHm8uM",
+            "id": "9wIQChdSF4I",
+            "statistics": {
+              "viewCount": "1296",
+              "likeCount": "39",
+              "favoriteCount": "0"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,pht_QLCjW4A,mZfA8ADrPIM,mZfA8ADrPIM,yGEQQrNy0TM,mZfA8ADrPIM,yGEQQrNy0TM,ze-vIy1XqXg,mZfA8ADrPIM,yGEQQrNy0TM,ze-vIy1XqXg,AE96yZuQ6bk,mZfA8ADrPIM&maxResults=12": {
+      "cachedAt": "2026-05-06T16:06:08.251Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "3bQyFypuHngP02MsB11LCgLUBNY",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "6K92ktP19mmuXCkRA9DIAhrIpXc",
+            "id": "pht_QLCjW4A",
+            "statistics": {
+              "viewCount": "53376",
+              "likeCount": "1216",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "l0OkbSDe5FSEEI9UY4PP5A14R6E",
+            "id": "mZfA8ADrPIM",
+            "statistics": {
+              "viewCount": "6342",
+              "likeCount": "124",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "l0OkbSDe5FSEEI9UY4PP5A14R6E",
+            "id": "mZfA8ADrPIM",
+            "statistics": {
+              "viewCount": "6342",
+              "likeCount": "124",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "QSlUFtFuyLMNOQykxGVp9RyeVec",
+            "id": "yGEQQrNy0TM",
+            "statistics": {
+              "viewCount": "68240",
+              "likeCount": "1114",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "l0OkbSDe5FSEEI9UY4PP5A14R6E",
+            "id": "mZfA8ADrPIM",
+            "statistics": {
+              "viewCount": "6342",
+              "likeCount": "124",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "QSlUFtFuyLMNOQykxGVp9RyeVec",
+            "id": "yGEQQrNy0TM",
+            "statistics": {
+              "viewCount": "68240",
+              "likeCount": "1114",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "wF6TdaZxFrh1BTRIEZ75YQjMqSg",
+            "id": "ze-vIy1XqXg",
+            "statistics": {
+              "viewCount": "6729",
+              "likeCount": "95",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "l0OkbSDe5FSEEI9UY4PP5A14R6E",
+            "id": "mZfA8ADrPIM",
+            "statistics": {
+              "viewCount": "6342",
+              "likeCount": "124",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "QSlUFtFuyLMNOQykxGVp9RyeVec",
+            "id": "yGEQQrNy0TM",
+            "statistics": {
+              "viewCount": "68240",
+              "likeCount": "1114",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "wF6TdaZxFrh1BTRIEZ75YQjMqSg",
+            "id": "ze-vIy1XqXg",
+            "statistics": {
+              "viewCount": "6729",
+              "likeCount": "95",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "fiJulwiTnvSM04aLseecG3MZyh4",
+            "id": "AE96yZuQ6bk",
+            "statistics": {
+              "viewCount": "8475",
+              "likeCount": "198",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "l0OkbSDe5FSEEI9UY4PP5A14R6E",
+            "id": "mZfA8ADrPIM",
+            "statistics": {
+              "viewCount": "6342",
+              "likeCount": "124",
+              "favoriteCount": "0"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/playlistItems?key=CACHE&part=snippet&playlistId=PLB7E49350391B85E0&maxResults=12": {
+      "cachedAt": "2026-05-06T16:06:08.259Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#playlistItemListResponse",
+        "etag": "00EAY2huRBOkJh2w5awOAMnV7BY",
+        "nextPageToken": "EAAaHlBUOkNBd2lFREJCTWtNMlFqTTVNMEZCUVRGRU1UWQ",
+        "items": [
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "AD18A719qPK4l56gMTLogmrjuLQ",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjI1NDEzMEZFQzFDM0FERUM",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "My friend offended me deeply..What should i do?",
+              "description": "Fatwa",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 0,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "ZhLUoVza5xU"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "sYxfrY5XzSr1tivsyFo0yL4y3ak",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLkYyNkY4NjY4N0EzMzVERTQ",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Is Bismillah part of Surah al  Fatiha?",
+              "description": "Do you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/Qd1WgE0InFQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/Qd1WgE0InFQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/Qd1WgE0InFQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/Qd1WgE0InFQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 1,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "Qd1WgE0InFQ"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "oLrCmw7tKXBOTlGkjLFTk3cNfmM",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjMwOEY1RUI3OUI0MDJBNjM",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Is our house protected from Shaytaan by reciting surah baqarah at any place during the day",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/CnhSksFjCAo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/CnhSksFjCAo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/CnhSksFjCAo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 2,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "CnhSksFjCAo"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "co2UyA-0q49TLL4d2dHrWmyho0w",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjkxMTExOUJCNjExREY3OTk",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Is our house protected from Shaytaan by playing Surah baqarah through digital quran",
+              "description": "Do you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/3embG9qWyDo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/3embG9qWyDo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/3embG9qWyDo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/3embG9qWyDo/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 3,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "3embG9qWyDo"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "cBFzQUB2mhFAOV1LrlSONxZC4Hg",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLkIzRUFGRDE5NjA4Mjc1ODE",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ruling on reciting quran without wudhu",
+              "description": "Do you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/25lR31DvSCs/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/25lR31DvSCs/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/25lR31DvSCs/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/25lR31DvSCs/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 4,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "25lR31DvSCs"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "M5lZ8V07R21KdSBx9_IcAENdWcM",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLkQ2QTg2RjcyNUQ0OTIwNzc",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ways of Sadaqatul Jaariyah",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/KOqZcOP2FhI/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/KOqZcOP2FhI/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/KOqZcOP2FhI/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/KOqZcOP2FhI/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 5,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "KOqZcOP2FhI"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "UM4-beloCzMrhFLTdrgSsB3NFZk",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLkE3QzE5MkRGNTM0MUYzREM",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Is it permissible to shuffle verses in the same rakah of the prayer",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/mKp_LdYuCqY/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/mKp_LdYuCqY/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/mKp_LdYuCqY/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/mKp_LdYuCqY/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 6,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "mKp_LdYuCqY"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "8ZBtclXyGwRbf135xNwGwv0SLYc",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjAzNTBDMjU3OUYwM0VDOEE",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ruling on fasting during ramadhan for pregnant and suckling women",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/RUD0Cnwa6L4/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/RUD0Cnwa6L4/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/RUD0Cnwa6L4/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/RUD0Cnwa6L4/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 7,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "RUD0Cnwa6L4"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "bri63YssSIp81awQvJi7IqKPhvI",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjc5ODc3OEY3MDdEMkVBQkM",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:27Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Question regarding interest over deposits - Sheikh Assim Al Hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/IUzZjhSQr0s/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/IUzZjhSQr0s/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/IUzZjhSQr0s/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/IUzZjhSQr0s/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 8,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "IUzZjhSQr0s"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "CGZF2-2UyCyrfSmDbzErM2hbk2I",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjE3MDA5RDFBNzkzQ0RFN0Q",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:27Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ruling on wearing niqab while performing umrah or hajj",
+              "description": "Do you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/_O05ua9ogfM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/_O05ua9ogfM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/_O05ua9ogfM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/_O05ua9ogfM/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 9,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "_O05ua9ogfM"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "76uWhfigQyaJbDQRExJU5CLKedA",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjRBMEY0QkVEMTFCQTcyOEU",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:27Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Question regarding trading in Saudi stock market",
+              "description": "Do you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/M0Ckp3siDvo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/M0Ckp3siDvo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/M0Ckp3siDvo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/M0Ckp3siDvo/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 10,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "M0Ckp3siDvo"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "JM1wgNcIa_4HqvmCEA_9wFNXqWw",
+            "id": "UExCN0U0OTM1MDM5MUI4NUUwLjM0QTBCNzY0RDcxMEY5Qjg",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:27Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ruling regarding qunoot in witr prayer - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/xQTy7_UaMF4/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/xQTy7_UaMF4/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/xQTy7_UaMF4/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/xQTy7_UaMF4/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLB7E49350391B85E0",
+              "position": 11,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "xQTy7_UaMF4"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 218,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,91YSu6pVOtU,4mPcA_7SqTk,1bxpE14Tslk,sEyyS15fu_w,DfJUu53w9H0,olN8db1YCdc,-zwEAK6XuoM,BXFKE-FN7zA,KbdJvQO3rJQ,0wBR8uwUlxU,9AhNZvLKOoo,4mPcA_7SqTk&maxResults=12": {
+      "cachedAt": "2026-05-06T16:06:08.318Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "Rsw2sXD5Dr5Vu_5TeF1FpCBpVU8",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "Vf7u5e3GzSGorWrWEvXiQyWsqiU",
+            "id": "91YSu6pVOtU",
+            "statistics": {
+              "viewCount": "9056",
+              "likeCount": "143",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "FR9MsOBgVVioMgY-3oWF9zWQxdU",
+            "id": "4mPcA_7SqTk",
+            "statistics": {
+              "viewCount": "3548",
+              "likeCount": "39",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "Ry9djcWFhz2rgF0qvpYQdSfOonM",
+            "id": "1bxpE14Tslk",
+            "statistics": {
+              "viewCount": "1529",
+              "likeCount": "24",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "zj28n8AG9Se8yqdMqwkTS90Zxis",
+            "id": "sEyyS15fu_w",
+            "statistics": {
+              "viewCount": "1317",
+              "likeCount": "19",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "u9LXV5CvbkxiXp-qXubcAfYQdbg",
+            "id": "DfJUu53w9H0",
+            "statistics": {
+              "viewCount": "1190",
+              "likeCount": "20",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "DZSTWw8Tj2JJeWMA5jtiSpfETtM",
+            "id": "olN8db1YCdc",
+            "statistics": {
+              "viewCount": "682",
+              "likeCount": "10",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "XaRz6BAFPUj8AOV7gJf6LtGoG-Q",
+            "id": "-zwEAK6XuoM",
+            "statistics": {
+              "viewCount": "921",
+              "likeCount": "15",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "rGF5c42CWvzGwZTQQMhNsm8uUow",
+            "id": "BXFKE-FN7zA",
+            "statistics": {
+              "viewCount": "379",
+              "likeCount": "2",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "p_GUJbOCRUizXvn4UGr5Wy9r8lc",
+            "id": "KbdJvQO3rJQ",
+            "statistics": {
+              "viewCount": "713",
+              "likeCount": "7",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "CTXYp3J2TvHLG1YUj6grlvSwDeQ",
+            "id": "0wBR8uwUlxU",
+            "statistics": {
+              "viewCount": "390",
+              "likeCount": "8",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "TmdcZCH-mLgWWXNv1e98FjplSRU",
+            "id": "9AhNZvLKOoo",
+            "statistics": {
+              "viewCount": "272",
+              "likeCount": "2",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "FR9MsOBgVVioMgY-3oWF9zWQxdU",
+            "id": "4mPcA_7SqTk",
+            "statistics": {
+              "viewCount": "3548",
+              "likeCount": "39",
+              "favoriteCount": "0"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,ZhLUoVza5xU,Qd1WgE0InFQ,CnhSksFjCAo,3embG9qWyDo,25lR31DvSCs,KOqZcOP2FhI,mKp_LdYuCqY,RUD0Cnwa6L4,IUzZjhSQr0s,_O05ua9ogfM,M0Ckp3siDvo,xQTy7_UaMF4&maxResults=12": {
+      "cachedAt": "2026-05-06T16:06:08.500Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "8nKODw_F51m-sGwmibCffiz84z4",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "w-9gixgZY4M_KZkDN_kXXfEeO-o",
+            "id": "ZhLUoVza5xU",
+            "statistics": {
+              "viewCount": "13198",
+              "likeCount": "474",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "X80_nuqIdX3ODOmygnrU06JQ7Aw",
+            "id": "Qd1WgE0InFQ",
+            "statistics": {
+              "viewCount": "51525",
+              "likeCount": "807",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "e5q8WoEB2iVI9bsOidwdGdOBHrI",
+            "id": "CnhSksFjCAo",
+            "statistics": {
+              "viewCount": "7715",
+              "likeCount": "143",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "o3mWiRfYDkaAxKqz0ytfOxbOW-c",
+            "id": "3embG9qWyDo",
+            "statistics": {
+              "viewCount": "122315",
+              "likeCount": "2573",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "j2UwvuNBL5eoh2G_4n9Ojxnz9JA",
+            "id": "25lR31DvSCs",
+            "statistics": {
+              "viewCount": "329227",
+              "likeCount": "6656",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "KX-4DVdFj40jPzUO7KSCJZmgt5s",
+            "id": "KOqZcOP2FhI",
+            "statistics": {
+              "viewCount": "2790",
+              "likeCount": "66",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "GxnEsgnpqScjaM7evSSRBZkt0BY",
+            "id": "mKp_LdYuCqY",
+            "statistics": {
+              "viewCount": "4691",
+              "likeCount": "60",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "xCG0-ktEzXCRofSFwg0fWRVePRI",
+            "id": "RUD0Cnwa6L4",
+            "statistics": {
+              "viewCount": "16876",
+              "likeCount": "105",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "lt4RLUwUgTjURrj14ELkFKzfFjE",
+            "id": "IUzZjhSQr0s",
+            "statistics": {
+              "viewCount": "2660",
+              "likeCount": "30",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "LrKalqDORs1pptCGRZYFnKLwkM4",
+            "id": "_O05ua9ogfM",
+            "statistics": {
+              "viewCount": "73500",
+              "likeCount": "1229",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "-3sLKLThL665CnSFuE-WY0T1sEE",
+            "id": "M0Ckp3siDvo",
+            "statistics": {
+              "viewCount": "38112",
+              "likeCount": "514",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "lsWkxjSScL9g2StbBLZDIt21qAE",
+            "id": "xQTy7_UaMF4",
+            "statistics": {
+              "viewCount": "71124",
+              "likeCount": "859",
+              "favoriteCount": "0"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,f9Q7hsTrd6o,Ysvw5dLzY3A,jb0BQj1bIB4,2Xe4x5At67U,bNfi8lLtjWQ,z4pexkyW1r4,UFY31z3C-oA,vQIkAGjPEXQ,l3HcOCS7-ns,oJuB5Meli_Q,J56dCKz7ooA,GFL4eU36VfQ&maxResults=12": {
+      "cachedAt": "2026-05-06T16:06:10.549Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "IZDEQ3WS6jzIznLDtLYiownVKFo",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "p664FLdWBS6Yp49dV4mMUa7zNYY",
+            "id": "f9Q7hsTrd6o",
+            "statistics": {
+              "viewCount": "2828",
+              "likeCount": "31",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "Niybl81op_-ceixYp4acHmBq444",
+            "id": "Ysvw5dLzY3A",
+            "statistics": {
+              "viewCount": "2785",
+              "likeCount": "75",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "8XWBrLsEPrnUaxQdz3Oh9zy8c1o",
+            "id": "jb0BQj1bIB4",
+            "statistics": {
+              "viewCount": "2777",
+              "likeCount": "21",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "2CjRV0A-IQPLleIf9zWWIQi0rNc",
+            "id": "2Xe4x5At67U",
+            "statistics": {
+              "viewCount": "1075",
+              "likeCount": "17",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "LQHVSeB197-WwRwfi_tTloXDOIE",
+            "id": "bNfi8lLtjWQ",
+            "statistics": {
+              "viewCount": "1059",
+              "likeCount": "17",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "fGl1nxDZMkR9XeiAVgkoBrf-vZM",
+            "id": "z4pexkyW1r4",
+            "statistics": {
+              "viewCount": "9377",
+              "likeCount": "94",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "grLJRgnjTK4JvpZkPn9zSzqttZQ",
+            "id": "UFY31z3C-oA",
+            "statistics": {
+              "viewCount": "3925",
+              "likeCount": "54",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "ANhzQUdwvBItxz6r_C5oH87Ym_8",
+            "id": "vQIkAGjPEXQ",
+            "statistics": {
+              "viewCount": "36616",
+              "likeCount": "260",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "O-h65J2Wf98mAHNkuCBJSbgNp4Y",
+            "id": "l3HcOCS7-ns",
+            "statistics": {
+              "viewCount": "4023",
+              "likeCount": "36",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "ebBmVNsyhwnaC9uJe4CYSX61kZI",
+            "id": "oJuB5Meli_Q",
+            "statistics": {
+              "viewCount": "1750",
+              "likeCount": "13",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "JIcvzkYTxUWma4MYH3SmQ_I_SGM",
+            "id": "J56dCKz7ooA",
+            "statistics": {
+              "viewCount": "830",
+              "likeCount": "8",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "sFDVAVuZJGaaB0oW-M0KJxhOQik",
+            "id": "GFL4eU36VfQ",
+            "statistics": {
+              "viewCount": "5743",
+              "likeCount": "86",
+              "favoriteCount": "0"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/playlists?key=CACHE&part=snippet&channelId=UCWsdcrre0WbCWML_PnuzoAg&maxResults=50": {
+      "cachedAt": "2026-05-06T16:07:23.431Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#playlistListResponse",
+        "etag": "MlR1xkIhJcK5mxR6CXkgF_e-jUA",
+        "nextPageToken": "CDIQAA",
+        "pageInfo": {
+          "totalResults": 54,
+          "resultsPerPage": 50
+        },
+        "items": [
+          {
+            "kind": "youtube#playlist",
+            "etag": "9QWup5J8LaEBPLTdiV_aA0uRqzQ",
+            "id": "PLmeZZmICk2QfJbd09F7x-42ig89oADmuZ",
+            "snippet": {
+              "publishedAt": "2025-03-02T23:01:24.470192Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Forty Prophetic hadith to bring the heart ❤️ relief (Ramadan Series 2025)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/NLMQHjtkX3E/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/NLMQHjtkX3E/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/NLMQHjtkX3E/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/NLMQHjtkX3E/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/NLMQHjtkX3E/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Forty Prophetic hadith to bring the heart ❤️ relief (Ramadan Series 2025)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "V1fgoB3Y3gQUIrPdaVoKgqfp5PE",
+            "id": "PLmeZZmICk2QeepKMprSGEQlnJJPmmRFLJ",
+            "snippet": {
+              "publishedAt": "2025-02-12T19:45:25.876894Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Characteristics of Prophet ﷺ Ash Shama'il Al Muhammadiyah",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/rmLwEI3Vl5Q/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/rmLwEI3Vl5Q/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/rmLwEI3Vl5Q/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/rmLwEI3Vl5Q/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/rmLwEI3Vl5Q/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Characteristics of Prophet ﷺ Ash Shama'il Al Muhammadiyah",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "cMiVjOc93YQkdn2lmPcDeLT9Qbg",
+            "id": "PLmeZZmICk2QfGFV_HmP0JTe0x8b7rUN40",
+            "snippet": {
+              "publishedAt": "2024-04-15T03:02:41.715808Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "The Prophetic Way Of Dealing With Mistakes - Ramadan Series 2024",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/0eloVQvruWk/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/0eloVQvruWk/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/0eloVQvruWk/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/0eloVQvruWk/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/0eloVQvruWk/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "The Prophetic Way Of Dealing With Mistakes - Ramadan Series 2024",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "WJb9SxU04Cz6LKTEBfGvOG4JQlQ",
+            "id": "PLmeZZmICk2QfA1XUWrCgPtnhwmxYIRAtw",
+            "snippet": {
+              "publishedAt": "2024-01-22T15:39:43.473582Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Fiqh - (Semester 1) Zad Academy",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/QOQgSHwIIUE/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/QOQgSHwIIUE/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/QOQgSHwIIUE/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/QOQgSHwIIUE/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/QOQgSHwIIUE/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Fiqh - (Semester 1) Zad Academy",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "N4h7_U8__gTsdUL_PWLWJzyMmuA",
+            "id": "PLmeZZmICk2Qd9rOMTqtO3QvEcOAnS4sGS",
+            "snippet": {
+              "publishedAt": "2023-03-27T05:46:34.35441Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "THE ROLE MODEL ( Prophet ﷺ‎)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/yuNeDLuvmNw/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/yuNeDLuvmNw/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/yuNeDLuvmNw/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/yuNeDLuvmNw/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/yuNeDLuvmNw/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "THE ROLE MODEL ( Prophet ﷺ‎)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "VBBMSfWO5gQId5aTW6wAuDW7ZVk",
+            "id": "PLmeZZmICk2QdW0VisSsW5L0jZg4tHS6j8",
+            "snippet": {
+              "publishedAt": "2022-04-27T03:57:14.740212Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Last 10 nights of Ramadan",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/V5mnt8gwSQ8/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/V5mnt8gwSQ8/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/V5mnt8gwSQ8/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/V5mnt8gwSQ8/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/V5mnt8gwSQ8/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Last 10 nights of Ramadan",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "xod2MuhgQiJkaxvu32mxXXExaaQ",
+            "id": "PLmeZZmICk2QfIAmxPlZDEge9uwE2NO5DX",
+            "snippet": {
+              "publishedAt": "2022-04-09T04:07:41.401385Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Fortress Of The Muslim",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/eLpWlhlQgcY/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/eLpWlhlQgcY/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/eLpWlhlQgcY/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/eLpWlhlQgcY/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/eLpWlhlQgcY/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Fortress Of The Muslim",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "AORTIdgy-6snDaXSEDyP3rL_ACo",
+            "id": "PLmeZZmICk2Qdi5uXb6y_eodikZcP4OQY2",
+            "snippet": {
+              "publishedAt": "2022-04-02T17:16:37.29468Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "BASICS (Ramadan Series 2022)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/8STK0vAH0bs/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/8STK0vAH0bs/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/8STK0vAH0bs/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/8STK0vAH0bs/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/8STK0vAH0bs/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "BASICS (Ramadan Series 2022)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "IenbmhZS07zeeNVgPwYPh7fzA50",
+            "id": "PLmeZZmICk2QdZu2vPCachO1NzfstgQdgy",
+            "snippet": {
+              "publishedAt": "2021-12-30T10:15:03.093288Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Nullifiers of Islam (Doubts about Kufr & Shirk?)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/Rt7au5PGBZc/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/Rt7au5PGBZc/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/Rt7au5PGBZc/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/Rt7au5PGBZc/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/Rt7au5PGBZc/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Nullifiers of Islam (Doubts about Kufr & Shirk?)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "f-8A97CXQWClOkgkm4117kQT5KQ",
+            "id": "PLmeZZmICk2Qd4v-SHfZpD7JcWt5ojpleE",
+            "snippet": {
+              "publishedAt": "2021-08-04T05:58:36.624789Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Beautiful Names & Attributes Ramadan 2021 (Full Episodes)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/oDjJLgziwhM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/oDjJLgziwhM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/oDjJLgziwhM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/oDjJLgziwhM/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/oDjJLgziwhM/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Beautiful Names & Attributes Ramadan 2021 (Full Episodes)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "7euzIGxxNgZ3iBjixduRWjjc4zs",
+            "id": "PLmeZZmICk2QdFcPZIHMQ6pzjw2Ij_Q4iu",
+            "snippet": {
+              "publishedAt": "2020-11-30T18:36:41.679017Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Islamic Faith",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/VlQKUOIB8fM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/VlQKUOIB8fM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/VlQKUOIB8fM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/VlQKUOIB8fM/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/VlQKUOIB8fM/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Islamic Faith",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "AuyRvhuPeE6Fkgb6C49pIz7ZN6U",
+            "id": "PLmeZZmICk2QdDqt7WjYs3ymasli0p-OyT",
+            "snippet": {
+              "publishedAt": "2020-09-09T16:29:38.076886Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "خطبة الجمعة",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/j7sd8-Yy-FI/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/j7sd8-Yy-FI/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/j7sd8-Yy-FI/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/j7sd8-Yy-FI/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/j7sd8-Yy-FI/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "خطبة الجمعة",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "XST2JGRpL-PFlveSnEL7JVNxWyE",
+            "id": "PLmeZZmICk2Qfl0CahBCn1NTuX88va695r",
+            "snippet": {
+              "publishedAt": "2020-07-29T07:53:27.081879Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Issues Pertaining To Qurbani / Udhiya",
+              "description": "Access course materials, Test your knowledge & Get certified for FREE at https://ilmine.illumeacademy.com/courses/operation-hd-fiqh-of-marriage-sh-assim-al-hakeem/\n\nCoupon code: SHASSIM20\n\nNeed One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/bgab43wp2Cs/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/bgab43wp2Cs/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/bgab43wp2Cs/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/bgab43wp2Cs/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/bgab43wp2Cs/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Issues Pertaining To Qurbani / Udhiya",
+                "description": "Access course materials, Test your knowledge & Get certified for FREE at https://ilmine.illumeacademy.com/courses/operation-hd-fiqh-of-marriage-sh-assim-al-hakeem/\n\nCoupon code: SHASSIM20\n\nNeed One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem"
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "QhzuBiXVFwu349wGGvrj-qBunj4",
+            "id": "PLmeZZmICk2Qf1JCTiozMV9Uc8AcEyWpig",
+            "snippet": {
+              "publishedAt": "2020-07-22T07:41:30.102355Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Fiqh Of Marriage",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/om4Zf4aDvBo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/om4Zf4aDvBo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/om4Zf4aDvBo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Fiqh Of Marriage",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "9CJ8F43T47Fnt6P_iMW-SVigo90",
+            "id": "PLmeZZmICk2QdHZPFJthM7b71wQXOPSfil",
+            "snippet": {
+              "publishedAt": "2020-06-19T06:01:37.79575Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "With The Prophet ﷺ‎",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/VA_2HAlk9sk/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/VA_2HAlk9sk/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/VA_2HAlk9sk/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "With The Prophet ﷺ‎",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "T2JLem5hFQ9vkZQfr0oBOz489eM",
+            "id": "PLmeZZmICk2Qd8ZPlIytwuus6koQMuBHNg",
+            "snippet": {
+              "publishedAt": "2020-06-17T18:12:06.931998Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Life's Adornments",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/kMn9uQm6jxs/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/kMn9uQm6jxs/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/kMn9uQm6jxs/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/kMn9uQm6jxs/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/kMn9uQm6jxs/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Life's Adornments",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "U5Osc4Xy0HSu6Np9_9hScPJ8-ak",
+            "id": "PLmeZZmICk2Qftlp-sCyxRyT5VwW5yGsMB",
+            "snippet": {
+              "publishedAt": "2020-06-09T06:45:17.423451Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "40 Nawawi Hadeeths",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/tk6bbX962eM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/tk6bbX962eM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/tk6bbX962eM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "40 Nawawi Hadeeths",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "_gA7Qm6a06gtipkY1TZJrEvxoy8",
+            "id": "PLmeZZmICk2Qdv8g2pBFv43CuHPooOkDIO",
+            "snippet": {
+              "publishedAt": "2020-05-09T16:38:35.205242Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ramadan 2020 (Women Around The Prophet ﷺ‎ Full Episodes)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/hwcAWbZ_ZTs/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/hwcAWbZ_ZTs/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/hwcAWbZ_ZTs/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Ramadan 2020 (Women Around The Prophet ﷺ‎ Full Episodes)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "-dv7fF8t7OKZi5S3BNB9CztdIV8",
+            "id": "PLmeZZmICk2Qc9JcFa1UEwel2yKu-IwRfQ",
+            "snippet": {
+              "publishedAt": "2020-05-04T19:04:10.179497Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "The 3 Fundamental Principles (Thalaathat-ul-usool)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/2R0lqMBWzGE/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/2R0lqMBWzGE/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/2R0lqMBWzGE/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/2R0lqMBWzGE/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "The 3 Fundamental Principles (Thalaathat-ul-usool)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "Ej-zFEJnH9Rc1znRh42u_hc7P7g",
+            "id": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+            "snippet": {
+              "publishedAt": "2020-05-04T18:09:23.938496Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Women Around The Prophet ﷺ‎",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Women Around The Prophet ﷺ‎",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "m88Z1ohdtpIuIKuRRQml6LODU3c",
+            "id": "PLmeZZmICk2QeMfcaaqR76W_OHgr3CdzI9",
+            "snippet": {
+              "publishedAt": "2020-05-04T18:03:07.674283Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Islamic Fiqh",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/SNaabBT5hTw/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/SNaabBT5hTw/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/SNaabBT5hTw/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/SNaabBT5hTw/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/SNaabBT5hTw/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Islamic Fiqh",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "ssQIL-5DJcba_4czRmJudxBvN1U",
+            "id": "PLmeZZmICk2QeU-zAiHTywjxoL5PidmDfB",
+            "snippet": {
+              "publishedAt": "2020-02-13T10:02:36.445763Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Questions about Salah / Prayer",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/X6Sb-5dYrKE/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/X6Sb-5dYrKE/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/X6Sb-5dYrKE/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/X6Sb-5dYrKE/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/X6Sb-5dYrKE/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Questions about Salah / Prayer",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "FHuUJtEqgc_F02cMQJFQkK3zFq0",
+            "id": "PLmeZZmICk2QeCTpL9-zIFSdWijsZgvrX2",
+            "snippet": {
+              "publishedAt": "2020-01-30T12:08:51.717637Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Daurah Fiqh (6 part series)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/A4ATeePDcEk/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/A4ATeePDcEk/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/A4ATeePDcEk/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/A4ATeePDcEk/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/A4ATeePDcEk/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Daurah Fiqh (6 part series)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "9dRlVyLNuov2I4ucEFinZjULdow",
+            "id": "PLmeZZmICk2QcC7Eo4tMFeH7opFDo21tlE",
+            "snippet": {
+              "publishedAt": "2019-05-28T19:23:03.895502Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ramadan videos(2019): Cross questions, Straight answers",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/5NsgZEogiHM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/5NsgZEogiHM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/5NsgZEogiHM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Ramadan videos(2019): Cross questions, Straight answers",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "zoEKzLJiu5n-iJKu5aQE5akg7X8",
+            "id": "PLmeZZmICk2QdGYRl34Txr0jUprhM1k9OB",
+            "snippet": {
+              "publishedAt": "2016-03-11T13:11:54.900961Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Contemporary Islamic Issues 2016",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/j-vY7oZWpfM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/j-vY7oZWpfM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/j-vY7oZWpfM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Contemporary Islamic Issues 2016",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "G730VOPoL2eck0_ukiMQaQJqbnE",
+            "id": "PLmeZZmICk2Qch2TL6VMAFVPHqZflNDa4i",
+            "snippet": {
+              "publishedAt": "2015-11-19T18:16:56.674098Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "At-Tawheed Series",
+              "description": "Study of Islamic Monotheism (At-Tawheed), derived from the book by Sheikh Muhammad Ibn Abdul Wahhab, Kitab At-Tawheed",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/EIaB-DB3Dj8/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/EIaB-DB3Dj8/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/EIaB-DB3Dj8/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/EIaB-DB3Dj8/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/EIaB-DB3Dj8/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "At-Tawheed Series",
+                "description": "Study of Islamic Monotheism (At-Tawheed), derived from the book by Sheikh Muhammad Ibn Abdul Wahhab, Kitab At-Tawheed"
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "1nl7FDDe4e8kcrKXEZJk-dJNpXU",
+            "id": "PLmeZZmICk2Qc75ptXXuw7-xn6rjAtPEg3",
+            "snippet": {
+              "publishedAt": "2015-10-14T10:42:09.21466Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Tafseer of Qur'an",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/nbvGWA6R7bY/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/nbvGWA6R7bY/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/nbvGWA6R7bY/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/nbvGWA6R7bY/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/nbvGWA6R7bY/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Tafseer of Qur'an",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "mJSWmh5xSuNobsPsw4jFItAOMkw",
+            "id": "PLmeZZmICk2Qc8yyg5BVXXXguDAoQmxGor",
+            "snippet": {
+              "publishedAt": "2014-09-07T16:38:23.6175Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Lessons in Fiqh - Bulugh al Maram",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/XuU02r6paNA/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/XuU02r6paNA/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/XuU02r6paNA/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/XuU02r6paNA/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Lessons in Fiqh - Bulugh al Maram",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "0iTDHCdUFzb5btURnXYKc79f2Gg",
+            "id": "PLmeZZmICk2Qe5WgUkAffFiCFSxAvDcG_a",
+            "snippet": {
+              "publishedAt": "2014-08-29T08:13:56.069155Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "In the Shade of the Scholars",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/TpNaPmOwRiM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/TpNaPmOwRiM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/TpNaPmOwRiM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/TpNaPmOwRiM/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "In the Shade of the Scholars",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "6M1FNODLZxN96pCHnJRn0X-LmuI",
+            "id": "PLmeZZmICk2Qeh2ke2lnCeotdmxYWY2nwK",
+            "snippet": {
+              "publishedAt": "2014-08-28T18:35:55.21539Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Fasting-Umdatul Ahkaam series",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/fMg3k8nmxaU/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/fMg3k8nmxaU/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/fMg3k8nmxaU/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/fMg3k8nmxaU/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Fasting-Umdatul Ahkaam series",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "H8wLr_tpBIYLxhdAPIf9OV6ICrA",
+            "id": "PLmeZZmICk2QdB3nJ_9m7Zq8QRmDelfLmG",
+            "snippet": {
+              "publishedAt": "2014-08-28T17:03:39.777799Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Akhlaaq",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/8vGxDgTfOUY/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/8vGxDgTfOUY/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/8vGxDgTfOUY/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/8vGxDgTfOUY/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Akhlaaq",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "K_fEuBLlJAl8uWpPzqotmHRv2fI",
+            "id": "PLmeZZmICk2QeP-6qms3iVwJIxce3-ZUqV",
+            "snippet": {
+              "publishedAt": "2014-08-28T16:26:05.257923Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Hajj -Umdatul Ahkaam-",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/4Ar6_nELLsk/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/4Ar6_nELLsk/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/4Ar6_nELLsk/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/4Ar6_nELLsk/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Hajj -Umdatul Ahkaam-",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "8k0JqjlVS0gSfNilyetdWkmzVvo",
+            "id": "PLmeZZmICk2QeYCEiAwgz55JJZp9cJWCIG",
+            "snippet": {
+              "publishedAt": "2014-08-27T18:55:18.222297Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Charity -Umdatul Ahkaam-",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/t-TIx83A9XQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/t-TIx83A9XQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/t-TIx83A9XQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/t-TIx83A9XQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Charity -Umdatul Ahkaam-",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "fnKgULkUKadQDIYr_chlz7yXaWI",
+            "id": "PLmeZZmICk2Qc-FVrQ1wTbFqNC92SWXUon",
+            "snippet": {
+              "publishedAt": "2014-08-24T16:52:06.561304Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Prayer-Umdatul Ahkaam series",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/CGZbm0-zfTk/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/CGZbm0-zfTk/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/CGZbm0-zfTk/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/CGZbm0-zfTk/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Prayer-Umdatul Ahkaam series",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "yhbuo3fnb55E4PuQ6R81oDe6DUs",
+            "id": "PLmeZZmICk2QfGOexgjZplbVqKcuXtwx3u",
+            "snippet": {
+              "publishedAt": "2014-08-24T16:34:32.870045Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "What a Muslim believes",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/6hqIz_YRZ30/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/6hqIz_YRZ30/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/6hqIz_YRZ30/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "What a Muslim believes",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "6OvLRDu4b8yDTxFuDr7hBnepc1U",
+            "id": "PLmeZZmICk2QdXUg424drfgVLpvBuNgc9I",
+            "snippet": {
+              "publishedAt": "2014-07-11T23:34:29.700778Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Virtues Of  Fasting",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/8zg1lD5YJKc/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/8zg1lD5YJKc/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/8zg1lD5YJKc/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Virtues Of  Fasting",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "Wsk15_i7SJ3iYIjAPIIvuu4uT28",
+            "id": "PLmeZZmICk2QcqIqNxZU3yl3SdQW_nuqTG",
+            "snippet": {
+              "publishedAt": "2014-01-14T09:51:34.597104Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Purity (wudu) Umdatul Ahkaam series",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/paHZXcFjvMg/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/paHZXcFjvMg/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/paHZXcFjvMg/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Purity (wudu) Umdatul Ahkaam series",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "8f3ilpH57i4i5oma0dY4_gh636Q",
+            "id": "PLmeZZmICk2Qe6gx6u9k6RxQkHkmmBJPVm",
+            "snippet": {
+              "publishedAt": "2013-08-10T23:50:30.893605Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Islamic economy",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/EaByIiB-A0Q/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/EaByIiB-A0Q/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/EaByIiB-A0Q/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/EaByIiB-A0Q/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Islamic economy",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "yLN7Dhp9UoH9epA7XkmxnJUR2bg",
+            "id": "PLmeZZmICk2QcuT_xm40mN9QxvtVetAI5X",
+            "snippet": {
+              "publishedAt": "2013-08-10T23:47:54.261218Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Quran",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Quran",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "S8p4aWFy4MUFmo0oNFRnZwYyiAE",
+            "id": "PLmeZZmICk2QeLXSgUTh2KGZbofr7iIHSI",
+            "snippet": {
+              "publishedAt": "2013-08-10T23:47:39.622461Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Zakat",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/Z6Q9wNoP1EQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Zakat",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "33h0rt26aRh5ogTg96HZV9K-lT8",
+            "id": "PLmeZZmICk2Qd5lI8CWtN7Kdi2A6uuKlun",
+            "snippet": {
+              "publishedAt": "2012-09-26T22:48:28.068559Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Prayer and duaa",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/pHwq9_xTrbE/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/pHwq9_xTrbE/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/pHwq9_xTrbE/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Prayer and duaa",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "89_1ZMHOrSGCPXJnNUYF-zYH7zo",
+            "id": "PLmeZZmICk2QeQM2mTgWbkEp3Y52BJulav",
+            "snippet": {
+              "publishedAt": "2012-09-26T22:42:01.984496Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Lectures in Arabic",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Lectures in Arabic",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "GNxe_bcVwHtzPWe0qIX9AqgR_9A",
+            "id": "PLmeZZmICk2QceOnmBzBbzTuXsMz1Nic-l",
+            "snippet": {
+              "publishedAt": "2012-09-26T22:41:02.317255Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "7 under the shade",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/91YSu6pVOtU/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "7 under the shade",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "XDmbFGsfLNINJehoHriZyKJq-6c",
+            "id": "PLD97E873F6327D25F",
+            "snippet": {
+              "publishedAt": "2012-04-03T09:42:33.05337Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Fasting and Ramadan",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/PWgNAtIkQ8A/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/PWgNAtIkQ8A/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/PWgNAtIkQ8A/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/PWgNAtIkQ8A/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Fasting and Ramadan",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "kJc9IHbUYjTB63iaBag7fQlyplY",
+            "id": "PLCE838CBFFF2A8E60",
+            "snippet": {
+              "publishedAt": "2012-04-03T09:25:04.044604Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Q and A",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/f9Q7hsTrd6o/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/f9Q7hsTrd6o/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/f9Q7hsTrd6o/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Q and A",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "ufAbiIZApoB7h8GopwjPTpLfbpE",
+            "id": "PLFEB8621F25EB5036",
+            "snippet": {
+              "publishedAt": "2012-04-03T08:34:33.019353Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Marriage and the Muslim Family",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/pht_QLCjW4A/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/pht_QLCjW4A/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/pht_QLCjW4A/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Marriage and the Muslim Family",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "XZjfXD67T-Cj05AvCNRUR4MVYKk",
+            "id": "PLAF1044182F0AF58E",
+            "snippet": {
+              "publishedAt": "2012-04-03T08:19:37.012435Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Fiqh Issues",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/BgAKyxTQvLk/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/BgAKyxTQvLk/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/BgAKyxTQvLk/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Fiqh Issues",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "fgrgxSa4ftLqNSqj2zN0QnF6ydU",
+            "id": "PL23A15B256101551B",
+            "snippet": {
+              "publishedAt": "2012-04-03T08:13:25.009571Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Mercy to mankind",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/DY9oRYm2L0c/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/DY9oRYm2L0c/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/DY9oRYm2L0c/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Mercy to mankind",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "fzyqQGSSDCVgCcHoBy13heX9FU8",
+            "id": "PL29E2A74E843C2D26",
+            "snippet": {
+              "publishedAt": "2012-04-03T08:12:26.009134Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Hajj and Umrah",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/lyvoOTMJTQA/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/lyvoOTMJTQA/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/lyvoOTMJTQA/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Hajj and Umrah",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "6T8RBEb7Pe76aLtv_OPFOWCorHI",
+            "id": "PL7895805BD307F995",
+            "snippet": {
+              "publishedAt": "2012-04-03T07:57:06.001982Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "The rights of a Muslim over another Muslim",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/F3PpckY5heQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/F3PpckY5heQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/F3PpckY5heQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/F3PpckY5heQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "The rights of a Muslim over another Muslim",
+                "description": ""
+              }
+            }
+          }
+        ]
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/playlists?key=CACHE&part=snippet&channelId=UCWsdcrre0WbCWML_PnuzoAg&maxResults=50&pageToken=CDIQAA": {
+      "cachedAt": "2026-05-06T16:07:23.970Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#playlistListResponse",
+        "etag": "HJCpgg3n2FnUk7XkUqNlv7iscdw",
+        "prevPageToken": "CDIQAQ",
+        "pageInfo": {
+          "totalResults": 54,
+          "resultsPerPage": 50
+        },
+        "items": [
+          {
+            "kind": "youtube#playlist",
+            "etag": "8OqtLopNR0boQVP-fpCoklE8T1g",
+            "id": "PL725F3094BE8AA122",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:36:17.579634Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Umar bin Khattab (radhi Allahu anhu)",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/xlw51luVlTE/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/xlw51luVlTE/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/xlw51luVlTE/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/xlw51luVlTE/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Umar bin Khattab (radhi Allahu anhu)",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "xf8B7vZE-CoIu0XPHqRe2kS0RKE",
+            "id": "PLB7E49350391B85E0",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:30:26.574519Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ask Huda",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/ZhLUoVza5xU/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Ask Huda",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "M4rsUGNkZFrmwKOEtHfBFGaGuC4",
+            "id": "PL660C6687E4D21654",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:27:13.571766Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Janazah, the final rites",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/sE8BzKFpkvo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/sE8BzKFpkvo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/sE8BzKFpkvo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/sE8BzKFpkvo/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Janazah, the final rites",
+                "description": ""
+              }
+            }
+          },
+          {
+            "kind": "youtube#playlist",
+            "etag": "kHnxJVN1jYL0QmZw-i3_H3wMGAk",
+            "id": "PL3CEA2D40F7421C3D",
+            "snippet": {
+              "publishedAt": "2012-04-02T20:22:47.567722Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Sciences of the Quran",
+              "description": "",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/0hcsY9aO05w/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/0hcsY9aO05w/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/0hcsY9aO05w/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "localized": {
+                "title": "Sciences of the Quran",
+                "description": ""
+              }
+            }
+          }
+        ]
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/playlistItems?key=CACHE&part=snippet&playlistId=UUWsdcrre0WbCWML_PnuzoAg&maxResults=12": {
+      "cachedAt": "2026-05-06T16:07:24.695Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#playlistItemListResponse",
+        "etag": "byvkA2LIQ4IqgHwmz8WRIVUeJbc",
+        "nextPageToken": "EAAaHlBUOkNBd2lFRFZDUXpWQ01qbEZORGt6TmtVek5FVQ",
+        "items": [
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "05jx_vRHBnqZWgogDV7r4Z9Scss",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLk9iQ1Vjb1h0Tzdj",
+            "snippet": {
+              "publishedAt": "2026-05-06T15:00:46Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Vape smells good, unlike cigarettes 🚬 so can I vape in the masjid? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/ObCUcoXtO7c/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/ObCUcoXtO7c/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/ObCUcoXtO7c/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/ObCUcoXtO7c/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/ObCUcoXtO7c/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 0,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "ObCUcoXtO7c"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "AvWXO8fGSP_nCDfldXbQNMFC-dU",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLmZ2RTFQUTZpMk5N",
+            "snippet": {
+              "publishedAt": "2026-05-06T10:01:13Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "What is the best dua to get a righteous wife (husband) #islamic #islam #quran #allah assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 1,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "fvE1PQ6i2NM"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "rFMrSAURsolGD0JJMkcfHzHVafw",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLk1HbjdTQUNmYUhj",
+            "snippet": {
+              "publishedAt": "2026-05-06T05:00:18Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Hw Cn parents raise kids with strong Islamic values when Social Media & Peers push opposite messages",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 2,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "MGn7SACfaHc"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "ouftmM2nt6edM-4qpDA9pJwx9JQ",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLlRFOTJLaTRzSmM4",
+            "snippet": {
+              "publishedAt": "2026-05-05T19:30:09Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "If a married woman's husband asks her not to fast, must she obey him #islamic #allah assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 3,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "TE92Ki4sJc8"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "M-maAeSdxWX2VL10UvSEC6Jsk-U",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLm15YjEzSTVoMnN3",
+            "snippet": {
+              "publishedAt": "2026-05-05T18:00:49Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Allah mentions the good qualities of the Jews & the Christians in the Quran #islamic assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 4,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "myb13I5h2sw"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "GgonutWu96uVRIYC3CI6zHxYcr0",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLnVvR2w5SVdrWUVn",
+            "snippet": {
+              "publishedAt": "2026-05-05T15:01:39Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "The Journey to Allah - From Addu (Maldives) 🇲🇻 to the house of Allah 🕋 (LECTURE) assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 5,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "uoGl9IWkYEg"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "PYjhRK5OJraBd8KJRjBfHYtw-b0",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLnA2bnk3NUJtc0s4",
+            "snippet": {
+              "publishedAt": "2026-05-05T10:01:25Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Is 1% alcohol beer permissible? #islam #islamic #quran #allah #sunnah #hijab #haram assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 6,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "p6ny75BmsK8"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "LvtlecWvQI_SvUQ7EUHdRKZVnwc",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLlFYblYyUy05YjNn",
+            "snippet": {
+              "publishedAt": "2026-05-05T05:19:55Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Youth nowadays use betting sites to earn, use bitcoin, deal in forex etc - halal? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 7,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "QXnV2S-9b3g"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "85pQiyQiZWwwZK22gXRgv2ImJ9c",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLkRRaHVqTTZZTVlR",
+            "snippet": {
+              "publishedAt": "2026-05-04T19:40:00Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Can people who live in Jungles of Amazon say the message of Islam didn't reach them? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 8,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "DQhujM6YMYQ"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "Bm3m9cimH6Guyh5F-BtsD6XIwVg",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLmJjM2dxSnZWWFNN",
+            "snippet": {
+              "publishedAt": "2026-05-04T18:35:00Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "How to find a balance between policing family members & giving dawah with wisdom assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 9,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "bc3gqJvVXSM"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "rpE1I15XCCPLOvavPCBCQYsVBVc",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLk1iTU5YeHY0cElJ",
+            "snippet": {
+              "publishedAt": "2026-05-04T15:00:40Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "My family claim women can't attend Friday prayer or eat before men Call it major sin assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 10,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "MbMNXxv4pII"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "6zLTxVpzM6rYHTDdpQFuvOFkybQ",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLkJITXlIZlduSng4",
+            "snippet": {
+              "publishedAt": "2026-05-04T10:00:16Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Can we consume dairy products from a dead animal?!? #islam #islamic #quran #allah assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 11,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "BHMyHfWnJx8"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 13505,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,ObCUcoXtO7c,fvE1PQ6i2NM,MGn7SACfaHc,TE92Ki4sJc8,myb13I5h2sw,uoGl9IWkYEg,p6ny75BmsK8,QXnV2S-9b3g,DQhujM6YMYQ,bc3gqJvVXSM,MbMNXxv4pII,BHMyHfWnJx8&maxResults=12": {
+      "cachedAt": "2026-05-06T16:07:25.210Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "_5LShpNzIcJGvFzFrSdvBEMUcuI",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "PiEK3uboLxCrgx-e5_ucj-D06bs",
+            "id": "ObCUcoXtO7c",
+            "statistics": {
+              "viewCount": "721",
+              "likeCount": "85",
+              "favoriteCount": "0",
+              "commentCount": "12"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "MO9LQNUo5ImTgYUKhkYPcJHBbQU",
+            "id": "fvE1PQ6i2NM",
+            "statistics": {
+              "viewCount": "979",
+              "likeCount": "125",
+              "favoriteCount": "0",
+              "commentCount": "4"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "KnhF_CWtZTdrTa53JgPKfcHsYH0",
+            "id": "MGn7SACfaHc",
+            "statistics": {
+              "viewCount": "632",
+              "likeCount": "31",
+              "favoriteCount": "0",
+              "commentCount": "2"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "X6n7PvVuuq_-Ol94xPO5fnTMAHQ",
+            "id": "TE92Ki4sJc8",
+            "statistics": {
+              "viewCount": "2171",
+              "likeCount": "164",
+              "favoriteCount": "0",
+              "commentCount": "5"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "yTNrZkBY9E1k6ynfu6SCHAe9iyQ",
+            "id": "myb13I5h2sw",
+            "statistics": {
+              "viewCount": "13897",
+              "likeCount": "784",
+              "favoriteCount": "0",
+              "commentCount": "18"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "oyF-96lVGtLwd8-wJ8aXfgDFib0",
+            "id": "uoGl9IWkYEg",
+            "statistics": {
+              "viewCount": "2153",
+              "likeCount": "130",
+              "favoriteCount": "0",
+              "commentCount": "16"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "o7TnlDqNpn9SH2Aatqu79EyB6l8",
+            "id": "p6ny75BmsK8",
+            "statistics": {
+              "viewCount": "19711",
+              "likeCount": "626",
+              "favoriteCount": "0",
+              "commentCount": "224"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "YXToSTVSWVMA3rXlNMUS7A-flFw",
+            "id": "QXnV2S-9b3g",
+            "statistics": {
+              "viewCount": "1381",
+              "likeCount": "57",
+              "favoriteCount": "0",
+              "commentCount": "15"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "-rMWtdDd076xWOzC0h34Dd9oqOI",
+            "id": "DQhujM6YMYQ",
+            "statistics": {
+              "viewCount": "5544",
+              "likeCount": "258",
+              "favoriteCount": "0",
+              "commentCount": "67"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "_LEsRpiui5AzQTgJPGvHkAZyr8I",
+            "id": "bc3gqJvVXSM",
+            "statistics": {
+              "viewCount": "6732",
+              "likeCount": "547",
+              "favoriteCount": "0",
+              "commentCount": "1"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "mFn88yAHmq21wCnYyBvsxxrgT40",
+            "id": "MbMNXxv4pII",
+            "statistics": {
+              "viewCount": "2812",
+              "likeCount": "144",
+              "favoriteCount": "0",
+              "commentCount": "6"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "3IZRnZfakmIjpzPGRsZ1qNURgsY",
+            "id": "BHMyHfWnJx8",
+            "statistics": {
+              "viewCount": "1478",
+              "likeCount": "85",
+              "favoriteCount": "0",
+              "commentCount": "9"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/playlistItems?key=CACHE&part=snippet&playlistId=PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs&maxResults=12": {
+      "cachedAt": "2026-05-06T16:08:31.560Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#playlistItemListResponse",
+        "etag": "-c6gpM7HlR6Xpp-ugdYFePOeh9I",
+        "nextPageToken": "EAAaHlBUOkNBd2lFRE13T0RreVJEa3dSVU13UXpVMU9EWQ",
+        "items": [
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "J3Ei-YO5YqJpgt1T_Q1zXlnsjlI",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy41NkI0NEY2RDEwNTU3Q0M2",
+            "snippet": {
+              "publishedAt": "2020-05-04T18:09:23Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Khadija bint Khuwalid (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/WfOmVF4gN78/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 0,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "WfOmVF4gN78"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "q3pZjwZQJWUIcqXYak0ANTp7x0Y",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy4yODlGNEE0NkRGMEEzMEQy",
+            "snippet": {
+              "publishedAt": "2020-05-06T20:58:12Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Amena bint Wahab & Halima Al-Sa'diyah (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/zhrvCzRfOG8/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/zhrvCzRfOG8/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/zhrvCzRfOG8/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/zhrvCzRfOG8/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/zhrvCzRfOG8/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 1,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "zhrvCzRfOG8"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "jXMbGIb4s32vi_r_ZbOiJJ6Ap_k",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy4wMTcyMDhGQUE4NTIzM0Y5",
+            "snippet": {
+              "publishedAt": "2020-05-08T22:31:51Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Juwairiya Bint Al-Harith (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/O9oBlAI_TdI/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/O9oBlAI_TdI/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/O9oBlAI_TdI/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/O9oBlAI_TdI/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/O9oBlAI_TdI/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 2,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "O9oBlAI_TdI"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "IDXfcwBoQD_ht-K87-q4qGY8XHM",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy41MjE1MkI0OTQ2QzJGNzNG",
+            "snippet": {
+              "publishedAt": "2020-05-09T06:42:30Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Aisha Bint Abu Bakr (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/Mp0pwiJ8l3I/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/Mp0pwiJ8l3I/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/Mp0pwiJ8l3I/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/Mp0pwiJ8l3I/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/Mp0pwiJ8l3I/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 3,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "Mp0pwiJ8l3I"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "njQPNlRQ_zYxxLm9t035Ga8daKo",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy4wOTA3OTZBNzVEMTUzOTMy",
+            "snippet": {
+              "publishedAt": "2020-05-09T14:43:43Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Sawda Bint Zama'h (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/_VoqIDJqjXo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/_VoqIDJqjXo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/_VoqIDJqjXo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/_VoqIDJqjXo/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/_VoqIDJqjXo/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 4,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "_VoqIDJqjXo"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "ABxjyUavo6g2yl1oMfJazyCKPc4",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy41MzJCQjBCNDIyRkJDN0VD",
+            "snippet": {
+              "publishedAt": "2020-05-11T06:32:47Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Hafsa Bint Omar (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/RRfkl9KllRo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/RRfkl9KllRo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/RRfkl9KllRo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/RRfkl9KllRo/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/RRfkl9KllRo/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 5,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "RRfkl9KllRo"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "5fPphGpz5Y4MiaPtoo3Ff5X4_80",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy5DQUNERDQ2NkIzRUQxNTY1",
+            "snippet": {
+              "publishedAt": "2020-05-17T21:16:57Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Zaynab Bint Khuzayma & Umm Salama (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/yCwRgaGH__s/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/yCwRgaGH__s/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/yCwRgaGH__s/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/yCwRgaGH__s/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/yCwRgaGH__s/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 6,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "yCwRgaGH__s"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "K2Aj-2qoloaWPeZUAZbbpVmmDiY",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy45NDk1REZENzhEMzU5MDQz",
+            "snippet": {
+              "publishedAt": "2020-05-21T14:45:05Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Zainab Bint Jah'sh (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/og2QJwHgkNw/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/og2QJwHgkNw/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/og2QJwHgkNw/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/og2QJwHgkNw/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/og2QJwHgkNw/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 7,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "og2QJwHgkNw"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "WRJW9dKZZZLBN-gU7WUCF-qBjIA",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy5GNjNDRDREMDQxOThCMDQ2",
+            "snippet": {
+              "publishedAt": "2020-06-05T06:14:09Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Safiya Bint Hu'yay (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/rxuWLWMhrv4/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/rxuWLWMhrv4/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/rxuWLWMhrv4/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/rxuWLWMhrv4/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/rxuWLWMhrv4/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 8,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "rxuWLWMhrv4"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "14quTIuL5ANIqgJFQgTpW4PQk5g",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy40NzZCMERDMjVEN0RFRThB",
+            "snippet": {
+              "publishedAt": "2020-06-06T04:29:48Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Umm Habeebah (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/AqnQv8NMkSQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/AqnQv8NMkSQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/AqnQv8NMkSQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/AqnQv8NMkSQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/AqnQv8NMkSQ/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 9,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "AqnQv8NMkSQ"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "C4Ez3gQG8eYnpaDVaUlIw8wz2Y8",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy5EMEEwRUY5M0RDRTU3NDJC",
+            "snippet": {
+              "publishedAt": "2020-06-17T07:58:40Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Maimunah Bint Al-Harith & Zainab Bint Muhammed ﷺ‎ (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/38ZfIzIpjDo/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/38ZfIzIpjDo/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/38ZfIzIpjDo/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/38ZfIzIpjDo/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/38ZfIzIpjDo/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 10,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "38ZfIzIpjDo"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "79hUtgmy498Da6-6K1Bl1ZDhb8Q",
+            "id": "UExtZVpabUlDazJRY2UtMlVZck40eTcydFJpcVZ4ZnBTcy45ODRDNTg0QjA4NkFBNkQy",
+            "snippet": {
+              "publishedAt": "2020-07-09T07:51:55Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Ruqayya & Umm Kalsoom, Daughters of Prophet ﷺ‎ (Women Around The Prophet ﷺ‎) - Assim al hakeem",
+              "description": "Need One to One live Counseling with Sheikh Assim?:\n\nhttps://www.assimalhakeem.net/announcement/\n\nDo you have a question:\n\nhttps://www.assimalhakeem.net/ask-a-question/\n\nhttp://www.assimalhakeem.net/\n\nhttp://www.youtube.com/assimalhakeem/\n\nhttps://www.facebook.com/SheikhAssimAlhakeemTeam/\n\nhttp://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/US503SyKF6o/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/US503SyKF6o/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/US503SyKF6o/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/US503SyKF6o/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/US503SyKF6o/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "PLmeZZmICk2Qce-2UYrN4y72tRiqVxfpSs",
+              "position": 11,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "US503SyKF6o"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 15,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,WfOmVF4gN78,zhrvCzRfOG8,O9oBlAI_TdI,Mp0pwiJ8l3I,_VoqIDJqjXo,RRfkl9KllRo,yCwRgaGH__s,og2QJwHgkNw,rxuWLWMhrv4,AqnQv8NMkSQ,38ZfIzIpjDo,US503SyKF6o&maxResults=12": {
+      "cachedAt": "2026-05-06T16:08:31.781Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "b9DfrUmgbzDg2ELV8NOKFKD0p88",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "Gc4Pm2Fr0gzBiH2pUYFhsKzDwXk",
+            "id": "WfOmVF4gN78",
+            "statistics": {
+              "viewCount": "21011",
+              "likeCount": "951",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "OYkJcy2i6Jnl1YKTMpcQaiMz818",
+            "id": "zhrvCzRfOG8",
+            "statistics": {
+              "viewCount": "7426",
+              "likeCount": "265",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "R4tjb4QdW-o1WNLt82px3ueB1Cg",
+            "id": "O9oBlAI_TdI",
+            "statistics": {
+              "viewCount": "16777",
+              "likeCount": "496",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "pj8iZ-a7i_sOSdtcRMmWUm4appU",
+            "id": "Mp0pwiJ8l3I",
+            "statistics": {
+              "viewCount": "10870",
+              "likeCount": "464",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "8OYshGHraD595QBsdShAGQQGAyI",
+            "id": "_VoqIDJqjXo",
+            "statistics": {
+              "viewCount": "7624",
+              "likeCount": "279",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "DG_kJHj9ttbX6OCQRmR0xCWJLLU",
+            "id": "RRfkl9KllRo",
+            "statistics": {
+              "viewCount": "9508",
+              "likeCount": "353",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "W77BYh90ADRhazvz6rhJpNs_jKM",
+            "id": "yCwRgaGH__s",
+            "statistics": {
+              "viewCount": "4385",
+              "likeCount": "157",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "zneF3InF1zj8GAy9mPp2QRSo310",
+            "id": "og2QJwHgkNw",
+            "statistics": {
+              "viewCount": "3606",
+              "likeCount": "156",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "r86XdGylOcgltcMAx4kX9rgxKnw",
+            "id": "rxuWLWMhrv4",
+            "statistics": {
+              "viewCount": "7290",
+              "likeCount": "227",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "bU0fLdWvGEywU6W8YwONyjFRFjs",
+            "id": "AqnQv8NMkSQ",
+            "statistics": {
+              "viewCount": "3460",
+              "likeCount": "173",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "eM_RV2k-0LNBmpP2YVOA4UEI8U0",
+            "id": "38ZfIzIpjDo",
+            "statistics": {
+              "viewCount": "5598",
+              "likeCount": "204",
+              "favoriteCount": "0"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "SgHnSdCrfkQBkpYCsqcu6rkHX5M",
+            "id": "US503SyKF6o",
+            "statistics": {
+              "viewCount": "7642",
+              "likeCount": "203",
+              "favoriteCount": "0"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    }
+  }
+}

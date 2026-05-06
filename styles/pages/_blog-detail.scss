@@ -424,6 +424,7 @@
 	width: 100%;
 	padding-top: 143.243%;
 	position: relative;
+	overflow: hidden;
 	border-radius: 1rem;
 	box-shadow: 0 10px 40px #1525426b;
 }
@@ -460,19 +461,38 @@ h2.book-title {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.75rem;
 }
 
 .book-btn a.read-more {
-	max-width: 10rem;
-	margin-right: 1rem;
+	max-width: 100%;
+	min-width: 8.75rem;
+	margin-right: 0.75rem;
+	border: 2px solid #0f766e;
+	background-color: var(--main-color);
+	border-color: var(--main-color);
+	color: #fff;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	white-space: nowrap;
 }
 
 .book-btn a.read-more:last-child {
 	margin-right: 0;
 }
 
-.book-btn .no-link {
-	color: var(--main-color);
+.book-btn a.read-more:hover,
+.book-btn a.read-more:focus {
+	background-color: var(--main-color);
+	border-color: var(--main-color);
+	color: #fff;
+}
+
+.book-btn a.read-more svg {
+	color: currentColor;
 }
 
 .book-share h2 {
@@ -555,14 +575,13 @@ p.book-detail-desc {
 
 	.book-btn a.read-more {
 		max-width: 100%;
-		margin-right: 0;
-		margin-bottom: 1rem;
-		width: 100%;
 	}
 
-	.book-btn a.read-more:last-child {
-		margin-right: 0;
-		margin-bottom: 0;
+	.book-btn a.read-more {
+		border: 2px solid #0f766e;
+		margin-right: 0.75rem;
+		min-width: 8.75rem;
+		max-width: 100%;
 	}
 }
 

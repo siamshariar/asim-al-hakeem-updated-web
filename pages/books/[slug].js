@@ -5,7 +5,7 @@ import Meta from "../../components/meta";
 import Header2 from "../../components/header1";
 import Share from "../../components/share";
 import { motion } from "framer-motion";
-import { BookOpen, Download, ShoppingCart, FileText, User, ArrowLeft } from "lucide-react";
+import { BookOpen, Download, Youtube, ExternalLink, User, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function BookDetail({ detail, playlists, headerLectures, qnaCategories }) {
@@ -24,12 +24,12 @@ export default function BookDetail({ detail, playlists, headerLectures, qnaCateg
 
   return (
     <>
-      <Meta title={detail.bookName} url={`${server}/books/${detail.bookSlug}`} image={detail.imageSrc}
-        description={detail.bookExcerpt || "Islamic book by Sheikh Assim Al Hakeem"} type="website" />
+      <Meta title={detail.title || detail.bookName} url={`${server}/books/${detail.slug || detail.bookSlug}`} image={detail.image || detail.imageSrc}
+        description={detail.description || detail.excerpt || detail.bookExcerpt || "Islamic book by Sheikh Assim Al Hakeem"} type="website" />
 
       <Header2 playlists={playlists} lectures={headerLectures} qna_categories={qnaCategories} />
 
-      <section className="blog-detail-ctn mt-0">
+      <section className="blog-detail-ctn mt-0 book-details-page">
         <div className="py-6 lg:py-12">
           
           <div className="container max-w-[1260px] mx-auto">
@@ -47,13 +47,13 @@ export default function BookDetail({ detail, playlists, headerLectures, qnaCateg
                       <div className="book-detail-left-wrapper">
                         <div className="book-detail-left">
                           <div className="book-detail-left-inner">
-                            <Image
-                              src={detail.imageSrc || "/img/books/default.jpg"}
-                              alt={detail.bookName}
-                              fill
-                              className="object-cover"
-                              unoptimized
-                            />
+                        <Image
+                          src={detail.image || detail.imageSrc || "/img/books/default.jpg"}
+                          alt={detail.title || detail.bookName}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
                           </div>
                         </div>
                       </div>
@@ -61,7 +61,7 @@ export default function BookDetail({ detail, playlists, headerLectures, qnaCateg
 
                     <div className="col s12 l7">
                       <div className="book-detail-right">
-                        <h2 className="book-title">{detail.bookName}</h2>
+                        <h2 className="book-title">{detail.title || detail.bookName}</h2>
 
                         <div className="book-writer-area">
                           <p>Writter: <i>{detail.writer || "Sheikh Assim Al Hakeem"}</i></p>
@@ -72,35 +72,41 @@ export default function BookDetail({ detail, playlists, headerLectures, qnaCateg
 
                         <div className="book-action">
                           <div className="book-btn">
-                            {detail.link && (
-                              <a className="btn-r read-more" target="_blank" rel="noopener noreferrer" href={detail.link}>
+                            {/* {detail.bookPageLink && (
+                              <a className="btn-r read-more book-link-btn" target="_blank" rel="noopener noreferrer" href={detail.bookPageLink}>
+                                <ExternalLink />
+                                <span>Visit Site</span>
+                              </a>
+                            )} */}
+                            {(detail.downloadLink || detail.purchaseLink) && (
+                              <a className="btn-r read-more" target="_blank" rel="noopener noreferrer" href={detail.downloadLink || detail.purchaseLink}>
                                 <Download />
-                                <span>Download</span>
+                                <span>Download Book</span>
                               </a>
                             )}
-                            {detail.purchaseLink && (
-                              <a className="btn-r read-more" target="_blank" rel="noopener noreferrer" href={detail.purchaseLink}>
-                                <ShoppingCart />
-                                <span>Buy</span>
+                            {detail.playlistLink && (
+                              <a className="btn-r read-more" target="_blank" rel="noopener noreferrer" href={detail.playlistLink}>
+                                <Youtube />
+                                <span>Watch Playlist</span>
                               </a>
                             )}
                             {detail.pdf && (
                               <a className="btn-r read-more" target="_blank" rel="noopener noreferrer" href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}>
-                                <FileText />
-                                <span>Read</span>
+                                <Download />
+                                <span>Read PDF</span>
                               </a>
                             )}
-                            {!detail.link && !detail.purchaseLink && !detail.pdf && (
+                            {!detail.bookPageLink && !detail.downloadLink && !detail.purchaseLink && !detail.playlistLink && !detail.pdf && (
                               <span className="no-link">{detail.linkNotAvailableText || "Link not available"}...</span>
                             )}
                           </div>
 
                           <div className="blog-share book-share">
-                            <Share urlWeb={`books/${detail.bookSlug}`} urlMobile={detail.bookSlug} title={detail.bookName} />
+                            <Share urlWeb={`books/${detail.slug || detail.bookSlug}`} urlMobile={detail.slug || detail.bookSlug} title={detail.title || detail.bookName} />
                           </div>
                         </div>
 
-                        <p className="book-detail-desc">{detail.bookDesc || detail.bookExcerpt}</p>
+                        <p className="book-detail-desc">{detail.description || detail.excerpt || detail.bookDesc || detail.bookExcerpt}</p>
                       </div>
                     </div>
                   </div>
@@ -110,6 +116,89 @@ export default function BookDetail({ detail, playlists, headerLectures, qnaCateg
           </div>
         </div>
       </section>
+
+      <style jsx global>{`
+        .book-details-page .book-btn {
+          width: 100%;
+        }
+
+        .book-details-page .book-btn a.read-more {
+          color: #fff !important;
+          padding: 0 !important;
+          font-family: var(--app-font-secondary);
+        }
+
+        .book-details-page .book-btn a.read-more:hover,
+        .book-details-page .book-btn a.read-more:focus {
+          color: #fff !important;
+        }
+
+        .book-details-page .book-btn a.read-more svg {
+          width: 1rem;
+          height: 1rem;
+          flex-shrink: 0;
+        }
+
+        .book-details-page .book-btn a.read-more span {
+          font-size: 0.875rem;
+          line-height: 1.2;
+          font-family: var(--app-font-secondary);
+        }
+
+        @media only screen and (max-width: 600px) {
+          .book-details-page .book-action {
+            align-items: stretch;
+          }
+
+          .book-details-page .book-btn {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 0.75rem;
+          }
+
+          .book-details-page .book-btn a.read-more {
+            width: 100%;
+            margin-right: 0 !important;
+            min-width: 0;
+            max-width: 100%;
+            padding: 0.675rem 1rem !important;
+            justify-content: center;
+          }
+
+          .book-details-page .book-btn a.read-more svg {
+            width: 0.95rem;
+            height: 0.95rem;
+          }
+
+          .book-details-page .book-btn a.read-more span {
+            font-size: 0.875rem;
+          }
+        }
+
+        @media only screen and (min-width: 601px) {
+          .book-details-page .book-btn {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+          }
+
+          .book-details-page .book-btn a.read-more {
+            min-width: 8.75rem;
+            width: auto;
+            padding: 0.675rem 1rem !important;
+          }
+
+          .book-details-page .book-btn a.read-more svg {
+            width: 1.1rem;
+            height: 1.1rem;
+          }
+
+          .book-details-page .book-btn a.read-more span {
+            font-size: 1rem;
+          }
+        }
+      `}</style>
     </>
   );
 }
@@ -133,6 +222,6 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const books = await getBooks();
-  const paths = books?.map((book) => ({ params: { slug: book.bookSlug } })) || [];
+  const paths = books?.map((book) => ({ params: { slug: book.slug || book.bookSlug } })) || [];
   return { paths, fallback: false };
 }

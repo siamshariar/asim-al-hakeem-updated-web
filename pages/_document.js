@@ -20,6 +20,12 @@ class CustomDocument extends Document {
             rel="stylesheet" 
           />
           
+          {/* Material Icons */}
+          <link
+            href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+            rel="stylesheet"
+          />
+          
           {/* Favicon */}
           <link rel="icon" href="/favicon.ico" />
           

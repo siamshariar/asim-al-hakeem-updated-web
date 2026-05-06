@@ -26,10 +26,12 @@ export default function ArticleDetail({ article, playlists, headerLectures, qnaC
 
   const { slug } = router.query;
   const shareUrl = `${server}/articles/${slug}`;
+  const bodyHtml = article.contentHtml || article.content || "";
+  const hasRichBody = typeof bodyHtml === "string" && /<iframe|<video|<p|<h[1-6]|<ul|<ol|<blockquote/i.test(bodyHtml);
 
   return (
     <>
-      <Meta title={article.title} description={article.description} url={shareUrl} image={article.image} type="article" />
+      <Meta title={article.title || article.postTitle} description={article.description || article.postExcerpt} url={shareUrl} image={article.image || article.imageSrc} type="article" />
 
       <Header2 playlists={playlists} lectures={headerLectures} qna_categories={qnaCategories} />
 
@@ -43,7 +45,7 @@ export default function ArticleDetail({ article, playlists, headerLectures, qnaC
             className="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
             {/* Featured Image */}
             <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px]">
-              <Image src={article.image || article.imageSrc} alt={article.title || article.postTitle} fill className="object-cover" priority />
+              <Image src={article.image || article.imageSrc} alt={article.title || article.postTitle} fill className="object-cover" priority unoptimized />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
 
@@ -71,8 +73,15 @@ export default function ArticleDetail({ article, playlists, headerLectures, qnaC
               </h1>
 
               {/* Content */}
-              <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none mb-6 sm:mb-8">
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{article.description || article.postExcerpt}</p>
+              <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none mb-6 sm:mb-8 article-body">
+                {hasRichBody ? (
+                  <div
+                    className="article-body-html text-sm sm:text-base text-gray-700 leading-relaxed [&_iframe]:w-full [&_iframe]:max-w-full [&_iframe]:aspect-video [&_iframe]:rounded-xl [&_iframe]:my-4 [&_img]:max-w-full [&_img]:h-auto [&_p]:mb-4 [&_figure]:my-4"
+                    dangerouslySetInnerHTML={{ __html: bodyHtml }}
+                  />
+                ) : (
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{article.description || article.excerpt || article.postExcerpt}</p>
+                )}
               </div>
 
               {/* Share Section */}

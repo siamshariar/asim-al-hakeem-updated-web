@@ -159,19 +159,11 @@ export default function Meta(props) {
 
 			{/* page title */}
 			<title>
-				{props.title != "" ? props.title + " | " : ""}{" "}
-				{"Official website of Assim Alhakeem"}
+				{`${props.title && props.title !== "" ? props.title + " | " : ""}Official website of Assim Alhakeem`}
 			</title>
 
 			{/* Manifest.json */}
 			{/* <link href="/manifest.json" rel="manifest" /> */}
-
-			{/* material icons - Icon Library */}
-			{/* <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> */}
-			<link
-				href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-				rel="stylesheet"
-			/>
 		</Head>
 	);
 }

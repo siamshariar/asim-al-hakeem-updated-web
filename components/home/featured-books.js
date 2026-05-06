@@ -7,7 +7,7 @@ import { BookOpen, User, ArrowRight } from "lucide-react";
 
 // UNIFIED Home Page Book Card - 100% MATCH with books page
 function HomeBookCard({ book }) {
-    const { bookName, imageSrc, bookSlug, bookExcerpt, writer } = book;
+    const { title, image, slug, excerpt, author } = book;
 
     return (
         <motion.div
@@ -15,10 +15,10 @@ function HomeBookCard({ book }) {
             className="card card-r pc-6 group overflow-hidden border border-gray-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg h-full"
         >
             <div className="card-image">
-                <Link href={`/books/${bookSlug}`} className="image-r relative block overflow-hidden">
+                <Link href={`/books/${slug}`} className="image-r relative block overflow-hidden">
                     <Image
-                        src={imageSrc || "/img/books/default.jpg"}
-                        alt={bookName}
+                        src={image || "/img/books/default.jpg"}
+                        alt={title}
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -34,23 +34,23 @@ function HomeBookCard({ book }) {
                         <span className="text-xs font-semibold uppercase tracking-wider">Book</span>
                     </div>
                     <h4 className="h4 text-card-title font-semibold font-primary text-primary mb-2 group-hover:text-gray-500 transition-colors duration-200 line-clamp-2 overflow-hidden break-words whitespace-normal max-h-[6rem]">
-                        <Link href={`/books/${bookSlug}`} className="text-current">
-                            {bookName}
+                        <Link href={`/books/${slug}`} className="text-current">
+                            {title}
                         </Link>
                     </h4>
                     <div className="flex items-center gap-1.5 text-card-meta text-gray-500 mb-2">
                         <User size={12} />
-                        <span className="text-card-meta text-gray-500">{writer}</span>
+                        <span className="text-card-meta text-gray-500">{author}</span>
                     </div>
-                    {bookExcerpt && (
+                    {excerpt && (
                         <p className="text-card-description text-gray-600 line-clamp-3 mb-3">
-                            {bookExcerpt}
+                            {excerpt}
                         </p>
                     )}
                 </div>
 
                 <div className="mt-auto inline-flex items-center gap-1.5 text-[#10b981] text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem] font-semibold transition-all duration-300">
-                    <Link href={`/books/${bookSlug}`} className="inline-flex items-center gap-1.5">
+                    <Link href={`/books/${slug}`} className="inline-flex items-center gap-1.5">
                         <span className="text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem]">View Details</span>
                         <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>

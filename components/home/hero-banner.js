@@ -95,7 +95,7 @@ export default function HeroBanner() {
                         </div>
 
                         {/* Stats */}
-                        <div className="grid grid-cols-2 gap-4 mt-12 max-w-xl mx-auto lg:mx-0">
+                        {/* <div className="grid grid-cols-2 gap-4 mt-12 max-w-xl mx-auto lg:mx-0">
                             {stats.map((stat, idx) => (
                                 <motion.div
                                     key={idx}
@@ -108,7 +108,7 @@ export default function HeroBanner() {
                                     <div className="text-xs lg:text-sm text-gray-400">{stat.label}</div>
                                 </motion.div>
                             ))}
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* Right Image */}

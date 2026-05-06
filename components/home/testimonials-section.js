@@ -108,14 +108,14 @@ export default function TestimonialsSection() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 xs:left-1 sm:left-2 lg:-left-12 xl:-left-16 top-1/2 -translate-y-1/2 w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-md sm:shadow-lg flex items-center justify-center hover:bg-[#10b981] hover:text-white transition-all duration-300 border border-gray-100"
+            className="absolute left-0 xs:left-1 sm:left-2 lg:-left-12 xl:-left-16 top-1/2 -translate-y-1/2 w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-md sm:shadow-lg flex items-center justify-center hover:bg-[#10b981] hover:text-white focus:outline-none focus:!bg-white focus:text-[#1a1f2e] transition-all duration-300 border border-gray-100"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={18} className="xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 xs:right-1 sm:right-2 lg:-right-12 xl:-right-16 top-1/2 -translate-y-1/2 w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-md sm:shadow-lg flex items-center justify-center hover:bg-[#10b981] hover:text-white transition-all duration-300 border border-gray-100"
+            className="absolute right-0 xs:right-1 sm:right-2 lg:-right-12 xl:-right-16 top-1/2 -translate-y-1/2 w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-md sm:shadow-lg flex items-center justify-center hover:bg-[#10b981] hover:text-white focus:outline-none focus:!bg-white focus:text-[#1a1f2e] transition-all duration-300 border border-gray-100"
             aria-label="Next testimonial"
           >
             <ChevronRight size={18} className="xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
@@ -130,10 +130,10 @@ export default function TestimonialsSection() {
                   setDirection(idx > currentIndex ? 1 : -1);
                   setCurrentIndex(idx);
                 }}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full focus:outline-none transition-all duration-300 ${
                   idx === currentIndex 
-                    ? "w-6 sm:w-8 bg-[#10b981]" 
-                    : "w-2 bg-gray-300 hover:bg-gray-400"
+                    ? "w-6 sm:w-8 bg-[#10b981] focus:!bg-[#10b981]" 
+                    : "w-2 bg-gray-300 hover:bg-gray-400 focus:!bg-gray-300"
                 }`}
                 aria-label={`Go to testimonial ${idx + 1}`}
               />

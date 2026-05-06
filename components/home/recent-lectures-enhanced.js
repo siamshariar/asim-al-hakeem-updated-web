@@ -29,7 +29,7 @@ export default function RecentLecturesEnhanced({ lectures }) {
         id: video.id,
         title: video.title,
         image: video.image,
-        date: formatDate(video.date),
+        date: formatLectureDate(video.date),
         views: lectures.videoStats?.[video.id] || 0,
         description: video.description,
       }));
@@ -40,7 +40,7 @@ export default function RecentLecturesEnhanced({ lectures }) {
         id: video.id,
         title: video.title,
         image: video.image,
-        date: formatDate(video.date),
+        date: formatLectureDate(video.date),
         views: lectures.videoStats?.[video.id] || 0,
         description: video.description,
       }));
@@ -93,6 +93,12 @@ export default function RecentLecturesEnhanced({ lectures }) {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 }
+  };
+
+  const formatLectureDate = (value) => {
+    if (!value) return "";
+    const parsedDate = new Date(value);
+    return Number.isNaN(parsedDate.getTime()) ? value : formatDate(value);
   };
 
   if (loading) {

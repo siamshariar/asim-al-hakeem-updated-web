@@ -9,13 +9,31 @@ module.exports = {
     ];
   },
   images: {
-    domains: [
-      "localhost",
-      "blog-dev1dit.vercel.app",
-      "muhammadsaifullah.com",
-      "www.muhammadsaifullah.com",
-      "img.youtube.com",
-      "i.ytimg.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "blog-dev1dit.vercel.app",
+      },
+      {
+        protocol: "https",
+        hostname: "muhammadsaifullah.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.muhammadsaifullah.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.assimalhakeem.net",
+      },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+      },
     ],
   },
 };

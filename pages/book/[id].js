@@ -112,18 +112,18 @@ const BookDetail = ({ playlists, headerLectures, qnaCategories }) => {
           <p className="text-gray-600 pb-4 border-b-[2px] border-[#DCDCDC] text-lg mt-2 ml-4 text-center sm:text-left">
             <strong>Translator:</strong> {book.translator}
           </p>
-          <div className="mt-4 flex items-center justify-center sm:justify-start">
+          <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center sm:justify-start gap-3 w-full">
             <a
               href={book.downloadLink}
               download
-              className="bg-teal-500 text-white ml-5 mt-2 px-3 py-2 text-lg rounded-lg flex items-center hover:bg-teal-600 transition"
+              className="bg-teal-500 text-white mt-0 sm:mt-2 px-4 py-2.5 text-sm sm:text-base lg:text-lg rounded-lg inline-flex items-center justify-center gap-2 w-full sm:flex-1 hover:bg-teal-500 hover:text-white transition"
             >
-              <Download className="mr-2" />
+              <Download className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 flex-shrink-0" />
               Download
             </a>
 
             <button
-              className="ml-auto bg-gray-500 text-[#14B8A6] px-3 py-1 text-lg rounded-lg flex items-center hover:bg-gray-600 transition"
+              className="ml-0 sm:ml-auto bg-gray-500 text-white px-4 py-2.5 text-sm sm:text-base lg:text-lg rounded-lg inline-flex items-center justify-center gap-2 w-full sm:flex-1 hover:bg-gray-500 hover:text-white transition"
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
@@ -136,7 +136,7 @@ const BookDetail = ({ playlists, headerLectures, qnaCategories }) => {
                 }
               }}
             >
-              <Share2 className="mr-2" />
+              <Share2 className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 flex-shrink-0" />
               Share
             </button>
           </div>
@@ -152,7 +152,7 @@ const BookDetail = ({ playlists, headerLectures, qnaCategories }) => {
             )}
             <button
               onClick={() => setShowMore(!showMore)}
-              className="text-teal-600 mt-2"
+              className="text-teal-600 mt-2 text-sm sm:text-base hover:text-teal-700"
             >
               {showMore ? 'See less' : 'See more'}
             </button>

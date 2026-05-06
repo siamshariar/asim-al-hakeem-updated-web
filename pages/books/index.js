@@ -17,7 +17,23 @@ import Image from "next/image";
 
 // UNIFIED Book Card Component - 100% MATCH with home page
 function BookCard({ book }) {
-    const { bookName, imageSrc, bookSlug, bookExcerpt, writer } = book;
+    const {
+        title,
+        image,
+        slug,
+        excerpt,
+        author,
+        bookName,
+        imageSrc,
+        bookSlug,
+        bookExcerpt,
+        writer,
+    } = book;
+    const resolvedTitle = title || bookName;
+    const resolvedImage = image || imageSrc;
+    const resolvedSlug = slug || bookSlug;
+    const resolvedExcerpt = excerpt || bookExcerpt;
+    const resolvedAuthor = author || writer;
 
     return (
         <motion.div
@@ -25,10 +41,10 @@ function BookCard({ book }) {
             className="card card-r pc-6 group overflow-hidden border border-gray-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg h-full"
         >
             <div className="card-image">
-                <Link href={`/books/${bookSlug}`} className="image-r relative block overflow-hidden">
+                <Link href={`/books/${resolvedSlug}`} className="image-r relative block overflow-hidden">
                     <Image
-                        src={imageSrc || "/img/books/default.jpg"}
-                        alt={bookName}
+                        src={resolvedImage || "/img/books/default.jpg"}
+                        alt={resolvedTitle}
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -44,23 +60,23 @@ function BookCard({ book }) {
                         <span className="text-xs font-semibold uppercase tracking-wider">Book</span>
                     </div>
                     <h4 className="h4 text-card-title font-semibold font-primary text-primary mb-2 group-hover:text-gray-500 transition-colors duration-200 line-clamp-2 overflow-hidden break-words whitespace-normal max-h-[7rem]">
-                        <Link href={`/books/${bookSlug}`} className="text-current">
-                            {bookName}
+                        <Link href={`/books/${resolvedSlug}`} className="text-current">
+                            {resolvedTitle}
                         </Link>
                     </h4>
                     <div className="flex items-center gap-1.5 text-card-meta text-gray-500 mb-2">
                         <User size={12} />
-                        <span className="text-card-meta text-gray-500">{writer}</span>
+                        <span className="text-card-meta text-gray-500">{resolvedAuthor}</span>
                     </div>
-                    {bookExcerpt && (
+                    {resolvedExcerpt && (
                         <p className="text-card-description text-gray-600 line-clamp-3 mb-3">
-                            {bookExcerpt}
+                            {resolvedExcerpt}
                         </p>
                     )}
                 </div>
 
                 <div className="mt-auto inline-flex items-center gap-1.5 text-[#10b981] text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1rem] font-semibold transition-all duration-300">
-                    <Link href={`/books/${bookSlug}`} className="inline-flex items-center gap-1.5">
+                    <Link href={`/books/${resolvedSlug}`} className="inline-flex items-center gap-1.5">
                         <span className="text-[0.875rem]">View Details</span>
                         <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
@@ -80,8 +96,10 @@ export default function BookList({
 
     const filteredBooks = useMemo(() => {
         return books.filter(book => {
-            const matchesSearch = book.bookName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                 book.bookExcerpt?.toLowerCase().includes(searchTerm.toLowerCase());
+            const title = book.title || book.bookName || "";
+            const excerpt = book.excerpt || book.bookExcerpt || "";
+            const matchesSearch = title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                 excerpt.toLowerCase().includes(searchTerm.toLowerCase());
             return matchesSearch;
         });
     }, [books, searchTerm]);

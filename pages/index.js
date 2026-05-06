@@ -19,7 +19,6 @@ import QASection from "../components/home/qa-section";
 import CounsellingCTA from "../components/home/counselling-cta";
 import TestimonialsSection from "../components/home/testimonials-section";
 import NewsletterSection from "../components/home/newsletter-section";
-import StatsSection from "../components/home/stats-section";
 import AboutPreview from "../components/home/about-preview";
 import AskQuestionCounselling from "../components/home/askquestion-counselling";
 
@@ -52,9 +51,6 @@ export default function Home({
       <main className="overflow-x-hidden">
         {/* Hero Banner - Dark Background */}
         <HeroBanner />
-
-        {/* Stats Section - White Background */}
-        {/* <StatsSection /> */}
 
         {/* Recent Lectures - Light Gray Background */}
         <RecentLecturesEnhanced lectures={lectures} />

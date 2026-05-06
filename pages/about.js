@@ -6,6 +6,29 @@ import Meta from "../components/meta";
 import Header2 from "../components/header1";
 import { motion } from "framer-motion";
 
+const biographySections = [
+  {
+    title: "Early life",
+    text: "Sheikh Assim bin Luqman al-Hakeem was born in 1962 in Al-Khobar, in the Eastern Province of Saudi Arabia. He grew up there until the age of 12 before moving with his family to Jeddah, where much of his later public work would begin.",
+  },
+  {
+    title: "Education",
+    text: "After finishing high school in 1980, he studied at King Fahd University of Petroleum and Minerals. He later completed his university studies with a major in Linguistics, and the English he learned became one of the means by which he later served the Ummah.",
+  },
+  {
+    title: "Beginning of da'wah",
+    text: "His public journey in da'wah started in 1989 when he began delivering the Friday sermon in Arabic after the local imam left. That responsibility pushed him to study, prepare, and teach with care every week.",
+  },
+  {
+    title: "English media work",
+    text: "He later used English in television and lecture programs, including work with Iqra, Saudi National TV, and Al-Majd. Through those programs and later online Q&A work, his reach expanded internationally.",
+  },
+  {
+    title: "Daily life and service",
+    text: "Alongside his da'wah, he has worked in professional management, taught classes after 'Isha, traveled for lectures, and spent long hours answering questions from people seeking advice and reconciliation.",
+  },
+];
+
 export default function About({ playlists, headerLectures, qna_categories }) {
   const profile = {
     name: 'Asim Al Hakeem',
@@ -79,12 +102,22 @@ export default function About({ playlists, headerLectures, qna_categories }) {
       <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="container max-w-[900px] mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1a1f2e] mb-4 sm:mb-6 text-center">Biography</h2>
-            <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-700">
-              <p className="mb-3 sm:mb-4 text-sm sm:text-base">Sheikh Assim bin Luqman al-Hakeem was born in 1962 in Al-Khobar, Saudi Arabia. He was raised there until age 12 before moving to Jeddah.</p>
-              <p className="mb-3 sm:mb-4 text-sm sm:text-base">He attended King Fahd University of Petroleum and Minerals, graduating with a Major in Linguistics. His English proficiency became a blessing for spreading Islamic knowledge globally.</p>
-              <p className="mb-3 sm:mb-4 text-sm sm:text-base">He began preaching in 1989, delivering Friday sermons in Arabic. His journey in English Da'wah started with programs on Saudi National TV and later expanded internationally.</p>
-              <p className="text-sm sm:text-base">Today, Sheikh Assim is recognized worldwide for his authentic approach to Islamic education through lectures, books, Q&A sessions, and counseling.</p>
+            <div className="flex flex-col items-center mb-6 sm:mb-8 text-center">
+              <span className="text-[#10b981] font-semibold uppercase tracking-wider text-xs sm:text-sm mb-2">Interview 2010</span>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1a1f2e]">Biography</h2>
+            </div>
+            <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+              {biographySections.map((item) => (
+                <div key={item.title} className="rounded-2xl border border-gray-100 bg-gray-50 p-4 sm:p-5 shadow-sm">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#1a1f2e] mb-2">{item.title}</h3>
+                  <p className="text-sm sm:text-base leading-7 text-gray-700">{item.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 sm:mt-6 rounded-2xl bg-[#f8fbfa] border border-[#d9f1eb] p-4 sm:p-5">
+              <p className="text-sm sm:text-base leading-7 text-gray-700">
+                He is known for balancing family life, teaching, travel, counseling, and public media work with a strong sense of responsibility. His interview makes it clear that da'wah is not one single activity for him, but a full way of life that includes family, study, teaching, and service to people.
+              </p>
             </div>
           </motion.div>
         </div>

@@ -26,8 +26,9 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
 
   const filteredQna = qnaItems?.filter(item => {
     const matchesSearch = item.question?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.content?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          item.answer?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "all" || item.cat_slug === selectedCategory;
+    const matchesCategory = selectedCategory === "all" || item.cat_slug === selectedCategory || item.categories?.includes(selectedCategory);
     return matchesSearch && matchesCategory;
   }) || [];
 
@@ -176,7 +177,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                         {item.question}
                       </h3>
                       <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-1.5 sm:mb-3">
-                        {item.answer}
+                        {item.content || item.answer}
                       </p>
                       <Link 
                         href={`/qna/answer/${item.id}`} 
@@ -226,7 +227,7 @@ export async function getStaticProps() {
     const playlists = await getAllPlaylists2();
     const headerLectures = await getHeaderLectures();
     const qnaCategories = await getAllQnaCategory();
-    const qnaItems = await getQnaByLimit(50);
+    const qnaItems = await getQnaByLimit(5000);
 
     return {
       props: {

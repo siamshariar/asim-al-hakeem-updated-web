@@ -49,7 +49,7 @@ export default function QnaCategoryPage({ playlists, headerLectures, qnaCategori
                         {item.question}
                       </h3>
                       <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-2 sm:mb-3">
-                        {item.answer}
+                        {item.content || item.answer}
                       </p>
                       <Link 
                         href={`/qna/answer/${item.id}`} 
@@ -83,8 +83,8 @@ export async function getStaticProps({ params }) {
   const playlists = await getAllPlaylists2();
   const headerLectures = await getHeaderLectures();
   const qnaCategories = await getAllQnaCategory();
-  const allQna = await getQnaByLimit(200);
-  const qnaItems = allQna?.filter(item => item.cat_slug === slug) || [];
+  const allQna = await getQnaByLimit(5000);
+  const qnaItems = allQna?.filter(item => item.cat_slug === slug || item.categories?.includes(slug)) || [];
   const categoryTitle = await getQnCatTitle(slug);
 
   return {

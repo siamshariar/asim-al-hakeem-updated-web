@@ -85,7 +85,7 @@ export default function Articles({ playlists, headerLectures, qnaCategories }) {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
-                    <div className="p-5">
+                    <div className="p-5 flex h-full flex-col">
                       <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
                         <span className="flex items-center gap-1">
                           <Calendar size={12} className="text-[#10b981]" />
@@ -99,8 +99,8 @@ export default function Articles({ playlists, headerLectures, qnaCategories }) {
                       <h3 className="text-lg font-bold text-[#1a1f2e] mb-2 line-clamp-2 group-hover:text-[#10b981] transition-colors">
                         {article.title || article.postTitle}
                       </h3>
-                      <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                        {article.description || article.postExcerpt}
+                      <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
+                        {article.excerpt || article.postExcerpt || article.description}
                       </p>
                       <span className="inline-flex items-center gap-1 text-[#10b981] text-sm font-medium group-hover:gap-2 transition-all">
                         Read More <ArrowRight size={14} />
