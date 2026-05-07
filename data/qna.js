@@ -148760,10 +148760,6 @@ const qnCat = [
   { id: 3, title: "Hajj & Umrah", slug: "hajj_and_umrah" },
   { id: 4, title: "Sciences of Quran", slug: "sciences_of_quran" },
   { id: 5, title: "Slaughtering", slug: "slaughtering" },
-  { id: 6, title: "Books", slug: "books" },
-  { id: 7, title: "Audios", slug: "audios" },
-  { id: 8, title: "Videos", slug: "videos" },
-  { id: 9, title: "Articles", slug: "articles" }
 ];
 
 export { qna, qnCat };
