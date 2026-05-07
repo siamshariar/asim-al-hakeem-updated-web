@@ -7,9 +7,34 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, MessageCircle, Share2, Calendar, Folder, ChevronRight } from "lucide-react";
 import { qna, qnCat } from "../../../data/qna";
+import { getAnsById } from "../../../lib/fetch";
+
+const LAST_QNA_CATEGORY_KEY = "qna_last_category";
+
+const toYoutubeEmbedUrl = (url) => {
+  if (!url || typeof url !== "string") return "";
+  if (url.includes("youtube.com/embed/")) return url;
+
+  const watchMatch = url.match(/[?&]v=([^&]+)/i);
+  if (watchMatch?.[1]) {
+    return `https://www.youtube.com/embed/${watchMatch[1]}`;
+  }
+
+  const shortMatch = url.match(/youtu\.be\/([^?&/]+)/i);
+  if (shortMatch?.[1]) {
+    return `https://www.youtube.com/embed/${shortMatch[1]}`;
+  }
+
+  return "";
+};
 
 export default function QnaAnswerDetail({ answer, playlists, headerLectures, qnaCategories }) {
   const router = useRouter();
+  const fromCategory = typeof router.query.from === "string"
+    ? router.query.from
+    : typeof router.query.category === "string"
+      ? router.query.category
+      : "";
 
   if (router.isFallback) {
     return (
@@ -40,12 +65,22 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
     );
   }
 
-  const category = qnCat.find(cat => cat.slug === answer.cat_slug);
+  const categorySlug = answer.cat_slug || answer.category_slug || "all";
+  const storedCategory = typeof window !== "undefined" ? window.sessionStorage.getItem(LAST_QNA_CATEGORY_KEY) : "";
+  const sourceCategory = fromCategory || storedCategory || categorySlug;
+  const backCategory = sourceCategory && sourceCategory !== "all" ? sourceCategory : "";
+  const backUrl = backCategory ? `/qna?category=${backCategory}` : `/qna`;
+  const category = qnaCategories?.find(cat => cat.slug === categorySlug) || qnCat.find(cat => cat.slug === categorySlug);
   const shareUrl = `${server}/qna/answer/${answer.id}`;
-
-  const relatedQuestions = qna
-    .filter(q => q.cat_slug === answer.cat_slug && q.id !== answer.id)
-    .slice(0, 3);
+  const videoSources = [
+    ...(Array.isArray(answer.youtube_videos)
+      ? answer.youtube_videos.map((video) => video?.embed_url || toYoutubeEmbedUrl(video?.url || video?.video_url || video?.link)).filter(Boolean)
+      : []),
+    toYoutubeEmbedUrl(answer.embed_url),
+    toYoutubeEmbedUrl(answer.video),
+    toYoutubeEmbedUrl(answer.video_url),
+  ].filter(Boolean);
+  const uniqueVideoSources = [...new Set(videoSources)];
 
   return (
     <>
@@ -61,14 +96,17 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#1a1f2e] to-[#2a3142] py-8 sm:py-10 lg:py-12">
         <div className="container max-w-[1000px] mx-auto px-4">
-          <Link href={`/qna?category=${answer?.cat_slug || 'all'}`} className="inline-flex items-center gap-1.5 sm:gap-2 text-gray-300 hover:text-white mb-3 sm:mb-4 transition-colors text-sm sm:text-base">
+          <Link 
+            href={backUrl} 
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-gray-300 hover:text-white mb-3 sm:mb-4 transition-colors text-sm sm:text-base"
+          >
             <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" /> Back to Q&A
           </Link>
           {category && (
             <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm mb-3 sm:mb-4 flex-wrap">
-              <Link href={`/qna?category=all`} className="text-gray-400 hover:text-white">Q&A</Link>
+              <Link href={`/qna?category=all`} className="text-gray-400 hover:text-white focus:outline-none focus:ring-0 focus:border-transparent">Q&A</Link>
               <ChevronRight size={12} className="sm:w-3.5 sm:h-3.5 text-gray-500" />
-              <Link href={`/qna?category=${category.slug}`} className="text-[#10b981] hover:text-[#34d399]">{category.title}</Link>
+              <Link href={`/qna?category=${category.slug}`} className="text-[#10b981] hover:text-[#34d399] focus:outline-none focus:ring-0 focus:border-transparent">{category.title}</Link>
             </div>
           )}
           <motion.h1 
@@ -93,6 +131,13 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                 className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden"
               >
                 <div className="p-5 sm:p-6 lg:p-8">
+                  <div className="mb-6">
+                    <img
+                      src="/img/qna/qna.jpg"
+                      alt={answer.question}
+                      className="w-full h-56 object-cover rounded-lg"
+                    />
+                  </div>
                   {/* Meta Info */}
                   <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500 mb-5 sm:mb-6 pb-4 border-b border-gray-100">
                     <span className="flex items-center gap-1">
@@ -114,6 +159,9 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                       <div>
                         <h2 className="text-base sm:text-lg font-semibold text-[#1a1f2e] mb-2">Question:</h2>
                         <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{answer.question}</p>
+                        {answer.excerpt && (
+                          <p className="text-sm sm:text-base text-gray-500 mt-3">{answer.excerpt}</p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -124,11 +172,29 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                       <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#059669] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                         <span className="text-white text-xs sm:text-sm font-bold">A</span>
                       </div>
-                      <div>
+                      <div className="w-full">
                         <h2 className="text-base sm:text-lg font-semibold text-[#1a1f2e] mb-2">Answer:</h2>
                         <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
                           <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">{answer.answer}</p>
                         </div>
+
+                        {uniqueVideoSources.length > 0 && (
+                          <div className="mt-6 space-y-4">
+                            {uniqueVideoSources.map((src, idx) => (
+                              <div key={src} className="w-full">
+                                <iframe
+                                  src={src}
+                                  title={`${answer.question} - Video ${idx + 1}`}
+                                  frameBorder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                  className="w-full rounded-xl"
+                                  style={{ aspectRatio: '16/9', minHeight: '300px' }}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -179,26 +245,6 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                 transition={{ delay: 0.1 }}
                 className="space-y-5 sm:space-y-6"
               >
-                {/* Related Questions */}
-                {relatedQuestions.length > 0 && (
-                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-5 sm:p-6">
-                    <h3 className="text-base sm:text-lg font-bold text-[#1a1f2e] mb-3 sm:mb-4">Related Questions</h3>
-                    <div className="space-y-2 sm:space-y-3">
-                      {relatedQuestions.map((q) => (
-                        <Link 
-                          key={q.id} 
-                          href={`/qna/answer/${q.id}`}
-                          className="block p-2.5 sm:p-3 rounded-lg hover:bg-gray-50 transition-colors group"
-                        >
-                          <p className="text-xs sm:text-sm text-[#1a1f2e] group-hover:text-[#10b981] line-clamp-2 transition-colors">
-                            {q.question}
-                          </p>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 {/* Ask Question CTA */}
                 <div className="bg-gradient-to-br from-[#10b981] to-[#059669] rounded-xl sm:rounded-2xl shadow-lg p-5 sm:p-6 text-white">
                   <h3 className="text-white text-base sm:text-lg font-bold mb-2">Have a Question?</h3>
@@ -219,16 +265,16 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                   <div className="space-y-1.5 sm:space-y-2">
                     {qnCat.slice(0, 5).map((cat) => (
                       <Link 
-                        key={cat.id} 
-                        href={`/qna/${cat.slug}`}
-                        className={`block p-2 rounded-lg text-xs sm:text-sm transition-colors ${
-                          cat.slug === answer.cat_slug 
-                            ? 'bg-[#10b981]/10 text-[#10b981] font-medium' 
-                            : 'text-gray-600 hover:bg-gray-50 hover:text-[#10b981]'
-                        }`}
-                      >
-                        {cat.title}
-                      </Link>
+                          key={cat.id} 
+                          href={`/qna/${cat.slug}`}
+                          className={`block p-2 rounded-lg text-xs sm:text-sm transition-colors focus:outline-none focus:ring-0 focus:border-transparent ${
+                            cat.slug === answer.cat_slug 
+                              ? 'bg-[#10b981]/10 text-[#10b981] font-medium' 
+                              : 'text-gray-600 hover:bg-gray-50 hover:text-[#10b981]'
+                          }`}
+                        >
+                          {cat.title}
+                        </Link>
                     ))}
                     <Link 
                       href="/qna"
@@ -249,7 +295,8 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
 
 export async function getStaticProps({ params }) {
   const { id } = params;
-  const answer = qna.find(item => item.id === parseInt(id)) || null;
+  const answers = await getAnsById(id);
+  const answer = answers?.[0] || null;
   const playlists = await getAllPlaylists2();
   const headerLectures = await getHeaderLectures();
   const qnaCategories = await getAllQnaCategory();

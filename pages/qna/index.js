@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useMemo, useDeferredValue } from "react";
 import { useRouter } from "next/router";
 import { server } from "../../lib/config";
 import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory, getQnaByLimit } from "../../lib/fetch";
@@ -8,38 +8,93 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { HelpCircle, ChevronRight, Search, FolderOpen, MessageCircle, X } from "lucide-react";
 
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+const LAST_QNA_CATEGORY_KEY = "qna_last_category";
+
 export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaItems }) {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const deferredSearchTerm = useDeferredValue(searchTerm);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!router.isReady) return;
     const category = router.query.category;
     if (typeof category === 'string' && category.trim()) {
       const normalized = category.trim();
       const isValid = normalized === "all" || qnaCategories?.some(c => c.slug === normalized);
       setSelectedCategory(isValid ? normalized : "all");
+    } else {
+      const storedCategory = typeof window !== "undefined" ? window.sessionStorage.getItem(LAST_QNA_CATEGORY_KEY) : null;
+      const isStoredValid = storedCategory === "all" || qnaCategories?.some(c => c.slug === storedCategory);
+      const nextCategory = isStoredValid ? storedCategory : "all";
+      setSelectedCategory(nextCategory);
+
+      if (nextCategory && nextCategory !== "all") {
+        router.replace(`/qna?category=${nextCategory}`, undefined, { shallow: true });
+      }
     }
   }, [router.isReady, router.query.category, qnaCategories]);
 
-  const filteredQna = qnaItems?.filter(item => {
-    const matchesSearch = item.question?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.content?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.answer?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "all" || item.cat_slug === selectedCategory || item.categories?.includes(selectedCategory);
-    return matchesSearch && matchesCategory;
-  }) || [];
+  // Instant category change with URL update
+  const EXCLUDE_SLUGS = ["books", "videos", "articles", "audios"];
+
+  const handleCategoryChange = (slug) => {
+    if (slug === selectedCategory) {
+      setShowMobileFilters(false);
+      return;
+    }
+
+    setSelectedCategory(slug);
+    setShowMobileFilters(false);
+
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(LAST_QNA_CATEGORY_KEY, slug);
+    }
+
+    const url = slug === "all" ? "/qna" : `/qna?category=${slug}`;
+    router.push(url, undefined, { shallow: true });
+  };
+
+  const qnaByCategory = useMemo(() => {
+    const byCategory = { all: qnaItems || [] };
+    for (const item of qnaItems || []) {
+      const slug = item.cat_slug || "all";
+      if (!byCategory[slug]) byCategory[slug] = [];
+      byCategory[slug].push(item);
+    }
+    return byCategory;
+  }, [qnaItems]);
+
+  const categoryScopedQna = useMemo(() => {
+    if (selectedCategory === "all") return qnaByCategory.all || [];
+    return qnaByCategory[selectedCategory] || [];
+  }, [selectedCategory, qnaByCategory]);
+
+  const normalizedSearch = deferredSearchTerm.trim().toLowerCase();
+
+  const filteredQna = useMemo(() => {
+    if (!normalizedSearch) return categoryScopedQna;
+
+    return categoryScopedQna.filter((item) => {
+      const question = item.question?.toLowerCase() || "";
+      const content = item.content?.toLowerCase() || "";
+      const answer = item.answer?.toLowerCase() || "";
+      return question.includes(normalizedSearch) || content.includes(normalizedSearch) || answer.includes(normalizedSearch);
+    });
+  }, [categoryScopedQna, normalizedSearch]);
 
   const activeCategoryName = selectedCategory === "all" 
     ? "All Categories" 
     : qnaCategories?.find(c => c.slug === selectedCategory)?.title || "All Categories";
 
+  const visibleQnaCategories = qnaCategories?.filter(c => c.slug !== 'all' && !EXCLUDE_SLUGS.includes(c.slug)) || [];
+
   return (
     <>
       <Meta title="Q&A - Sheikh Assim Al Hakeem" description="Get answers to your Islamic questions from Sheikh Assim Al Hakeem" />
-      <Header2 playlists={playlists} lectures={headerLectures} qna_categories={qnaCategories} />
+      <Header2 playlists={playlists} lectures={headerLectures} qna_categories={visibleQnaCategories} />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#1a1f2e] to-[#2a3142] py-6 xs:py-8 sm:py-10 lg:py-14">
@@ -90,19 +145,19 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
             {/* Category Filters - Desktop */}
             <div className="hidden lg:flex gap-1.5 lg:gap-2 overflow-x-auto w-full lg:w-auto pb-1 scrollbar-thin">
               <button 
-                onClick={() => setSelectedCategory("all")}
-                className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-transparent
+                onClick={() => handleCategoryChange("all")}
+                className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
                   ${selectedCategory === "all" 
                     ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
               >
                 All Categories
               </button>
-              {qnaCategories?.filter(c => c.slug !== "all").map(cat => (
+              {visibleQnaCategories.map(cat => (
                 <button 
                   key={cat.id} 
-                  onClick={() => setSelectedCategory(cat.slug)}
-                  className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-transparent
+                  onClick={() => handleCategoryChange(cat.slug)}
+                  className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
                     ${selectedCategory === cat.slug 
                       ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
@@ -128,7 +183,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
             >
               <div className="flex flex-wrap gap-1 xs:gap-1.5 sm:gap-2">
                 <button 
-                  onClick={() => { setSelectedCategory("all"); setShowMobileFilters(false); }}
+                  onClick={() => handleCategoryChange("all")}
                   className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-transparent
                     ${selectedCategory === "all" 
                       ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
@@ -136,10 +191,10 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                 >
                   All Categories
                 </button>
-                {qnaCategories?.filter(c => c.slug !== "all").map(cat => (
+                {visibleQnaCategories.map(cat => (
                   <button 
                     key={cat.id} 
-                    onClick={() => { setSelectedCategory(cat.slug); setShowMobileFilters(false); }}
+                    onClick={() => handleCategoryChange(cat.slug)}
                     className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-transparent
                       ${selectedCategory === cat.slug 
                         ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
@@ -160,43 +215,47 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
       {/* Q&A List */}
       <section className="py-8 xs:py-8 sm:py-10 lg:py-4 bg-gray-50 min-h-[60vh]">
         <div className="max-w-[1000px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
-          {filteredQna.length > 0 ? (
-            <div className="space-y-2.5 xs:space-y-3 sm:space-y-4">
-              {filteredQna.map((item, idx) => (
-                <motion.div 
-                  key={item.id} 
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 }} 
-                  className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6"
-                >
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <MessageCircle size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5 text-[#10b981] mt-0.5 xs:mt-1 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm xs:text-base sm:text-lg font-semibold text-[#1a1f2e] mb-1 sm:mb-2 line-clamp-2">
-                        {item.question}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-1.5 sm:mb-3">
-                        {item.content || item.answer}
-                      </p>
-                      <Link 
-                        href={`/qna/answer/${item.id}`} 
-                        className="inline-flex items-center gap-1 text-[#10b981] text-xs sm:text-sm font-medium hover:gap-2 transition-all"
-                      >
-                        Read Full Answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
-                      </Link>
+          <motion.div layout>
+            {filteredQna.length > 0 ? (
+              <div className="space-y-2.5 xs:space-y-3 sm:space-y-4">
+                {filteredQna.map((item) => (
+                  <div 
+                    key={item.id}
+                    className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6"
+                  >
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <MessageCircle size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5 text-[#10b981] mt-0.5 xs:mt-1 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm xs:text-base sm:text-lg font-semibold text-[#1a1f2e] mb-1 sm:mb-2 line-clamp-2">
+                          {item.question}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-1.5 sm:mb-3">
+                          {item.content || item.answer}
+                        </p>
+                        <Link 
+                          href={`/qna/answer/${item.id}?from=${selectedCategory}`}
+                          className="inline-flex items-center gap-1 text-[#10b981] text-xs sm:text-sm font-medium hover:gap-2 transition-all"
+                        >
+                          Read Full Answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-10 xs:py-12 sm:py-16">
-              <FolderOpen size={36} className="xs:w-10 xs:h-10 sm:w-12 sm:h-12 text-gray-300 mx-auto mb-2.5 xs:mb-3 sm:mb-4" />
-              <h3 className="text-base xs:text-lg sm:text-xl font-semibold text-gray-600 mb-1 sm:mb-2">No questions found</h3>
-              <p className="text-xs xs:text-sm sm:text-base text-gray-500">Try adjusting your search or filter</p>
-            </div>
-          )}
+                ))}
+              </div>
+            ) : (
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="text-center py-10 xs:py-12 sm:py-16"
+              >
+                <FolderOpen size={36} className="xs:w-10 xs:h-10 sm:w-12 sm:h-12 text-gray-300 mx-auto mb-2.5 xs:mb-3 sm:mb-4" />
+                <h3 className="text-base xs:text-lg sm:text-xl font-semibold text-gray-600 mb-1 sm:mb-2">No questions found</h3>
+                <p className="text-xs xs:text-sm sm:text-base text-gray-500">Try adjusting your search or filter</p>
+              </motion.div>
+            )}
+          </motion.div>
         </div>
       </section>
 

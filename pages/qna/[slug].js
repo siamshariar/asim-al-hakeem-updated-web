@@ -52,7 +52,7 @@ export default function QnaCategoryPage({ playlists, headerLectures, qnaCategori
                         {item.content || item.answer}
                       </p>
                       <Link 
-                        href={`/qna/answer/${item.id}`} 
+                        href={`/qna/answer/${item.id}?from=${slug}`} 
                         className="inline-flex items-center gap-1 text-[#10b981] text-xs sm:text-sm font-medium hover:gap-2 transition-all"
                       >
                         Read Full Answer <ChevronRight size={12} className="sm:w-3.5 sm:h-3.5" />
@@ -84,7 +84,7 @@ export async function getStaticProps({ params }) {
   const headerLectures = await getHeaderLectures();
   const qnaCategories = await getAllQnaCategory();
   const allQna = await getQnaByLimit(5000);
-  const qnaItems = allQna?.filter(item => item.cat_slug === slug || item.categories?.includes(slug)) || [];
+  const qnaItems = allQna?.filter(item => item.cat_slug === slug) || [];
   const categoryTitle = await getQnCatTitle(slug);
 
   return {
