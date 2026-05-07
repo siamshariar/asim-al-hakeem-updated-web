@@ -135,7 +135,7 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                     <img
                       src="/img/qna/qna.jpg"
                       alt={answer.question}
-                      className="w-full h-56 object-cover rounded-lg"
+                      className="w-full h-56 rounded-lg"
                     />
                   </div>
                   {/* Meta Info */}
