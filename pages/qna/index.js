@@ -91,6 +91,30 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
 
   const visibleQnaCategories = qnaCategories?.filter(c => c.slug !== 'all' && !EXCLUDE_SLUGS.includes(c.slug)) || [];
 
+  const listAnimationKey = `${selectedCategory}-${normalizedSearch}`;
+
+  const listVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.06,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 18 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.28,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <>
       <Meta title="Q&A - Sheikh Assim Al Hakeem" description="Get answers to your Islamic questions from Sheikh Assim Al Hakeem" />
@@ -136,7 +160,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
             {/* Mobile Filter Toggle */}
             <button
               onClick={() => setShowMobileFilters(!showMobileFilters)}
-              className="lg:hidden flex items-center justify-between w-full px-3 sm:px-4 py-2 sm:py-2.5 bg-gray-100 rounded-lg text-xs xs:text-sm sm:text-base"
+              className="lg:hidden flex items-center justify-between w-full px-3 sm:px-4 py-2 sm:py-2.5 bg-gray-100 rounded-lg text-xs xs:text-sm sm:text-base appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none"
             >
               <span className="text-gray-700">{activeCategoryName}</span>
               <ChevronRight size={14} className={`xs:w-4 xs:h-4 transition-transform ${showMobileFilters ? 'rotate-90' : ''}`} />
@@ -146,10 +170,11 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
             <div className="hidden lg:flex gap-1.5 lg:gap-2 overflow-x-auto w-full lg:w-auto pb-1 scrollbar-thin">
               <button 
                 onClick={() => handleCategoryChange("all")}
+                onMouseDown={(e) => e.preventDefault()}
                 className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
                   ${selectedCategory === "all" 
                     ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
               >
                 All Categories
               </button>
@@ -157,6 +182,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                 <button 
                   key={cat.id} 
                   onClick={() => handleCategoryChange(cat.slug)}
+                  onMouseDown={(e) => e.preventDefault()}
                   className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
                     ${selectedCategory === cat.slug 
                       ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
@@ -184,9 +210,10 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
               <div className="flex flex-wrap gap-1 xs:gap-1.5 sm:gap-2">
                 <button 
                   onClick={() => handleCategoryChange("all")}
-                  className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-transparent
-                    ${selectedCategory === "all" 
-                      ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
+                  onMouseDown={(e) => e.preventDefault()}
+                  className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
+                    ${selectedCategory === "all"
+                      ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
                 >
                   All Categories
@@ -195,7 +222,8 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                   <button 
                     key={cat.id} 
                     onClick={() => handleCategoryChange(cat.slug)}
-                    className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-transparent
+                    onMouseDown={(e) => e.preventDefault()}
+                    className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
                       ${selectedCategory === cat.slug 
                         ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
@@ -215,12 +243,19 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
       {/* Q&A List */}
       <section className="py-8 xs:py-8 sm:py-10 lg:py-4 bg-gray-50 min-h-[60vh]">
         <div className="max-w-[1000px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
-          <motion.div layout>
+          <div>
             {filteredQna.length > 0 ? (
-              <div className="space-y-2.5 xs:space-y-3 sm:space-y-4">
+              <motion.div
+                key={listAnimationKey}
+                variants={listVariants}
+                initial="hidden"
+                animate="show"
+                className="space-y-2.5 xs:space-y-3 sm:space-y-4"
+              >
                 {filteredQna.map((item) => (
-                  <div 
+                  <motion.div
                     key={item.id}
+                    variants={cardVariants}
                     className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6"
                   >
                     <div className="flex items-start gap-2 sm:gap-3">
@@ -240,9 +275,9 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             ) : (
               <motion.div 
                 initial={{ opacity: 0 }} 
@@ -255,7 +290,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                 <p className="text-xs xs:text-sm sm:text-base text-gray-500">Try adjusting your search or filter</p>
               </motion.div>
             )}
-          </motion.div>
+          </div>
         </div>
       </section>
 
