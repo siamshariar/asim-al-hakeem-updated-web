@@ -40,12 +40,6 @@ export default function About({ playlists, headerLectures, qna_categories }) {
       youtube: 'https://www.youtube.com/user/assimalhakeem',
       email: 'asimalhakeem@gmail.com',
     },
-    stats: [
-      { label: 'Years of Experience', value: '35+', icon: Calendar },
-      { label: 'Students Worldwide', value: '2M+', icon: Users },
-      { label: 'Books Published', value: '20+', icon: BookOpen },
-      { label: 'Countries Visited', value: '15+', icon: Globe },
-    ],
   };
 
   return (
@@ -78,15 +72,6 @@ export default function About({ playlists, headerLectures, qna_categories }) {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1a1f2e] mb-1 sm:mb-2">{profile.name}</h2>
                 <p className="text-base sm:text-lg text-gray-600 mb-1 sm:mb-2">{profile.title}</p>
                 <p className="flex items-center gap-1 sm:gap-2 text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6"><MapPin size={14} className="sm:w-4 sm:h-4" />{profile.location}</p>
-                <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  {profile.stats.map((stat, idx) => (
-                    <div key={idx} className="text-center p-3 sm:p-4 bg-gray-50 rounded-lg sm:rounded-xl">
-                      <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#10b981] mx-auto mb-1 sm:mb-2" />
-                      <div className="text-xl sm:text-2xl font-bold text-[#1a1f2e]">{stat.value}</div>
-                      <div className="text-xxs sm:text-xs text-gray-500">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
                 <div className="flex space-x-2 sm:space-x-3">
                   <a href={profile.socials.facebook} target="_blank" className="p-2.5 sm:p-3 bg-[#1877F2] text-white rounded-lg hover:bg-[#1877F2]/90"><Facebook size={16} className="sm:w-[18px] sm:h-[18px]" /></a>
                   <a href={profile.socials.youtube} target="_blank" className="p-2.5 sm:p-3 bg-[#FF0000] text-white rounded-lg hover:bg-[#FF0000]/90"><Youtube size={16} className="sm:w-[18px] sm:h-[18px]" /></a>

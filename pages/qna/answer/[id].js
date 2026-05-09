@@ -263,10 +263,10 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                 <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-5 sm:p-6">
                   <h3 className="text-base sm:text-lg font-bold text-[#1a1f2e] mb-3 sm:mb-4">Categories</h3>
                   <div className="space-y-1.5 sm:space-y-2">
-                    {qnCat.slice(0, 5).map((cat) => (
+                    {(qnaCategories?.filter((cat) => cat.slug !== "all") || qnCat).map((cat) => (
                       <Link 
                           key={cat.id} 
-                          href={`/qna/${cat.slug}`}
+                          href={`/qna?category=${cat.slug}`}
                           className={`block p-2 rounded-lg text-xs sm:text-sm transition-colors focus:outline-none focus:ring-0 focus:border-transparent ${
                             cat.slug === answer.cat_slug 
                               ? 'bg-[#10b981]/10 text-[#10b981] font-medium' 

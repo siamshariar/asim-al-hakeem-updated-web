@@ -1,51 +1,103 @@
-import { useState, useEffect, useLayoutEffect, useMemo, useDeferredValue } from "react";
+import { useState, useEffect, useLayoutEffect, useMemo, useDeferredValue, useRef, useCallback } from "react";
 import { useRouter } from "next/router";
-import { server } from "../../lib/config";
-import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory, getQnaByLimit } from "../../lib/fetch";
+import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory, getAllQuestions } from "../../lib/fetch";
 import Meta from "../../components/meta";
 import Header2 from "../../components/header1";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { HelpCircle, ChevronRight, Search, FolderOpen, MessageCircle, X } from "lucide-react";
+import useOnScreen from "../../hooks/useOnScreen";
+import { HelpCircle, ChevronRight, FolderOpen, MessageCircle, X } from "lucide-react";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 const LAST_QNA_CATEGORY_KEY = "qna_last_category";
+const PAGE_SIZE = 10;
+const LOADING_DELAY = 1000;
 
-export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaItems }) {
+export default function QnaPage({ playlists, headerLectures, qnaCategories, initialQnaPage }) {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [loadedPages, setLoadedPages] = useState(initialQnaPage?.qaItems?.length ? [initialQnaPage.qaItems] : []);
+  const [currentPage, setCurrentPage] = useState(initialQnaPage?.currentPage || 1);
+  const [totalPages, setTotalPages] = useState(initialQnaPage?.numberOfPages || 1);
+  const [isLoadingInitial, setIsLoadingInitial] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const loadMoreRef = useRef(null);
+  const lastLoadTimeRef = useRef(0);
+  const initialScrollDoneRef = useRef(false);
+  const isInitialMountRef = useRef(true);
+  const fetchingRef = useRef(false);
+  const loadingTimeoutRef = useRef(null);
+  const containerRef = useRef(null);
   const deferredSearchTerm = useDeferredValue(searchTerm);
+  const isLoadMoreVisible = useOnScreen(loadMoreRef, { rootMargin: '300px', threshold: 0 });
+
+  const scrollToTopInstantly = useCallback(() => {
+    if (typeof window === "undefined") return;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    if (containerRef.current) {
+      containerRef.current.scrollTop = 0;
+    }
+  }, []);
 
   useIsomorphicLayoutEffect(() => {
     if (!router.isReady) return;
+    
     const category = router.query.category;
+    let targetCategory = "all";
+    
     if (typeof category === 'string' && category.trim()) {
       const normalized = category.trim();
       const isValid = normalized === "all" || qnaCategories?.some(c => c.slug === normalized);
-      setSelectedCategory(isValid ? normalized : "all");
+      targetCategory = isValid ? normalized : "all";
     } else {
       const storedCategory = typeof window !== "undefined" ? window.sessionStorage.getItem(LAST_QNA_CATEGORY_KEY) : null;
       const isStoredValid = storedCategory === "all" || qnaCategories?.some(c => c.slug === storedCategory);
-      const nextCategory = isStoredValid ? storedCategory : "all";
-      setSelectedCategory(nextCategory);
+      targetCategory = isStoredValid ? storedCategory : "all";
+    }
 
-      if (nextCategory && nextCategory !== "all") {
-        router.replace(`/qna?category=${nextCategory}`, undefined, { shallow: true });
+    if (targetCategory !== selectedCategory || isInitialMountRef.current) {
+      scrollToTopInstantly();
+      
+      if (targetCategory !== selectedCategory) {
+        setSelectedCategory(targetCategory);
+        fetchingRef.current = false;
       }
+      
+      isInitialMountRef.current = false;
+    }
+
+    if (targetCategory && targetCategory !== "all" && !router.query.category) {
+      router.replace(`/qna?category=${targetCategory}`, undefined, { shallow: true });
     }
   }, [router.isReady, router.query.category, qnaCategories]);
 
-  // Instant category change with URL update
   const EXCLUDE_SLUGS = ["books", "videos", "articles", "audios"];
 
-  const handleCategoryChange = (slug) => {
+  const handleCategoryChange = useCallback((slug) => {
     if (slug === selectedCategory) {
       setShowMobileFilters(false);
       return;
     }
 
+    if (loadingTimeoutRef.current) {
+      clearTimeout(loadingTimeoutRef.current);
+      loadingTimeoutRef.current = null;
+    }
+
+    scrollToTopInstantly();
+    
+    setLoadedPages([]);
+    setCurrentPage(1);
+    setTotalPages(1);
+    setIsLoadingMore(false);
+    initialScrollDoneRef.current = false;
+    lastLoadTimeRef.current = 0;
+    fetchingRef.current = false;
+    
     setSelectedCategory(slug);
     setShowMobileFilters(false);
 
@@ -55,35 +107,150 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
 
     const url = slug === "all" ? "/qna" : `/qna?category=${slug}`;
     router.push(url, undefined, { shallow: true });
-  };
+  }, [selectedCategory, router, scrollToTopInstantly]);
 
-  const qnaByCategory = useMemo(() => {
-    const byCategory = { all: qnaItems || [] };
-    for (const item of qnaItems || []) {
-      const slug = item.cat_slug || "all";
-      if (!byCategory[slug]) byCategory[slug] = [];
-      byCategory[slug].push(item);
+  useEffect(() => {
+    let cancelled = false;
+    let scrollTimeout;
+
+    const loadInitialPage = async () => {
+      setIsLoadingInitial(true);
+      setLoadedPages([]);
+
+      try {
+        const initialPage = await getAllQuestions({ currentPage: 1, cat_slug: selectedCategory, pageSize: PAGE_SIZE });
+        if (cancelled) return;
+
+        if (initialPage?.qaItems?.length) {
+          setLoadedPages([initialPage.qaItems]);
+          setCurrentPage(initialPage.currentPage || 1);
+          setTotalPages(initialPage.numberOfPages || 1);
+        } else {
+          setLoadedPages([]);
+          setCurrentPage(1);
+          setTotalPages(1);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          setLoadedPages([]);
+          setCurrentPage(1);
+          setTotalPages(1);
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoadingInitial(false);
+          fetchingRef.current = false;
+          
+          scrollTimeout = setTimeout(() => {
+            if (!cancelled) {
+              scrollToTopInstantly();
+              initialScrollDoneRef.current = true;
+            }
+          }, 200);
+        }
+      }
+    };
+
+    loadInitialPage();
+
+    return () => {
+      cancelled = true;
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+    };
+  }, [selectedCategory, scrollToTopInstantly]);
+
+  useEffect(() => {
+    if (!isLoadMoreVisible || isLoadingInitial || currentPage >= totalPages) {
+      return;
     }
-    return byCategory;
-  }, [qnaItems]);
 
-  const categoryScopedQna = useMemo(() => {
-    if (selectedCategory === "all") return qnaByCategory.all || [];
-    return qnaByCategory[selectedCategory] || [];
-  }, [selectedCategory, qnaByCategory]);
+    if (!initialScrollDoneRef.current) {
+      return;
+    }
+
+    if (fetchingRef.current) {
+      return;
+    }
+
+    const now = Date.now();
+    if (now - lastLoadTimeRef.current < 1500) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const loadNextPage = async () => {
+      fetchingRef.current = true;
+      lastLoadTimeRef.current = now;
+      
+      setIsLoadingMore(true);
+
+      try {
+        const nextPageNumber = currentPage + 1;
+        const nextPage = await getAllQuestions({ currentPage: nextPageNumber, cat_slug: selectedCategory, pageSize: PAGE_SIZE });
+        
+        if (cancelled) return;
+
+        await new Promise(resolve => {
+          loadingTimeoutRef.current = setTimeout(resolve, LOADING_DELAY);
+        });
+
+        if (cancelled) return;
+
+        if (nextPage?.qaItems?.length) {
+          setLoadedPages((prev) => {
+            const existingIds = new Set(prev.flat().map(item => item.id));
+            const newItems = nextPage.qaItems.filter(item => !existingIds.has(item.id));
+            return newItems.length > 0 ? [...prev, newItems] : prev;
+          });
+          setCurrentPage(nextPage.currentPage || nextPageNumber);
+          setTotalPages(nextPage.numberOfPages || totalPages);
+        } else {
+          setCurrentPage(totalPages);
+        }
+      } catch (error) {
+        console.error("Error loading more:", error);
+      } finally {
+        if (!cancelled) {
+          setIsLoadingMore(false);
+          fetchingRef.current = false;
+        }
+      }
+    };
+
+    loadNextPage();
+
+    return () => {
+      cancelled = true;
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+        loadingTimeoutRef.current = null;
+      }
+    };
+  }, [isLoadMoreVisible, isLoadingInitial, currentPage, totalPages, selectedCategory]);
+
+  useEffect(() => {
+    return () => {
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const loadedQna = useMemo(() => loadedPages.flat(), [loadedPages]);
 
   const normalizedSearch = deferredSearchTerm.trim().toLowerCase();
 
   const filteredQna = useMemo(() => {
-    if (!normalizedSearch) return categoryScopedQna;
+    if (!normalizedSearch) return loadedQna;
 
-    return categoryScopedQna.filter((item) => {
+    return loadedQna.filter((item) => {
       const question = item.question?.toLowerCase() || "";
       const content = item.content?.toLowerCase() || "";
       const answer = item.answer?.toLowerCase() || "";
       return question.includes(normalizedSearch) || content.includes(normalizedSearch) || answer.includes(normalizedSearch);
     });
-  }, [categoryScopedQna, normalizedSearch]);
+  }, [loadedQna, normalizedSearch]);
 
   const activeCategoryName = selectedCategory === "all" 
     ? "All Categories" 
@@ -91,25 +258,25 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
 
   const visibleQnaCategories = qnaCategories?.filter(c => c.slug !== 'all' && !EXCLUDE_SLUGS.includes(c.slug)) || [];
 
-  const listAnimationKey = `${selectedCategory}-${normalizedSearch}`;
+  const hasMoreToLoad = currentPage < totalPages;
 
   const listVariants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.06,
+        staggerChildren: 0.04,
       },
     },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 18 },
+    hidden: { opacity: 0, y: 15 },
     show: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.28,
+        duration: 0.25,
         ease: "easeOut",
       },
     },
@@ -117,6 +284,29 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
 
   return (
     <>
+      <style jsx global>{`
+        button:focus,
+        button:focus-visible,
+        button:active:focus,
+        button:focus:not(:focus-visible) {
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        
+        button:focus-visible {
+          outline: none !important;
+          ring: none !important;
+        }
+        
+        button::-moz-focus-inner {
+          border: 0;
+        }
+        
+        button {
+          -webkit-tap-highlight-color: transparent;
+        }
+      `}</style>
+      
       <Meta title="Q&A - Sheikh Assim Al Hakeem" description="Get answers to your Islamic questions from Sheikh Assim Al Hakeem" />
       <Header2 playlists={playlists} lectures={headerLectures} qna_categories={visibleQnaCategories} />
 
@@ -134,12 +324,10 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-2.5 xs:py-3 sm:py-4 lg:py-6 bg-white border-b border-gray-100">
+      <section className="py-2.5 xs:py-3 sm:py-4 lg:py-6 bg-white border-b border-gray-100 sticky top-0 z-30">
         <div className="max-w-[1260px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
           <div className="flex flex-col lg:flex-row gap-2.5 xs:gap-3 lg:gap-4 items-start lg:items-center">
-            {/* Search Input */}
             <div className="relative w-full lg:w-80">
-              {/* <Search size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400" /> */}
               <input 
                 type="text" 
                 placeholder="Search questions..." 
@@ -157,49 +345,23 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
               )}
             </div>
 
-            {/* Mobile Filter Toggle */}
             <button
               onClick={() => setShowMobileFilters(!showMobileFilters)}
-              className="lg:hidden flex items-center justify-between w-full px-3 sm:px-4 py-2 sm:py-2.5 bg-gray-100 rounded-lg text-xs xs:text-sm sm:text-base appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none"
+              className="lg:hidden flex items-center justify-between w-full px-3 sm:px-4 py-2 sm:py-2.5 bg-gray-100 rounded-lg text-xs xs:text-sm sm:text-base border-0 outline-none focus:outline-none"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
               <span className="text-gray-700">{activeCategoryName}</span>
               <ChevronRight size={14} className={`xs:w-4 xs:h-4 transition-transform ${showMobileFilters ? 'rotate-90' : ''}`} />
             </button>
 
-            {/* Category Filters - Desktop */}
-            <div className="hidden lg:flex gap-1.5 lg:gap-2 overflow-x-auto w-full lg:w-auto pb-1 scrollbar-thin">
-              <button 
-                onClick={() => handleCategoryChange("all")}
-                onMouseDown={(e) => e.preventDefault()}
-                className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
-                  ${selectedCategory === "all" 
-                    ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
-              >
-                All Categories
-              </button>
-              {visibleQnaCategories.map(cat => (
-                <button 
-                  key={cat.id} 
-                  onClick={() => handleCategoryChange(cat.slug)}
-                  onMouseDown={(e) => e.preventDefault()}
-                  className={`px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
-                    ${selectedCategory === cat.slug 
-                      ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
-                >
-                  {cat.title}
-                </button>
-              ))}
-            </div>
-
-            {/* Result Count - Desktop */}
-            <div className="hidden lg:block text-xs lg:text-sm text-gray-500 whitespace-nowrap ml-auto">
-              {filteredQna.length} {filteredQna.length === 1 ? 'result' : 'results'}
-            </div>
+            {deferredSearchTerm.trim().length > 0 && (
+              <div className="hidden lg:block text-xs lg:text-sm text-gray-500 whitespace-nowrap ml-auto">
+                {filteredQna.length} {filteredQna.length === 1 ? 'result' : 'results'}
+              </div>
+            )}
           </div>
 
-          {/* Mobile Category Filters - Dropdown */}
+          {/* Mobile Category Filters */}
           {showMobileFilters && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
@@ -211,10 +373,14 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                 <button 
                   onClick={() => handleCategoryChange("all")}
                   onMouseDown={(e) => e.preventDefault()}
-                  className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
+                  className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all duration-200 border-0 outline-none appearance-none
                     ${selectedCategory === "all"
-                      ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
+                      ? "bg-[#10b981] text-white shadow-md"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                  style={{ 
+                    WebkitTapHighlightColor: 'transparent',
+                    boxShadow: selectedCategory === "all" ? '0 4px 12px rgba(16, 185, 129, 0.3)' : 'none'
+                  }}
                 >
                   All Categories
                 </button>
@@ -223,73 +389,149 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, qnaI
                     key={cat.id} 
                     onClick={() => handleCategoryChange(cat.slug)}
                     onMouseDown={(e) => e.preventDefault()}
-                    className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all appearance-none border-0 focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:border-transparent focus-visible:border-transparent focus:shadow-none focus-visible:shadow-none
+                    className={`px-2.5 xs:px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium transition-all duration-200 border-0 outline-none appearance-none
                       ${selectedCategory === cat.slug 
-                        ? "bg-[#10b981] text-white hover:bg-[#10b981] focus:bg-[#10b981] focus:text-white" 
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:bg-gray-200"}`}
+                        ? "bg-[#10b981] text-white shadow-md" 
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                    style={{ 
+                      WebkitTapHighlightColor: 'transparent',
+                      boxShadow: selectedCategory === cat.slug ? '0 4px 12px rgba(16, 185, 129, 0.3)' : 'none'
+                    }}
                   >
                     {cat.title}
                   </button>
                 ))}
               </div>
-              <div className="text-xxs xs:text-xs text-gray-500 mt-2.5 xs:mt-3">
-                {filteredQna.length} {filteredQna.length === 1 ? 'result' : 'results'} found
-              </div>
+              {deferredSearchTerm.trim().length > 0 && (
+                <div className="text-xxs xs:text-xs text-gray-500 mt-2.5 xs:mt-3">
+                  {filteredQna.length} {filteredQna.length === 1 ? 'result' : 'results'} found
+                </div>
+              )}
             </motion.div>
           )}
         </div>
       </section>
 
       {/* Q&A List */}
-      <section className="py-8 xs:py-8 sm:py-10 lg:py-4 bg-gray-50 min-h-[60vh]">
-        <div className="max-w-[1000px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
-          <div>
-            {filteredQna.length > 0 ? (
-              <motion.div
-                key={listAnimationKey}
-                variants={listVariants}
-                initial="hidden"
-                animate="show"
-                className="space-y-2.5 xs:space-y-3 sm:space-y-4"
-              >
-                {filteredQna.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    variants={cardVariants}
-                    className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6"
+      <section className="py-8 xs:py-8 sm:py-10 lg:py-10 bg-gray-50 min-h-[60vh]">
+        <div className="max-w-[1260px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8" ref={containerRef}>
+          <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+            {/* Desktop Sidebar */}
+            <aside className="hidden lg:block self-start sticky top-24">
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 xl:p-5">
+                <div className="mb-4 pb-2 border-b border-gray-100">
+                  <h2 className="text-lg font-semibold text-[#1a1f2e]">Q&A categories</h2>
+                </div>
+                <div className="space-y-2">
+                  <button 
+                    onClick={() => handleCategoryChange("all")}
+                    onMouseDown={(e) => e.preventDefault()}
+                    className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border-0 outline-none appearance-none
+                      ${selectedCategory === "all" 
+                        ? "bg-[#10b981] text-white shadow-md" 
+                        : "bg-gray-50 text-gray-700 hover:bg-gray-100"}`}
+                    style={{ 
+                      WebkitTapHighlightColor: 'transparent',
+                      boxShadow: selectedCategory === "all" ? '0 4px 12px rgba(16, 185, 129, 0.3)' : 'none'
+                    }}
                   >
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <MessageCircle size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5 text-[#10b981] mt-0.5 xs:mt-1 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm xs:text-base sm:text-lg font-semibold text-[#1a1f2e] mb-1 sm:mb-2 line-clamp-2">
-                          {item.question}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-1.5 sm:mb-3">
-                          {item.content || item.answer}
-                        </p>
-                        <Link 
-                          href={`/qna/answer/${item.id}?from=${selectedCategory}`}
-                          className="inline-flex items-center gap-1 text-[#10b981] text-xs sm:text-sm font-medium hover:gap-2 transition-all"
-                        >
-                          Read Full Answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
-                        </Link>
+                    All Categories
+                  </button>
+                  {visibleQnaCategories.map((cat) => (
+                    <button 
+                      key={cat.id} 
+                      onClick={() => handleCategoryChange(cat.slug)}
+                      onMouseDown={(e) => e.preventDefault()}
+                      className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border-0 outline-none appearance-none
+                        ${selectedCategory === cat.slug 
+                          ? "bg-[#10b981] text-white shadow-md" 
+                          : "bg-gray-50 text-gray-700 hover:bg-gray-100"}`}
+                      style={{ 
+                        WebkitTapHighlightColor: 'transparent',
+                        boxShadow: selectedCategory === cat.slug ? '0 4px 12px rgba(16, 185, 129, 0.3)' : 'none'
+                      }}
+                    >
+                      {cat.title}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </aside>
+
+            {/* Main Content */}
+            <div className="min-w-0">
+              {(isLoadingInitial && loadedQna.length === 0) ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center py-12 sm:py-16"
+                >
+                  <div className="mx-auto mb-3 sm:mb-4 h-10 w-10 sm:h-12 sm:w-12 rounded-full border-4 border-[#10b981] border-t-transparent animate-spin" />
+                  <p className="text-sm sm:text-base text-gray-500">Loading questions...</p>
+                </motion.div>
+              ) : filteredQna.length > 0 ? (
+                <motion.div
+                  key={selectedCategory}
+                  variants={listVariants}
+                  initial="hidden"
+                  animate="show"
+                  className="space-y-2.5 xs:space-y-3 sm:space-y-4"
+                >
+                  {filteredQna.map((item) => (
+                    <motion.div
+                      key={`${selectedCategory}-${item.id}`}
+                      variants={cardVariants}
+                      className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6"
+                    >
+                      <div className="flex items-start gap-2 sm:gap-3">
+                        <MessageCircle size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5 text-[#10b981] mt-0.5 xs:mt-1 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm xs:text-base sm:text-lg font-semibold text-[#1a1f2e] mb-1 sm:mb-2 line-clamp-2">
+                            {item.question}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-1.5 sm:mb-3">
+                            {item.content || item.answer}
+                          </p>
+                          <Link 
+                            href={`/qna/answer/${item.id}?from=${selectedCategory}`}
+                            className="inline-flex items-center gap-1 text-[#10b981] text-xs sm:text-sm font-medium hover:gap-2 transition-all"
+                          >
+                            Read Full Answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            ) : (
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="text-center py-10 xs:py-12 sm:py-16"
-              >
-                <FolderOpen size={36} className="xs:w-10 xs:h-10 sm:w-12 sm:h-12 text-gray-300 mx-auto mb-2.5 xs:mb-3 sm:mb-4" />
-                <h3 className="text-base xs:text-lg sm:text-xl font-semibold text-gray-600 mb-1 sm:mb-2">No questions found</h3>
-                <p className="text-xs xs:text-sm sm:text-base text-gray-500">Try adjusting your search or filter</p>
-              </motion.div>
-            )}
+                    </motion.div>
+                  ))}
+
+                  <div ref={loadMoreRef} className="flex items-center justify-center py-8 min-h-[80px]">
+                    {isLoadingMore && hasMoreToLoad && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex flex-col items-center gap-3"
+                      >
+                        <svg className="animate-spin h-6 w-6 sm:h-7 sm:w-7 text-[#10b981]" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                        </svg>
+                        <span className="text-sm sm:text-base text-gray-500 font-medium">Loading more questions...</span>
+                      </motion.div>
+                    )}
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div 
+                  initial={{ opacity: 0 }} 
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-center py-10 xs:py-12 sm:py-16"
+                >
+                  <FolderOpen size={36} className="xs:w-10 xs:h-10 sm:w-12 sm:h-12 text-gray-300 mx-auto mb-2.5 xs:mb-3 sm:mb-4" />
+                  <h3 className="text-base xs:text-lg sm:text-xl font-semibold text-gray-600 mb-1 sm:mb-2">No questions found</h3>
+                  <p className="text-xs xs:text-sm sm:text-base text-gray-500">Try adjusting your search or filter</p>
+                </motion.div>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -321,16 +563,16 @@ export async function getStaticProps() {
     const playlists = await getAllPlaylists2();
     const headerLectures = await getHeaderLectures();
     const qnaCategories = await getAllQnaCategory();
-    const qnaItems = await getQnaByLimit(5000);
+    const initialQnaPage = await getAllQuestions({ currentPage: 1, cat_slug: "all", pageSize: PAGE_SIZE });
 
     return {
       props: {
         playlists: playlists?.playlists || [],
         headerLectures: headerLectures || null,
         qnaCategories: qnaCategories || [],
-        qnaItems: qnaItems || [],
+        initialQnaPage: initialQnaPage || { qaItems: [], numberOfPages: 1, currentPage: 1 },
       },
-      revalidate: 60,
+      revalidate: 3600,
     };
   } catch (error) {
     console.error("Error in getStaticProps:", error);
@@ -339,9 +581,9 @@ export async function getStaticProps() {
         playlists: [],
         headerLectures: null,
         qnaCategories: [],
-        qnaItems: [],
+        initialQnaPage: { qaItems: [], numberOfPages: 1, currentPage: 1 },
       },
-      revalidate: 60,
+      revalidate: 300,
     };
   }
 }

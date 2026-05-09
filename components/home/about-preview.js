@@ -23,24 +23,6 @@ export default function AboutPreview() {
               in both Arabic and English, he has become one of the most trusted voices in Islamic 
               education worldwide.
             </p>
-            
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="text-center p-4 bg-gray-50 rounded-xl">
-                <Award className="w-8 h-8 text-[#10b981] mx-auto mb-2" />
-                <div className="text-2xl font-bold text-[#1a1f2e]">35+</div>
-                <div className="text-sm text-gray-500">Years Experience</div>
-              </div>
-              <div className="text-center p-4 bg-gray-50 rounded-xl">
-                <BookOpen className="w-8 h-8 text-[#10b981] mx-auto mb-2" />
-                <div className="text-2xl font-bold text-[#1a1f2e]">20+</div>
-                <div className="text-sm text-gray-500">Books Published</div>
-              </div>
-              <div className="text-center p-4 bg-gray-50 rounded-xl">
-                <Users className="w-8 h-8 text-[#10b981] mx-auto mb-2" />
-                <div className="text-2xl font-bold text-[#1a1f2e]">2M+</div>
-                <div className="text-sm text-gray-500">Students Worldwide</div>
-              </div>
-            </div>
 
             <Link href="/about">
               <motion.button

@@ -99,7 +99,7 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
       href: "/qna", 
       icon: HelpCircle, 
       hasDropdown: true,
-      dropdownItems: qna_categories?.filter(c => c.slug !== "all").slice(0, 6).map(c => ({ name: c.title, href: `/qna/${c.slug}`, icon: MessageCircle })) || [],
+      dropdownItems: qna_categories?.filter(c => c.slug !== "all").slice(0, 6).map(c => ({ name: c.title, href: `/qna?category=${c.slug}`, icon: MessageCircle })) || [],
       viewAllLink: "/qna",
       viewAllText: "View All Q&A"
     },
@@ -326,9 +326,10 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
         {mobileMenuOpen && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] lg:hidden" onClick={() => setMobileMenuOpen(false)} />
+              transition={{ duration: 0.15 }}
+              className="fixed inset-0 bg-black/45 z-[100] lg:hidden" onClick={() => setMobileMenuOpen(false)} />
             <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30 }} className="fixed top-0 right-0 h-full w-[280px] bg-white z-[101] lg:hidden shadow-2xl">
+              transition={{ duration: 0.18, ease: "easeOut" }} className="fixed top-0 right-0 h-full w-[280px] bg-white z-[101] lg:hidden shadow-2xl">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b border-gray-100">
                   <span className="text-lg font-semibold text-[#1a1f2e]">Menu</span>

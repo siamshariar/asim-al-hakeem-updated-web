@@ -38,6 +38,15 @@ export default function MobileNav(props) {
 			anchor="left"
 			open={props.navOpen}
 			onClose={props.navControl(false)}
+			transitionDuration={{ enter: 140, exit: 100 }}
+			ModalProps={{
+				keepMounted: true,
+			}}
+			PaperProps={{
+				sx: {
+					willChange: "transform",
+				},
+			}}
 			className="mobile-menu-root">
 			<div className="mobile-menu">
 				<div className="m-menu-wrap">

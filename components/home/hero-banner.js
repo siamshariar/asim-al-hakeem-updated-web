@@ -17,46 +17,51 @@ export default function HeroBanner() {
     ];
 
     return (
-        <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary overflow-hidden">
+        <section className="relative overflow-hidden bg-gradient-to-b from-blue-300 via-slate-400 to-slate-700">
             {/* Animated Background */}
             <div className="absolute inset-0">
                 <motion.div
                     animate={{
-                        scale: [1, 1.2, 1],
-                        rotate: [0, 45, 0],
+                        scale: [1, 1.12, 1],
+                        rotate: [0, 25, 0],
                     }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute -top-40 -right-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+                    transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+                    className="absolute -top-40 -right-32 w-[28rem] h-[28rem] rounded-full bg-sky-300/8 blur-3xl"
                 />
                 <motion.div
                     animate={{
-                        scale: [1.2, 1, 1.2],
-                        rotate: [45, 0, 45],
+                        scale: [1.12, 1, 1.12],
+                        rotate: [25, 0, 25],
                     }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                    className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl"
+                    transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                    className="absolute -bottom-40 -left-28 w-[32rem] h-[32rem] rounded-full bg-gray-600/6 blur-3xl"
                 />
             </div>
+
+            {/* Bottom Dark Gradient Overlay */}
+            <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-slate-800/25 via-slate-700/12 to-transparent pointer-events-none" />
 
             <div className="container mx-auto px-4 sm:px-6 max-w-[1260px] relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[520px] sm:min-h-[600px] lg:min-h-[700px] py-12 lg:py-16">
                     {/* Left Content */}
-                    <motion.div {...fadeIn} className="text-center lg:text-left">
+                    <motion.div {...fadeIn} className="text-center lg:text-left relative">
+                        <div className="absolute -inset-8 bg-black/5 rounded-2xl blur-xl" />
+                        <div className="relative z-10">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.2 }}
-                            className="inline-block px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-medium mb-6"
+                            className="inline-block px-4 py-2 bg-white/35 rounded-full text-slate-700 text-sm font-medium mb-6 border border-white/40 drop-shadow-md"
                         >
                             Official Website
                         </motion.div>
-                        <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.4)' }}>
                             Sheikh{" "}
-                            <span className="text-accent">Assim</span>
+                            <span className="text-green-300 drop-shadow-xl">Assim</span>
                             <br />
                             Al Hakeem
                         </h1>
-                        <p className="text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        <p className="text-xl text-white mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.35)' }}>
                             Authentic Islamic knowledge from one of the most trusted scholars. 
                             Lectures, books, Q&A, and counseling for Muslims worldwide.
                         </p>
@@ -76,7 +81,7 @@ export default function HeroBanner() {
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-full font-medium hover:bg-white/20 transition-all"
+                                    className="flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-full font-medium hover:bg-white/25 transition-all"
                                 >
                                     <BookOpen size={20} />
                                     <span>Explore Books</span>
@@ -86,7 +91,7 @@ export default function HeroBanner() {
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-full font-medium hover:bg-white/20 transition-all"
+                                    className="flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-full font-medium hover:bg-white/25 transition-all"
                                 >
                                     <HelpCircle size={20} />
                                     <span>Ask Question</span>
@@ -109,6 +114,7 @@ export default function HeroBanner() {
                                 </motion.div>
                             ))}
                         </div> */}
+                        </div>
                     </motion.div>
 
                     {/* Right Image */}
@@ -118,19 +124,22 @@ export default function HeroBanner() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="relative hidden lg:block"
                     >
-                        <div className="relative">
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="relative z-10"
-                            >
-                                <img 
-                                    src="/img/profile-banner.png" 
-                                    alt="Sheikh Assim Al Hakeem" 
-                                    className="w-full object-contain"
-                                />
-                            </motion.div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-20" />
+                        <div className="relative mx-auto max-w-[560px]">
+                            <div className="absolute inset-x-14 top-16 h-40 rounded-full bg-sky-300/8 blur-3xl" />
+                            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/10 p-4 shadow-[0_22px_60px_rgba(0,0,0,0.2)] backdrop-blur-md">
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/6 via-transparent to-black/8" />
+                                <motion.div
+                                    animate={{ y: [0, -10, 0] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    className="relative z-10"
+                                >
+                                    <img
+                                        src="/img/profile-banner.png"
+                                        alt="Sheikh Assim Al Hakeem"
+                                        className="w-full object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.15)]"
+                                    />
+                                </motion.div>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
@@ -151,7 +160,7 @@ export default function HeroBanner() {
                     <motion.div
                         animate={{ y: [0, 12, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
-                        className="w-1 h-2 bg-white/60 rounded-full mt-2"
+                        className="w-1 h-2 bg-white/70 rounded-full mt-2"
                     />
                 </motion.div>
             </motion.div>

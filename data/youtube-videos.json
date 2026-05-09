@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-06T16:08:31.781Z",
+  "updatedAt": "2026-05-09T10:12:03.014Z",
   "entries": {
     "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,DY9oRYm2L0c,BLqD5UqpNAk,yk3Cc_VBtLI,1hYCVs2Gj50,VLOzmCMygIs,MKpB7UZI5AI,gtFri_cECx4,6T78dzt4xZo,AbY-wroVLP0,XtU8MUdpGnU,Vubug3iaYIc,9wIQChdSF4I&maxResults=12": {
       "cachedAt": "2026-05-06T16:06:08.142Z",
@@ -1193,7 +1193,7 @@
       }
     },
     "https://www.googleapis.com/youtube/v3/playlists?key=CACHE&part=snippet&channelId=UCWsdcrre0WbCWML_PnuzoAg&maxResults=50": {
-      "cachedAt": "2026-05-06T16:07:23.431Z",
+      "cachedAt": "2026-05-09T10:12:01.371Z",
       "ttlMs": 86400000,
       "status": 200,
       "body": {
@@ -3134,7 +3134,7 @@
       }
     },
     "https://www.googleapis.com/youtube/v3/playlists?key=CACHE&part=snippet&channelId=UCWsdcrre0WbCWML_PnuzoAg&maxResults=50&pageToken=CDIQAA": {
-      "cachedAt": "2026-05-06T16:07:23.970Z",
+      "cachedAt": "2026-05-09T10:12:01.864Z",
       "ttlMs": 86400000,
       "status": 200,
       "body": {
@@ -3297,17 +3297,534 @@
       }
     },
     "https://www.googleapis.com/youtube/v3/playlistItems?key=CACHE&part=snippet&playlistId=UUWsdcrre0WbCWML_PnuzoAg&maxResults=12": {
-      "cachedAt": "2026-05-06T16:07:24.695Z",
+      "cachedAt": "2026-05-09T10:12:02.780Z",
       "ttlMs": 86400000,
       "status": 200,
       "body": {
         "kind": "youtube#playlistItemListResponse",
-        "etag": "byvkA2LIQ4IqgHwmz8WRIVUeJbc",
-        "nextPageToken": "EAAaHlBUOkNBd2lFRFZDUXpWQ01qbEZORGt6TmtVek5FVQ",
+        "etag": "TZkWIw0oCTBcTWwoDaW-xQvHjPI",
+        "nextPageToken": "EAAaHlBUOkNBd2lFRGt4UVRnMlJVSkJNakZFUWpZeFJVVQ",
         "items": [
           {
             "kind": "youtube#playlistItem",
-            "etag": "05jx_vRHBnqZWgogDV7r4Z9Scss",
+            "etag": "1-5KznpF6MNRL0ITmTeM6stxFuo",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLkxnSi1ReEhXNEp3",
+            "snippet": {
+              "publishedAt": "2026-05-09T10:00:36Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "How can we maintain family relations with toxic people? Can we cut ties? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/LgJ-QxHW4Jw/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/LgJ-QxHW4Jw/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/LgJ-QxHW4Jw/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/LgJ-QxHW4Jw/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/LgJ-QxHW4Jw/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 0,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "LgJ-QxHW4Jw"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "C3DFp3c9UkFhGttbtbbfwa-ceyQ",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLjREMkU3Ukd2ZGtF",
+            "snippet": {
+              "publishedAt": "2026-05-09T05:37:51Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Can we pray fard or voluntary prayers during times of prohibition? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/4D2E7RGvdkE/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/4D2E7RGvdkE/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/4D2E7RGvdkE/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/4D2E7RGvdkE/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/4D2E7RGvdkE/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 1,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "4D2E7RGvdkE"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "G7oi7JncJp-fNqjLfDKlMHYamHA",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLkRkRVAwampQVmU4",
+            "snippet": {
+              "publishedAt": "2026-05-08T18:20:42Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "My friends ignore me, how can I make them respect me? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/DdEP0jjPVe8/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/DdEP0jjPVe8/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/DdEP0jjPVe8/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/DdEP0jjPVe8/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/DdEP0jjPVe8/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 2,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "DdEP0jjPVe8"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "ZR-d8NOwA8mTyL8OZPcrFklVo_o",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLjREd01fVWFVUTJv",
+            "snippet": {
+              "publishedAt": "2026-05-08T08:40:07Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "My brother died while saving his friend, will he be a martyr? #islam #islamic #allah assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/4DwM_UaUQ2o/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/4DwM_UaUQ2o/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/4DwM_UaUQ2o/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/4DwM_UaUQ2o/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/4DwM_UaUQ2o/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 3,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "4DwM_UaUQ2o"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "OaqNLJDHsgA0kukxFWmrULRP26I",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLl82RS1zZE5ONGx3",
+            "snippet": {
+              "publishedAt": "2026-05-07T19:30:11Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Must women wait till Friday Khutbah & Prayer are over to pray Dhuhr? #islam #islamic assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/_6E-sdNN4lw/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/_6E-sdNN4lw/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/_6E-sdNN4lw/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/_6E-sdNN4lw/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/_6E-sdNN4lw/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 4,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "_6E-sdNN4lw"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "kB2Qy-BsLsDyqYxE903uDA1FXrU",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLlYwem9UakpPUURJ",
+            "snippet": {
+              "publishedAt": "2026-05-07T18:00:35Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Going to visit my brother in another city, can I shorten & combine my prayers? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/V0zoTjJOQDI/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/V0zoTjJOQDI/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/V0zoTjJOQDI/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/V0zoTjJOQDI/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/V0zoTjJOQDI/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 5,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "V0zoTjJOQDI"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "imAzMnxW7Fw02hgWP7WsJbkx5Nk",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLjhNcFZtMTFvTG9R",
+            "snippet": {
+              "publishedAt": "2026-05-07T15:00:29Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Can husband force wife to serve his parents? If she refuses he says its his right, she must obey him",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/8MpVm11oLoQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/8MpVm11oLoQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/8MpVm11oLoQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/8MpVm11oLoQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/8MpVm11oLoQ/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 6,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "8MpVm11oLoQ"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "6fs3t_hAS_MPKsp-1Pm-uLeTJV4",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLjB5X2tEdTRHZXFR",
+            "snippet": {
+              "publishedAt": "2026-05-07T10:00:05Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Will I have my phone 📱 in Jannah (Weird Questions) assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/0y_kDu4GeqQ/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/0y_kDu4GeqQ/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/0y_kDu4GeqQ/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/0y_kDu4GeqQ/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/0y_kDu4GeqQ/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 7,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "0y_kDu4GeqQ"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "JEohd3eSIzMBvU8xSLZ2vi3F810",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLjBtd21HNzVaVUl3",
+            "snippet": {
+              "publishedAt": "2026-05-07T05:35:01Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Is it backbiting to complain about someone's bad public behaviour or bad habits? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/0mwmG75ZUIw/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/0mwmG75ZUIw/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/0mwmG75ZUIw/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/0mwmG75ZUIw/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/0mwmG75ZUIw/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 8,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "0mwmG75ZUIw"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "czQZm6EQ-4tlUeJbNLUbcoquYnA",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLmVHeW0wMkJrNU1B",
+            "snippet": {
+              "publishedAt": "2026-05-06T19:30:07Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Allah says that Prayer restraints from immortality & wrongdoings, why do I still sin assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/eGym02Bk5MA/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/eGym02Bk5MA/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/eGym02Bk5MA/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/eGym02Bk5MA/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/eGym02Bk5MA/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 9,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "eGym02Bk5MA"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "pEJrLLFF4zusL9SprmmCRDEIuOY",
+            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLkl6MWd1NlpXM00w",
+            "snippet": {
+              "publishedAt": "2026-05-06T18:00:14Z",
+              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
+              "title": "Short Istikhara dua authentic? assim al hakeem",
+              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/Iz1gu6ZW3M0/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/Iz1gu6ZW3M0/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/Iz1gu6ZW3M0/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                },
+                "standard": {
+                  "url": "https://i.ytimg.com/vi/Iz1gu6ZW3M0/sddefault.jpg",
+                  "width": 640,
+                  "height": 480
+                },
+                "maxres": {
+                  "url": "https://i.ytimg.com/vi/Iz1gu6ZW3M0/maxresdefault.jpg",
+                  "width": 1280,
+                  "height": 720
+                }
+              },
+              "channelTitle": "assimalhakeem",
+              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
+              "position": 10,
+              "resourceId": {
+                "kind": "youtube#video",
+                "videoId": "Iz1gu6ZW3M0"
+              },
+              "videoOwnerChannelTitle": "assimalhakeem",
+              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
+            }
+          },
+          {
+            "kind": "youtube#playlistItem",
+            "etag": "GK0uvQmkXwDvENSyIWAaUBf-8Dw",
             "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLk9iQ1Vjb1h0Tzdj",
             "snippet": {
               "publishedAt": "2026-05-06T15:00:46Z",
@@ -3343,7 +3860,7 @@
               },
               "channelTitle": "assimalhakeem",
               "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 0,
+              "position": 11,
               "resourceId": {
                 "kind": "youtube#video",
                 "videoId": "ObCUcoXtO7c"
@@ -3351,527 +3868,10 @@
               "videoOwnerChannelTitle": "assimalhakeem",
               "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
             }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "AvWXO8fGSP_nCDfldXbQNMFC-dU",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLmZ2RTFQUTZpMk5N",
-            "snippet": {
-              "publishedAt": "2026-05-06T10:01:13Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "What is the best dua to get a righteous wife (husband) #islamic #islam #quran #allah assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/fvE1PQ6i2NM/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 1,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "fvE1PQ6i2NM"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "rFMrSAURsolGD0JJMkcfHzHVafw",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLk1HbjdTQUNmYUhj",
-            "snippet": {
-              "publishedAt": "2026-05-06T05:00:18Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "Hw Cn parents raise kids with strong Islamic values when Social Media & Peers push opposite messages",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/MGn7SACfaHc/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 2,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "MGn7SACfaHc"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "ouftmM2nt6edM-4qpDA9pJwx9JQ",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLlRFOTJLaTRzSmM4",
-            "snippet": {
-              "publishedAt": "2026-05-05T19:30:09Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "If a married woman's husband asks her not to fast, must she obey him #islamic #allah assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/TE92Ki4sJc8/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 3,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "TE92Ki4sJc8"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "M-maAeSdxWX2VL10UvSEC6Jsk-U",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLm15YjEzSTVoMnN3",
-            "snippet": {
-              "publishedAt": "2026-05-05T18:00:49Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "Allah mentions the good qualities of the Jews & the Christians in the Quran #islamic assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/myb13I5h2sw/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 4,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "myb13I5h2sw"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "GgonutWu96uVRIYC3CI6zHxYcr0",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLnVvR2w5SVdrWUVn",
-            "snippet": {
-              "publishedAt": "2026-05-05T15:01:39Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "The Journey to Allah - From Addu (Maldives) 🇲🇻 to the house of Allah 🕋 (LECTURE) assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/uoGl9IWkYEg/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 5,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "uoGl9IWkYEg"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "PYjhRK5OJraBd8KJRjBfHYtw-b0",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLnA2bnk3NUJtc0s4",
-            "snippet": {
-              "publishedAt": "2026-05-05T10:01:25Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "Is 1% alcohol beer permissible? #islam #islamic #quran #allah #sunnah #hijab #haram assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/p6ny75BmsK8/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 6,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "p6ny75BmsK8"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "LvtlecWvQI_SvUQ7EUHdRKZVnwc",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLlFYblYyUy05YjNn",
-            "snippet": {
-              "publishedAt": "2026-05-05T05:19:55Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "Youth nowadays use betting sites to earn, use bitcoin, deal in forex etc - halal? assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/QXnV2S-9b3g/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 7,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "QXnV2S-9b3g"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "85pQiyQiZWwwZK22gXRgv2ImJ9c",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLkRRaHVqTTZZTVlR",
-            "snippet": {
-              "publishedAt": "2026-05-04T19:40:00Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "Can people who live in Jungles of Amazon say the message of Islam didn't reach them? assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/DQhujM6YMYQ/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 8,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "DQhujM6YMYQ"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "Bm3m9cimH6Guyh5F-BtsD6XIwVg",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLmJjM2dxSnZWWFNN",
-            "snippet": {
-              "publishedAt": "2026-05-04T18:35:00Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "How to find a balance between policing family members & giving dawah with wisdom assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/bc3gqJvVXSM/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 9,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "bc3gqJvVXSM"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "rpE1I15XCCPLOvavPCBCQYsVBVc",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLk1iTU5YeHY0cElJ",
-            "snippet": {
-              "publishedAt": "2026-05-04T15:00:40Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "My family claim women can't attend Friday prayer or eat before men Call it major sin assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/MbMNXxv4pII/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 10,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "MbMNXxv4pII"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
-          },
-          {
-            "kind": "youtube#playlistItem",
-            "etag": "6zLTxVpzM6rYHTDdpQFuvOFkybQ",
-            "id": "VVVXc2RjcnJlMFdiQ1dNTF9QbnV6b0FnLkJITXlIZlduSng4",
-            "snippet": {
-              "publishedAt": "2026-05-04T10:00:16Z",
-              "channelId": "UCWsdcrre0WbCWML_PnuzoAg",
-              "title": "Can we consume dairy products from a dead animal?!? #islam #islamic #quran #allah assim al hakeem",
-              "description": "Instagram: https://instagram.com/assimalhakeem\n\nFollow the assimalhakeem channel on WhatsApp: https://whatsapp.com/channel/0029VaD3QCpJ3jv0I9XJwf1l\n\nWebsite: http://www.assimalhakeem.net\n\nAsk a Question: https://www.assimalhakeem.net/ask-a-question/\n\nFacebook: https://www.facebook.com/SheikhAssimAlhakeemTeam\n\nTwitter: https://twitter.com/Assimalhakeem",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                },
-                "standard": {
-                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/sddefault.jpg",
-                  "width": 640,
-                  "height": 480
-                },
-                "maxres": {
-                  "url": "https://i.ytimg.com/vi/BHMyHfWnJx8/maxresdefault.jpg",
-                  "width": 1280,
-                  "height": 720
-                }
-              },
-              "channelTitle": "assimalhakeem",
-              "playlistId": "UUWsdcrre0WbCWML_PnuzoAg",
-              "position": 11,
-              "resourceId": {
-                "kind": "youtube#video",
-                "videoId": "BHMyHfWnJx8"
-              },
-              "videoOwnerChannelTitle": "assimalhakeem",
-              "videoOwnerChannelId": "UCWsdcrre0WbCWML_PnuzoAg"
-            }
           }
         ],
         "pageInfo": {
-          "totalResults": 13505,
+          "totalResults": 13516,
           "resultsPerPage": 12
         }
       }
@@ -4729,6 +4729,153 @@
               "viewCount": "7642",
               "likeCount": "203",
               "favoriteCount": "0"
+            }
+          }
+        ],
+        "pageInfo": {
+          "totalResults": 12,
+          "resultsPerPage": 12
+        }
+      }
+    },
+    "https://www.googleapis.com/youtube/v3/videos?key=CACHE&part=statistics&id=,LgJ-QxHW4Jw,4D2E7RGvdkE,DdEP0jjPVe8,4DwM_UaUQ2o,_6E-sdNN4lw,V0zoTjJOQDI,8MpVm11oLoQ,0y_kDu4GeqQ,0mwmG75ZUIw,eGym02Bk5MA,Iz1gu6ZW3M0,ObCUcoXtO7c&maxResults=12": {
+      "cachedAt": "2026-05-09T10:12:03.014Z",
+      "ttlMs": 86400000,
+      "status": 200,
+      "body": {
+        "kind": "youtube#videoListResponse",
+        "etag": "wYZzPLFCDFunpNd4FB_jBe-u-S0",
+        "items": [
+          {
+            "kind": "youtube#video",
+            "etag": "-Yk5sEF9sRle7ze5qLMAw_usZnI",
+            "id": "LgJ-QxHW4Jw",
+            "statistics": {
+              "viewCount": "132",
+              "likeCount": "17",
+              "favoriteCount": "0",
+              "commentCount": "1"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "kUPgk_rPVc-785ARBtGw7ePaEZE",
+            "id": "4D2E7RGvdkE",
+            "statistics": {
+              "viewCount": "530",
+              "likeCount": "55",
+              "favoriteCount": "0",
+              "commentCount": "6"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "4bnsL4LMTsLRDNGoHOP70-YJiCY",
+            "id": "DdEP0jjPVe8",
+            "statistics": {
+              "viewCount": "2907",
+              "likeCount": "179",
+              "favoriteCount": "0",
+              "commentCount": "26"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "jcdkaXbdMBt1GkdxlTDS58nM3As",
+            "id": "4DwM_UaUQ2o",
+            "statistics": {
+              "viewCount": "2688",
+              "likeCount": "139",
+              "favoriteCount": "0",
+              "commentCount": "12"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "ncMYuh4qFMPXgjVnR26uXwAI8bo",
+            "id": "_6E-sdNN4lw",
+            "statistics": {
+              "viewCount": "1824",
+              "likeCount": "86",
+              "favoriteCount": "0",
+              "commentCount": "10"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "CJJX0Pj53st0FchF8UWQGc7yeK0",
+            "id": "V0zoTjJOQDI",
+            "statistics": {
+              "viewCount": "21108",
+              "likeCount": "779",
+              "favoriteCount": "0",
+              "commentCount": "24"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "-vGQLSanq1O3k7eAIQUBxNW2ep0",
+            "id": "8MpVm11oLoQ",
+            "statistics": {
+              "viewCount": "2769",
+              "likeCount": "177",
+              "favoriteCount": "0",
+              "commentCount": "21"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "futtM1sE1X0oCvJWD0tvB5n7yq8",
+            "id": "0y_kDu4GeqQ",
+            "statistics": {
+              "viewCount": "5402",
+              "likeCount": "286",
+              "favoriteCount": "0",
+              "commentCount": "60"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "S3ptbXdZ5_22sYuNMvwXRCK7KyU",
+            "id": "0mwmG75ZUIw",
+            "statistics": {
+              "viewCount": "3620",
+              "likeCount": "167",
+              "favoriteCount": "0",
+              "commentCount": "4"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "rB6RsEW4Bu0t4B91yNmyfd4kng8",
+            "id": "eGym02Bk5MA",
+            "statistics": {
+              "viewCount": "2272",
+              "likeCount": "171",
+              "favoriteCount": "0",
+              "commentCount": "12"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "cn--KUbXp6zTW0la-wKqrXptK-A",
+            "id": "Iz1gu6ZW3M0",
+            "statistics": {
+              "viewCount": "8511",
+              "likeCount": "595",
+              "favoriteCount": "0",
+              "commentCount": "9"
+            }
+          },
+          {
+            "kind": "youtube#video",
+            "etag": "IZd4qTYOh7TpsC1uaC4Isv8z93Q",
+            "id": "ObCUcoXtO7c",
+            "statistics": {
+              "viewCount": "10039",
+              "likeCount": "410",
+              "favoriteCount": "0",
+              "commentCount": "113"
             }
           }
         ],

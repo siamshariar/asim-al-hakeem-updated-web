@@ -54,7 +54,6 @@ export default function Footer() {
             { name: "Counselling", href: "/counselling" },
             { name: "Contact Us", href: "/contact" },
             { name: "Q&A Categories", href: "/qna" },
-            { name: "Privacy Policy", href: "/privacy" },
         ],
         social: [
             { icon: Facebook, href: "https://www.facebook.com/SheikhAssimAlhakeemTeam/", label: "Facebook", color: "hover:bg-[#1877F2]" },
@@ -260,22 +259,10 @@ export default function Footer() {
                             © {currentYear} Sheikh Assim Al Hakeem. All rights reserved.
                         </p>
                         <div className="flex items-center gap-1.5 sm:gap-2">
-                            <span>Made with</span>
-                            <motion.div
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ repeat: Infinity, duration: 1.5 }}
-                            >
-                                <Heart size={14} className="sm:w-4 sm:h-4 text-red-500 fill-red-500" />
-                            </motion.div>
-                            <span>for the Ummah</span>
-                        </div>
-                        <div className="flex gap-4 sm:gap-6">
-                            <Link href="/privacy" className="hover:text-white transition-colors">
-                                Privacy
-                            </Link>
-                            <Link href="/terms" className="hover:text-white transition-colors">
-                                Terms
-                            </Link>
+                            <span>Powered By - </span>
+                            <a href="https://deeniinfotech.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[#10b981] hover:text-[#059669] transition-colors">
+                                <span>Deeni Info Tech</span>
+                            </a>
                         </div>
                     </div>
                 </div>

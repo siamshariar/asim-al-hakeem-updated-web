@@ -286,27 +286,23 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
           )}
 
           {/* Load More Trigger */}
-<div ref={ref} className="mt-6 sm:mt-8">
-  {isLoadingMore && !isLoadingInitialData && (
-    <div className="flex items-center justify-center gap-3 py-6 sm:py-8">
-      <Loader />
-      <span>Load More Videos</span>
-    </div>
-  )}
-</div>
-
-          {/* Load More Button */}
-          {!isReachingEnd && !isLoadingMore && datas.length > 0 && (
-            <div className="text-center mt-6 sm:mt-8">
-              <button
-                onClick={() => setSize(size + 1)}
-                disabled={isRefreshing}
-                className="px-5 sm:px-6 py-2.5 sm:py-3 bg-[#10b981] text-white rounded-full text-sm sm:text-base font-medium hover:bg-[#059669] transition-colors shadow-lg shadow-[#10b981]/25"
-              >
-                Load More Videos
-              </button>
-            </div>
-          )}
+          <div ref={ref} className="mt-6 sm:mt-8">
+            {isLoadingMore && !isLoadingInitialData && (
+              <div className="flex items-center justify-center py-8 min-h-[80px]">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex flex-col items-center gap-3"
+                >
+                  <svg className="animate-spin h-6 w-6 sm:h-7 sm:w-7 text-[#10b981]" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                  </svg>
+                  <span className="text-sm sm:text-base text-gray-500 font-medium">Loading more videos...</span>
+                </motion.div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
