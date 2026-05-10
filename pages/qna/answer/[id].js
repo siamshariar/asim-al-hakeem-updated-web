@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
+import { useState, useRef, useEffect } from 'react';
 import { server } from "../../../lib/config";
 import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory } from "../../../lib/fetch";
 import Meta from "../../../components/meta";
 import Header2 from "../../../components/header1";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, MessageCircle, Share2, Calendar, Folder, ChevronRight } from "lucide-react";
+import { ArrowLeft, MessageCircle, Share2, Calendar, Folder, ChevronRight, CheckCircle, Copy } from "lucide-react";
 import { qna, qnCat } from "../../../data/qna";
 import { getAnsById } from "../../../lib/fetch";
 
@@ -30,11 +31,21 @@ const toYoutubeEmbedUrl = (url) => {
 
 export default function QnaAnswerDetail({ answer, playlists, headerLectures, qnaCategories }) {
   const router = useRouter();
+  const [copiedShare, setCopiedShare] = useState(false);
+  const shareTimeoutRef = useRef(null);
+
   const fromCategory = typeof router.query.from === "string"
     ? router.query.from
     : typeof router.query.category === "string"
       ? router.query.category
       : "";
+
+  // Cleanup share timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (shareTimeoutRef.current) clearTimeout(shareTimeoutRef.current);
+    };
+  }, []);
 
   if (router.isFallback) {
     return (
@@ -81,6 +92,16 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
     toYoutubeEmbedUrl(answer.video_url),
   ].filter(Boolean);
   const uniqueVideoSources = [...new Set(videoSources)];
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopiedShare(true);
+      if (shareTimeoutRef.current) clearTimeout(shareTimeoutRef.current);
+      shareTimeoutRef.current = setTimeout(() => setCopiedShare(false), 2000);
+    }).catch(() => {
+      alert('Failed to copy link. Please try again.');
+    });
+  };
 
   return (
     <>
@@ -203,34 +224,51 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                   <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-100">
                     <p className="text-xs sm:text-sm text-gray-500 mb-3">Share this answer</p>
                     <div className="flex gap-2 sm:gap-3">
-                      <button 
-                        onClick={() => window.open(`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank')}
-                        className="p-2 sm:p-2.5 bg-[#1877F2] text-white rounded-lg hover:bg-[#1877F2]/90 transition-colors"
+                      <motion.a 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 sm:p-2.5 bg-[#1877F2] text-white rounded-lg hover:bg-[#1877F2]/90 inline-flex items-center justify-center"
+                        style={{ color: 'white', outline: 'none' }}
+                        title="Share on Facebook"
                         aria-label="Share on Facebook"
                       >
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="white" viewBox="0 0 24 24">
                           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                         </svg>
-                      </button>
-                      <button 
-                        onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(answer.question)}`, '_blank')}
-                        className="p-2 sm:p-2.5 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1DA1F2]/90 transition-colors"
+                      </motion.a>
+                      <motion.a 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(answer.question + ' - Answered by Sheikh Assim Al-Hakeem')}&via=AssimAlHakeem`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 sm:p-2.5 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1DA1F2]/90 inline-flex items-center justify-center"
+                        style={{ color: 'white', outline: 'none' }}
+                        title="Share on Twitter"
                         aria-label="Share on Twitter"
                       >
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="white" viewBox="0 0 24 24">
                           <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
                         </svg>
-                      </button>
-                      <button 
-                        onClick={() => {
-                          navigator.clipboard.writeText(shareUrl);
-                          alert('Link copied to clipboard!');
-                        }}
-                        className="p-2 sm:p-2.5 bg-[#10b981] text-white rounded-lg hover:bg-[#059669] transition-colors"
-                        aria-label="Copy link"
+                      </motion.a>
+                      <motion.button 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={handleCopyLink}
+                        className={`p-2 sm:p-2.5 rounded-lg inline-flex items-center justify-center ${copiedShare ? 'bg-green-500' : 'bg-[#10b981] hover:bg-[#059669]'}`}
+                        style={{ color: 'white', outline: 'none', border: 'none', cursor: 'pointer' }}
+                        title={copiedShare ? 'Copied to clipboard!' : 'Copy link to clipboard'}
+                        aria-label={copiedShare ? 'Copied to clipboard!' : 'Copy link to clipboard'}
                       >
-                        <Share2 size={16} className="sm:w-[18px] sm:h-[18px]" />
-                      </button>
+                        {copiedShare ? (
+                          <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px] !text-white" />
+                        ) : (
+                          <Copy size={16} className="sm:w-[18px] sm:h-[18px] !text-white" />
+                        )}
+                      </motion.button>
                     </div>
                   </div>
                 </div>

@@ -111,8 +111,8 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/SheikhAssimAlhakeemTeam/", color: "hover:text-[#1877F2]" },
     { icon: Youtube, href: "https://www.youtube.com/user/assimalhakeem", color: "hover:text-[#FF0000]" },
-    { icon: Instagram, href: "#", color: "hover:text-[#E4405F]" },
-    { icon: Twitter, href: "#", color: "hover:text-[#1DA1F2]" },
+    { icon: Instagram, href: "https://www.instagram.com/assimalhakeem?igshid=1v9psnayget6c", color: "hover:text-[#E4405F]" },
+    { icon: Twitter, href: "https://x.com/Assimalhakee", color: "hover:text-[#1DA1F2]" },
   ];
 
   const dropdownVariants = {
@@ -128,13 +128,13 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
         <div className="max-w-[1260px] mx-auto px-4 sm:px-5 lg:px-6 xl:px-5">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4 lg:space-x-6 text-xs lg:text-sm">
-              <div className="flex items-center space-x-1.5 lg:space-x-2">
+              {/* <div className="flex items-center space-x-1.5 lg:space-x-2">
                 <Phone size={12} className="lg:w-3.5 lg:h-3.5 text-[#10b981]" />
                 <span className="text-gray-300">+966 12 345 6789</span>
-              </div>
+              </div> */}
               <div className="flex items-center space-x-1.5 lg:space-x-2">
                 <Mail size={12} className="lg:w-3.5 lg:h-3.5 text-[#10b981]" />
-                <span className="text-gray-300">contact@assimalhakeem.com</span>
+                <span className="text-gray-300">sheikhassim.bookings@gmail.com</span>
               </div>
               <div className="hidden md:flex items-center space-x-1.5 lg:space-x-2">
                 <MapPin size={12} className="lg:w-3.5 lg:h-3.5 text-[#10b981]" />

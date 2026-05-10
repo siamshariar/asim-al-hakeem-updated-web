@@ -12,7 +12,7 @@ export default function Contact({ playlists, headerLectures, qna_categories }) {
 
     const contactInfo = [
         { icon: Phone, title: 'Phone', details: ['+966 12 345 6789'], color: 'bg-green-500' },
-        { icon: Mail, title: 'Email', details: ['contact@assimalhakeem.com'], color: 'bg-blue-500' },
+        { icon: Mail, title: 'Email', details: ['sheikhassim.bookings@gmail.com'], color: 'bg-blue-500' },
         { icon: MapPin, title: 'Location', details: ['Jeddah, Saudi Arabia'], color: 'bg-red-500' },
         { icon: Clock, title: 'Working Hours', details: ['Sat-Thu: 9AM-6PM', 'Friday: Closed'], color: 'bg-purple-500' }
     ];
@@ -20,8 +20,8 @@ export default function Contact({ playlists, headerLectures, qna_categories }) {
     const socialLinks = [
         { icon: Facebook, href: 'https://www.facebook.com/SheikhAssimAlhakeemTeam/', color: 'hover:bg-blue-600' },
         { icon: Youtube, href: 'https://www.youtube.com/user/assimalhakeem', color: 'hover:bg-red-600' },
-        { icon: Instagram, href: '#', color: 'hover:bg-pink-600' },
-        { icon: Twitter, href: '#', color: 'hover:bg-sky-500' },
+        { icon: Instagram, href: 'https://www.instagram.com/assimalhakeem?igshid=1v9psnayget6c', color: 'hover:bg-pink-600' },
+        { icon: Twitter, href: 'https://x.com/Assimalhakee', color: 'hover:bg-sky-500' },
     ];
 
     const validateForm = () => {
@@ -69,7 +69,7 @@ export default function Contact({ playlists, headerLectures, qna_categories }) {
             </section>
 
             {/* Contact Info Cards */}
-            <section className="py-8 sm:py-12 lg:py-16">
+            {/* <section className="py-8 sm:py-12 lg:py-16">
                 <div className="container max-w-[1260px] mx-auto px-4">
                     <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
                         {contactInfo.map((info, idx) => (
@@ -86,10 +86,10 @@ export default function Contact({ playlists, headerLectures, qna_categories }) {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Contact Form */}
-            <section className="pb-12 sm:pb-16 lg:pb-20">
+            <section className="py-8 sm:py-12 lg:py-16">
                 <div className="container max-w-[1260px] mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
                         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -182,10 +182,10 @@ export default function Contact({ playlists, headerLectures, qna_categories }) {
                                         <Mail size={16} className="sm:w-[18px] sm:h-[18px] flex-shrink-0" />
                                         <span className="break-all">sheikhassim.bookings@gmail.com</span>
                                     </a>
-                                    <a href="https://wa.me/966123456789" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-3 text-white/90 hover:text-white transition-colors text-xs sm:text-sm">
+                                    {/* <a href="https://wa.me/966123456789" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-3 text-white/90 hover:text-white transition-colors text-xs sm:text-sm">
                                         <Phone size={16} className="sm:w-[18px] sm:h-[18px] flex-shrink-0" />
                                         <span>WhatsApp: +966 12 345 6789</span>
-                                    </a>
+                                    </a> */}
                                 </div>
                             </div>
                         </motion.div>

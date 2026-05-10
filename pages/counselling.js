@@ -4,11 +4,12 @@ import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory } from "../lib/f
 import Meta from "../components/meta";
 import Header2 from "../components/header1";
 import { motion } from "framer-motion";
-import { Mail, Send, Calendar, Clock, User, Phone, DollarSign, Heart, Share2, CheckCircle } from 'lucide-react';
+import { Mail, Send, Calendar, Clock, User, Phone, DollarSign, Heart, Share2, CheckCircle, Copy } from 'lucide-react';
 
 export default function CounsellingSession({ playlists, headerLectures, qna_categories }) {
   const dateInputRef = useRef(null);
   const timeInputRef = useRef(null);
+  const shareTimeoutRef = useRef(null);
 
   const [formValues, setFormValues] = useState({
     fullname: '',
@@ -21,6 +22,7 @@ export default function CounsellingSession({ playlists, headerLectures, qna_cate
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [errors, setErrors] = useState({});
+  const [copiedShare, setCopiedShare] = useState(false);
 
   useEffect(() => {
     const handleFocusDate = () => {
@@ -40,6 +42,7 @@ export default function CounsellingSession({ playlists, headerLectures, qna_cate
     return () => {
       if (dateInput) dateInput.removeEventListener('focus', handleFocusDate);
       if (timeInput) timeInput.removeEventListener('focus', handleFocusTime);
+      if (shareTimeoutRef.current) clearTimeout(shareTimeoutRef.current);
     };
   }, []);
 
@@ -77,6 +80,16 @@ export default function CounsellingSession({ playlists, headerLectures, qna_cate
   };
 
   const shareUrl = `${server}/counselling`;
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopiedShare(true);
+      if (shareTimeoutRef.current) clearTimeout(shareTimeoutRef.current);
+      shareTimeoutRef.current = setTimeout(() => setCopiedShare(false), 2000);
+    }).catch(() => {
+      alert('Failed to copy link. Please try again.');
+    });
+  };
 
   return (
     <>
@@ -148,21 +161,6 @@ export default function CounsellingSession({ playlists, headerLectures, qna_cate
                 </ul>
               </motion.div>
 
-              {/* Contact Info */}
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}
-                className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-5 lg:p-6">
-                <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-[#10b981]/10 rounded-lg sm:rounded-xl flex items-center justify-center">
-                    <Mail size={20} className="sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-[#10b981]" />
-                  </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-[#1a1f2e]">Contact</h2>
-                </div>
-                <a href="mailto:sheikhassim.bookings@gmail.com" 
-                  className="text-[#10b981] hover:underline break-all text-xs sm:text-sm">
-                  sheikhassim.bookings@gmail.com
-                </a>
-              </motion.div>
-
               {/* Donation Card */}
               <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
                 className="bg-gradient-to-br from-[#10b981] to-[#059669] rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-5 lg:p-6 text-white">
@@ -174,11 +172,8 @@ export default function CounsellingSession({ playlists, headerLectures, qna_cate
                   Help a brother/sister in need who cannot afford counseling for marital issues, OCD, Waswas, and more.
                 </p>
                 <div className="bg-white/10 text-white rounded-lg p-2.5 sm:p-3 text-xs sm:text-sm space-y-1">
-                  <p className="font-medium text-white">Assim Lugman Alhakeem</p>
-                  <p className="text-white">A/c: 164128664188</p>
-                  <p className="text-white">Maybank Investment Berhad</p>
-                  <p className="text-white">Bangsar, KL Malaysia</p>
-                  <p className="text-white break-all">Swift: MBBEMYKLXXX</p>
+                  <p className="font-medium text-white">Assim Al Alhakeem</p>
+                  <p className="text-white text-sm">Contact: sheikhassim.bookings@gmail.com</p>
                 </div>
               </motion.div>
             </div>
@@ -257,20 +252,49 @@ export default function CounsellingSession({ playlists, headerLectures, qna_cate
 
                 {/* Share Section */}
                 <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-100">
-                  <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">Share this page</p>
+                  <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">Share this counseling session page</p>
                   <div className="flex gap-2 sm:gap-3">
-                    <button onClick={() => window.open(`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank')}
-                      className="p-2 sm:p-2.5 bg-[#1877F2] text-white rounded-lg hover:bg-[#1877F2]/90 transition-colors">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    </button>
-                    <button onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`, '_blank')}
-                      className="p-2 sm:p-2.5 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1DA1F2]/90 transition-colors">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-                    </button>
-                    <button onClick={() => navigator.clipboard.writeText(shareUrl)}
-                      className="p-2 sm:p-2.5 bg-[#10b981] text-white rounded-lg hover:bg-[#059669] transition-colors">
-                      <Share2 size={16} className="sm:w-[18px] sm:h-[18px]" />
-                    </button>
+                    <motion.a 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 sm:p-2.5 bg-[#1877F2] text-white rounded-lg hover:bg-[#1877F2]/90 inline-flex items-center justify-center"
+                      style={{ color: 'white', outline: 'none' }}
+                      title="Share on Facebook"
+                      aria-label="Share on Facebook"
+                    >
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="white" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent('Check out this counseling session booking with Sheikh Assim Al-Hakeem!')}&via=AssimAlHakeem`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 sm:p-2.5 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1DA1F2]/90 inline-flex items-center justify-center"
+                      style={{ color: 'white', outline: 'none' }}
+                      title="Share on Twitter"
+                      aria-label="Share on Twitter"
+                    >
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="white" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    </motion.a>
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={handleCopyLink}
+                      className={`p-2 sm:p-2.5 rounded-lg inline-flex items-center justify-center ${copiedShare ? 'bg-green-500' : 'bg-[#10b981] hover:bg-[#059669]'}`}
+                      style={{ color: 'white', outline: 'none', border: 'none', cursor: 'pointer' }}
+                      title={copiedShare ? 'Copied to clipboard!' : 'Copy link to clipboard'}
+                      aria-label={copiedShare ? 'Copied to clipboard!' : 'Copy link to clipboard'}
+                    >
+                      {copiedShare ? (
+                        <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px] !text-white" />
+                      ) : (
+                        <Copy size={16} className="sm:w-[18px] sm:h-[18px] !text-white" />
+                      )}
+                    </motion.button>
                   </div>
                 </div>
               </motion.div>

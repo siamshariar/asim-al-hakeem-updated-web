@@ -73,11 +73,9 @@ export default function AskAQuestion({ playlists, headerLectures, qna_categories
                 className="bg-gradient-to-br from-[#10b981] to-[#059669] rounded-lg sm:rounded-xl shadow-md p-4 sm:p-5 text-white">
                 <h3 className="text-white text-base sm:text-lg font-bold mb-2 sm:mb-3">Donate for the Needy</h3>
                 <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4">Help a brother/sister in need who cannot afford counseling.</p>
-                <div className="bg-white/10 rounded-lg p-2.5 sm:p-3 text-xs sm:text-sm space-y-1">
-                  <p className="text-white">Assim Lugman Alhakeem</p>
-                  <p className="text-white">A/c: 164128664188</p>
-                  <p className="text-white">Maybank Investment Berhad</p>
-                  <p className="text-white">Swift: MBBEMYKLXXX</p>
+                <div className="bg-white/10 text-white rounded-lg p-2.5 sm:p-3 text-xs sm:text-sm space-y-1">
+                  <p className="font-medium text-white">Assim Al Alhakeem</p>
+                  <p className="text-white text-sm">Contact: sheikhassim.bookings@gmail.com</p>
                 </div>
               </motion.div>
             </div>

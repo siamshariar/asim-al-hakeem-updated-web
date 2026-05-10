@@ -38,7 +38,7 @@ export default function About({ playlists, headerLectures, qna_categories }) {
     socials: {
       facebook: 'https://www.facebook.com/SheikhAssimAlhakeemTeam/',
       youtube: 'https://www.youtube.com/user/assimalhakeem',
-      email: 'asimalhakeem@gmail.com',
+      email: 'sheikhassim.bookings@gmail.com',
     },
   };
 

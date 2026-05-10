@@ -58,12 +58,12 @@ export default function Footer() {
         social: [
             { icon: Facebook, href: "https://www.facebook.com/SheikhAssimAlhakeemTeam/", label: "Facebook", color: "hover:bg-[#1877F2]" },
             { icon: Youtube, href: "https://www.youtube.com/user/assimalhakeem", label: "YouTube", color: "hover:bg-[#FF0000]" },
-            { icon: Instagram, href: "#", label: "Instagram", color: "hover:bg-[#E4405F]" },
-            { icon: Twitter, href: "#", label: "Twitter", color: "hover:bg-[#1DA1F2]" },
+            { icon: Instagram, href: "https://www.instagram.com/assimalhakeem?igshid=1v9psnayget6c", label: "Instagram", color: "hover:bg-[#E4405F]" },
+            { icon: Twitter, href: "https://x.com/Assimalhakee", label: "Twitter", color: "hover:bg-[#1DA1F2]" },
         ],
         contact: [
-            { icon: Phone, text: "+966 12 345 6789", href: "tel:+966123456789" },
-            { icon: Mail, text: "contact@assimalhakeem.com", href: "mailto:contact@assimalhakeem.com" },
+            // { icon: Phone, text: "+966 12 345 6789", href: "tel:+966123456789" },
+            { icon: Mail, text: "sheikhassim.bookings@gmail.com", href: "mailto:sheikhassim.bookings@gmail.com" },
             { icon: MapPin, text: "Jeddah, Saudi Arabia", href: "#" },
         ]
     };
