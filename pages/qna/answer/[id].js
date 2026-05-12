@@ -1,14 +1,14 @@
 import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
 import { server } from "../../../lib/config";
-import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory } from "../../../lib/fetch";
+import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory, getQnaByLimit } from "../../../lib/fetch";
 import Meta from "../../../components/meta";
 import Header2 from "../../../components/header1";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, MessageCircle, Share2, Calendar, Folder, ChevronRight, CheckCircle, Copy } from "lucide-react";
-import { qna, qnCat } from "../../../data/qna";
+import { ArrowLeft, MessageCircle, Share2, Calendar, Folder, ChevronRight, CheckCircle, Copy, FolderOpen, Search, X } from "lucide-react";
 import { getAnsById } from "../../../lib/fetch";
+
 
 const LAST_QNA_CATEGORY_KEY = "qna_last_category";
 
@@ -21,7 +21,7 @@ const toYoutubeEmbedUrl = (url) => {
     return `https://www.youtube.com/embed/${watchMatch[1]}`;
   }
 
-  const shortMatch = url.match(/youtu\.be\/([^?&/]+)/i);
+  const shortMatch = url.match(/youtu\.be\/([^?&]+)/i);
   if (shortMatch?.[1]) {
     return `https://www.youtube.com/embed/${shortMatch[1]}`;
   }
@@ -32,6 +32,7 @@ const toYoutubeEmbedUrl = (url) => {
 export default function QnaAnswerDetail({ answer, playlists, headerLectures, qnaCategories }) {
   const router = useRouter();
   const [copiedShare, setCopiedShare] = useState(false);
+  const [categorySearchTerm, setCategorySearchTerm] = useState("");
   const shareTimeoutRef = useRef(null);
 
   const fromCategory = typeof router.query.from === "string"
@@ -80,9 +81,14 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
   const storedCategory = typeof window !== "undefined" ? window.sessionStorage.getItem(LAST_QNA_CATEGORY_KEY) : "";
   const sourceCategory = fromCategory || storedCategory || categorySlug;
   const backCategory = sourceCategory && sourceCategory !== "all" ? sourceCategory : "";
-  const backUrl = backCategory ? `/qna?category=${backCategory}` : `/qna`;
-  const category = qnaCategories?.find(cat => cat.slug === categorySlug) || qnCat.find(cat => cat.slug === categorySlug);
+  const backUrl = backCategory ? `/qna/${backCategory}` : `/qna`;
+  const category = qnaCategories?.find(cat => cat.slug === categorySlug);
   const shareUrl = `${server}/qna/answer/${answer.id}`;
+  const normalizeEmbedUrl = (value) => {
+    if (!value) return "";
+    return String(value).trim().replace(/[?#].*$/, "");
+  };
+
   const videoSources = [
     ...(Array.isArray(answer.youtube_videos)
       ? answer.youtube_videos.map((video) => video?.embed_url || toYoutubeEmbedUrl(video?.url || video?.video_url || video?.link)).filter(Boolean)
@@ -91,7 +97,87 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
     toYoutubeEmbedUrl(answer.video),
     toYoutubeEmbedUrl(answer.video_url),
   ].filter(Boolean);
-  const uniqueVideoSources = [...new Set(videoSources)];
+  const uniqueVideoSources = [...new Map(videoSources.map((src) => [normalizeEmbedUrl(src), normalizeEmbedUrl(src)])).values()].filter(Boolean);
+
+  // Prepare sanitized answer text (remove any embedded question repetitions and strip HTML)
+  const rawAnswerContent = answer.answer || answer.content || "";
+  let sanitizedAnswerText = String(rawAnswerContent || "");
+  try {
+    // Remove raw URL lines from the visible text so audio links never appear in the answer body.
+    sanitizedAnswerText = sanitizedAnswerText.replace(/https?:\/\/[^\s'"<>]+/gi, "");
+    // Remove recurring boilerplate fragments that should not be shown as answer text.
+    sanitizedAnswerText = sanitizedAnswerText.replace(/\bthe website itself, this seems permissible\.?/gi, "");
+    // Remove any iframe blocks (we render videos separately)
+    sanitizedAnswerText = sanitizedAnswerText.replace(/<iframe[\s\S]*?<\/iframe>/gi, "");
+    // Remove the question text if it appears inside the answer
+    if (answer.question) {
+      const qEsc = answer.question.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      sanitizedAnswerText = sanitizedAnswerText.replace(new RegExp(qEsc, 'gi'), '');
+    }
+    // Strip remaining HTML tags
+    sanitizedAnswerText = sanitizedAnswerText.replace(/<[^>]+>/g, '');
+    // Collapse whitespace and preserve newlines
+    sanitizedAnswerText = sanitizedAnswerText.replace(/[\t\r]+/g, ' ').replace(/\n{2,}/g, '\n').replace(/ {2,}/g, ' ').trim();
+  } catch (e) {
+    sanitizedAnswerText = String(rawAnswerContent || "");
+  }
+
+  // Split sanitized answer into normal text and citation/meta text.
+  const answerLines = sanitizedAnswerText
+    .split(/\n+/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const citationLinePatterns = [
+    /^QUESTION:?$/i,
+    /^QUESTION:\s*/i,
+    /\|\s*[A-Za-z]+\s+\d{1,2},\s+\d{4}/,
+  ];
+  const citationLines = [];
+  const contentLines = [];
+  answerLines.forEach((line) => {
+    if (citationLinePatterns.some((pattern) => pattern.test(line))) {
+      const cleanedLine = line.replace(/^QUESTION:\s*/i, "").trim();
+      if (cleanedLine) citationLines.push(cleanedLine);
+      return;
+    }
+    contentLines.push(line);
+  });
+  const prominentAnswerLine = contentLines.length ? contentLines[0] : "";
+  const remainingAnswerText = contentLines.length > 1 ? contentLines.slice(1).join('\n\n') : "";
+  const citationText = citationLines.join('\n');
+
+  const getCanonicalAudioUrl = (value) => {
+    if (!value) return "";
+    return String(value).trim().replace(/[?#].*$/, "");
+  };
+
+  // Extract MP3 links from content or audio fields and dedupe by base URL.
+  const audioUrlMap = new Map();
+  const addAudioUrl = (value) => {
+    const canonicalUrl = getCanonicalAudioUrl(value);
+    if (!canonicalUrl || !/\.mp3$/i.test(canonicalUrl)) return;
+    if (!audioUrlMap.has(canonicalUrl)) {
+      audioUrlMap.set(canonicalUrl, canonicalUrl);
+    }
+  };
+  try {
+    const mp3Regex = /https?:\/\/[^\s'"<>]+\.mp3[^\s'"<>]*/gi;
+    let match;
+    while ((match = mp3Regex.exec(rawAnswerContent))) {
+      addAudioUrl(match[0]);
+    }
+    if (Array.isArray(answer.audio_files)) {
+      answer.audio_files.forEach((audioFile) => {
+        if (!audioFile) return;
+        if (typeof audioFile === 'string') addAudioUrl(audioFile);
+        if (audioFile.url) addAudioUrl(audioFile.url);
+      });
+    }
+    if (answer.audio_url) addAudioUrl(answer.audio_url);
+  } catch (e) {
+    // ignore
+  }
+  const audioUrls = [...audioUrlMap.values()];
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl).then(() => {
@@ -103,8 +189,35 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
     });
   };
 
+  // Filter categories for display
+  const EXCLUDE_SLUGS = ["books", "videos", "articles", "audios"];
+  const visibleCategories = qnaCategories?.filter(c => c.slug !== 'all' && !EXCLUDE_SLUGS.includes(c.slug)) || [];
+  
+  const filteredCategories = categorySearchTerm.trim() 
+    ? visibleCategories.filter(cat => 
+        cat.title.toLowerCase().includes(categorySearchTerm.toLowerCase()) || 
+        cat.slug.toLowerCase().includes(categorySearchTerm.toLowerCase())
+      )
+    : visibleCategories;
+
   return (
     <>
+      <style jsx global>{`
+        .category-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .category-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .category-scrollbar::-webkit-scrollbar-thumb {
+          background: #d1d5db;
+          border-radius: 4px;
+        }
+        .category-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #9ca3af;
+        }
+      `}</style>
+
       <Meta
         title={`${answer.question} - Sheikh Assim Al Hakeem`}
         description={answer.answer.substring(0, 160) + '...'}
@@ -125,9 +238,9 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
           </Link>
           {category && (
             <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm mb-3 sm:mb-4 flex-wrap">
-              <Link href={`/qna?category=all`} className="text-gray-400 hover:text-white focus:outline-none focus:ring-0 focus:border-transparent">Q&A</Link>
+              <Link href={`/qna`} className="text-gray-400 hover:text-white focus:outline-none focus:ring-0 focus:border-transparent">Q&A</Link>
               <ChevronRight size={12} className="sm:w-3.5 sm:h-3.5 text-gray-500" />
-              <Link href={`/qna?category=${category.slug}`} className="text-[#10b981] hover:text-[#34d399] focus:outline-none focus:ring-0 focus:border-transparent">{category.title}</Link>
+              <Link href={`/qna/${category.slug}`} className="text-[#10b981] hover:text-[#34d399] focus:outline-none focus:ring-0 focus:border-transparent">{category.title}</Link>
             </div>
           )}
           <motion.h1 
@@ -180,9 +293,6 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                       <div>
                         <h2 className="text-base sm:text-lg font-semibold text-[#1a1f2e] mb-2">Question:</h2>
                         <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{answer.question}</p>
-                        {answer.excerpt && (
-                          <p className="text-sm sm:text-base text-gray-500 mt-3">{answer.excerpt}</p>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -195,8 +305,23 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                       </div>
                       <div className="w-full">
                         <h2 className="text-base sm:text-lg font-semibold text-[#1a1f2e] mb-2">Answer:</h2>
-                        <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
-                          <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">{answer.answer}</p>
+                        {audioUrls.length > 0 && (
+                          <div className="mb-4 space-y-3">
+                            {audioUrls.map((src) => (
+                              <audio key={src} controls className="w-full">
+                                <source src={src} type="audio/mpeg" />
+                                Your browser does not support the audio element.
+                              </audio>
+                            ))}
+                          </div>
+                        )}
+                        <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none mt-3">
+                          {prominentAnswerLine && (
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{prominentAnswerLine}</p>
+                          )}
+                          {remainingAnswerText && (
+                            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed whitespace-pre-line mt-2">{remainingAnswerText}</p>
+                          )}
                         </div>
 
                         {uniqueVideoSources.length > 0 && (
@@ -214,6 +339,12 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                                 />
                               </div>
                             ))}
+                          </div>
+                        )}
+
+                        {citationText && (
+                          <div className="mt-4">
+                            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed whitespace-pre-line">{citationText}</p>
                           </div>
                         )}
                       </div>
@@ -275,7 +406,7 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
               </motion.div>
             </div>
 
-            {/* Sidebar */}
+            {/* Sidebar - Updated UI */}
             <div className="lg:col-span-1">
               <motion.div 
                 initial={{ opacity: 0, x: 20 }} 
@@ -297,28 +428,79 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                   </Link>
                 </div>
 
-                {/* Categories */}
-                <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-5 sm:p-6">
-                  <h3 className="text-base sm:text-lg font-bold text-[#1a1f2e] mb-3 sm:mb-4">Categories</h3>
-                  <div className="space-y-1.5 sm:space-y-2">
-                    {(qnaCategories?.filter((cat) => cat.slug !== "all") || qnCat).map((cat) => (
-                      <Link 
-                          key={cat.id} 
-                          href={`/qna?category=${cat.slug}`}
-                          className={`block p-2 rounded-lg text-xs sm:text-sm transition-colors focus:outline-none focus:ring-0 focus:border-transparent ${
-                            cat.slug === answer.cat_slug 
-                              ? 'bg-[#10b981]/10 text-[#10b981] font-medium' 
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-[#10b981]'
-                          }`}
+                {/* Categories - Updated UI for Web, Mobile, Tablet */}
+                <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+                  {/* Categories Header */}
+                  <div className="p-4 sm:p-5 border-b border-gray-100 bg-gradient-to-r from-[#f0fdf4] to-white">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-8 h-8 bg-[#10b981]/10 rounded-lg flex items-center justify-center">
+                        <FolderOpen size={18} className="text-[#10b981]" />
+                      </div>
+                      <div>
+                        <h3 className="text-base sm:text-lg font-bold text-[#1a1f2e]">Categories</h3>
+                        <p className="text-xs text-gray-400">{visibleCategories.length} categories</p>
+                      </div>
+                    </div>
+                    {/* Category Search */}
+                    <div className="relative">
+                      <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="text"
+                        placeholder="Search categories..."
+                        value={categorySearchTerm}
+                        onChange={(e) => setCategorySearchTerm(e.target.value)}
+                        className="w-full pl-8 pr-3 py-2 bg-white border border-gray-200 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#10b981]/20 focus:border-[#10b981]"
+                      />
+                      {categorySearchTerm && (
+                        <button
+                          onClick={() => setCategorySearchTerm("")}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                         >
-                          {cat.title}
+                          <X size={14} />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Category List */}
+                  <div className="max-h-[400px] sm:max-h-[500px] overflow-y-auto category-scrollbar p-3 sm:p-4 space-y-1">
+                    {filteredCategories.length > 0 ? (
+                      filteredCategories.map((cat) => (
+                        <Link 
+                          key={cat.id} 
+                          href={`/qna/${cat.slug}`}
+                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 border-0 outline-none
+                            ${cat.slug === answer.cat_slug 
+                              ? 'bg-[#10b981] text-white shadow-md' 
+                              : 'bg-gray-50 text-gray-700 hover:bg-gray-100 hover:shadow-sm'
+                            }`}
+                          style={{
+                            boxShadow: cat.slug === answer.cat_slug ? '0 4px 12px rgba(16, 185, 129, 0.3)' : 'none'
+                          }}
+                        >
+                          <FolderOpen size={14} className={`flex-shrink-0 ${cat.slug === answer.cat_slug ? "text-white" : "text-[#10b981]"}`} />
+                          <span className="leading-snug flex-1 break-words">{cat.title}</span>
+                          {cat.slug === answer.cat_slug && (
+                            <span className="flex-shrink-0 w-1.5 h-1.5 bg-white rounded-full ml-auto" />
+                          )}
                         </Link>
-                    ))}
+                      ))
+                    ) : (
+                      <div className="text-center py-6 text-gray-400">
+                        <FolderOpen size={24} className="mx-auto mb-2 opacity-50" />
+                        <p className="text-xs">No categories found</p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* View All Link */}
+                  <div className="px-4 py-3 border-t border-gray-100 bg-gray-50/50">
                     <Link 
                       href="/qna"
-                      className="block p-2 rounded-lg text-xs sm:text-sm text-[#10b981] font-medium hover:bg-[#10b981]/5 transition-colors"
+                      className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-[#10b981] font-medium hover:text-[#059669] transition-colors"
                     >
-                      View All Categories →
+                      View All Categories
+                      <ChevronRight size={14} className="sm:w-4 sm:h-4" />
                     </Link>
                   </div>
                 </div>
@@ -351,12 +533,15 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
+  const qna = await getQnaByLimit(50);
+  
+  // Pre-render only the first 50 items to avoid OOM during build
   const paths = qna.map(item => ({
-    params: { id: item.id.toString() },
+    params: { id: String(item.id) },
   }));
 
   return {
     paths,
-    fallback: true,
+    fallback: "blocking",
   };
 }

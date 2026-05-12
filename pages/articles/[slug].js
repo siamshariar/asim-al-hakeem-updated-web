@@ -44,7 +44,7 @@ export default function ArticleDetail({ article, playlists, headerLectures, qnaC
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             className="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
             {/* Featured Image */}
-            <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px]">
+            <div className="relative h-[500px] sm:h-[350px] md:h-[400px] lg:h-[600px]">
               <Image src={article.image || article.imageSrc} alt={article.title || article.postTitle} fill className="object-cover" priority unoptimized />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>

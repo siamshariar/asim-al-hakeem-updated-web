@@ -5,6 +5,7 @@ import {
   getAllPlaylists2,
   getHomeBooks,
   getHomeQna,
+  getQnaByLimit,
   getHeaderLectures,
   getAllQnaCategory,
 } from "../lib/fetch";
@@ -96,6 +97,7 @@ export async function getStaticProps(context) {
       playlistsData,
       books,
       qna,
+      qnaFallback,
       qna_categories,
     ] = await Promise.all([
       getHomeLectures().catch(() => null),
@@ -105,6 +107,7 @@ export async function getStaticProps(context) {
       getAllPlaylists2().catch(() => ({ playlists: [], playlistsTitle: {} })),
       getHomeBooks().catch(() => []),
       getHomeQna().catch(() => []),
+      getQnaByLimit(3).catch(() => []),
       getAllQnaCategory().catch(() => []),
     ]);
 
@@ -116,7 +119,7 @@ export async function getStaticProps(context) {
         articles: articles || [],
         playlists: playlistsData?.playlists || [],
         books: books || [],
-        qna: qna || [],
+        qna: (qna && qna.length ? qna : qnaFallback) || [],
         qna_categories: qna_categories || [],
       },
       revalidate: 60,
