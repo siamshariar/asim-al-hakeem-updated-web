@@ -84,9 +84,20 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
   const backUrl = backCategory ? `/qna/${backCategory}` : `/qna`;
   const category = qnaCategories?.find(cat => cat.slug === categorySlug);
   const shareUrl = `${server}/qna/answer/${answer.id}`;
+  const sharePageUrl = `${server}/qna/answer/${answer.id}`;
   const normalizeEmbedUrl = (value) => {
     if (!value) return "";
     return String(value).trim().replace(/[?#].*$/, "");
+  };
+
+  const stripTrailingNumericNoise = (value) => {
+    const tokens = String(value || "").trim().split(/\s+/).filter(Boolean);
+
+    while (tokens.length > 0 && /^[+-]?\d+$/.test(tokens[tokens.length - 1])) {
+      tokens.pop();
+    }
+
+    return tokens.join(" ").trim();
   };
 
   const videoSources = [
@@ -105,6 +116,11 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
   try {
     // Remove raw URL lines from the visible text so audio links never appear in the answer body.
     sanitizedAnswerText = sanitizedAnswerText.replace(/https?:\/\/[^\s'"<>]+/gi, "");
+    // Remove CTA and boilerplate text
+    sanitizedAnswerText = sanitizedAnswerText.replace(/Need One to One live Counseling with Sheikh Assim[^.]*\.?/gi, "");
+    sanitizedAnswerText = sanitizedAnswerText.replace(/Do you have a question[^?]*\??/gi, "");
+    sanitizedAnswerText = sanitizedAnswerText.replace(/Ask a Question[^.]*\.?/gi, "");
+    sanitizedAnswerText = sanitizedAnswerText.replace(/Submit your question[^.]*\.?/gi, "");
     // Remove recurring boilerplate fragments that should not be shown as answer text.
     sanitizedAnswerText = sanitizedAnswerText.replace(/\bthe website itself, this seems permissible\.?/gi, "");
     // Remove any iframe blocks (we render videos separately)
@@ -146,15 +162,15 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
 
   const pushMetaPair = (line) => {
     const categoryMatch = line.match(/Category:\s*([^]+?)(?:\s+Tags?:|$)/i);
-    const tagsMatch = line.match(/Tags?:\s*([^]+?)(?:\s+\d+\s*[+\-]\s*\d+.*|$)/i);
+    const tagsMatch = line.match(/Tags?:\s*(.+?)(?:\s+[\d\s+\-]+$|$)/i);
 
     if (categoryMatch?.[1]) {
-      const categoryText = categoryMatch[1].replace(/\s+/g, " ").trim().replace(/[,;\s]+$/g, "");
+      const categoryText = stripTrailingNumericNoise(categoryMatch[1].replace(/\s+/g, " ")).replace(/[,;\s]+$/g, "");
       if (categoryText) metaLines.push(`Category: ${categoryText}`);
     }
 
     if (tagsMatch?.[1]) {
-      const tagsText = tagsMatch[1].replace(/\s+/g, " ").trim().replace(/[,;\s]+$/g, "");
+      const tagsText = stripTrailingNumericNoise(tagsMatch[1].replace(/\s+/g, " ")).replace(/[,;\s]+$/g, "");
       if (tagsText) metaLines.push(`Tags: ${tagsText}`);
     }
   };
@@ -177,7 +193,11 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
         .trim();
 
       if (cleanedMeta.startsWith("Category:") || cleanedMeta.startsWith("Tags:")) {
-        metaLines.push(cleanedMeta);
+        const [label, ...rest] = cleanedMeta.split(":");
+        const cleanedValue = stripTrailingNumericNoise(rest.join(":").trim()).replace(/[,;\s]+$/g, "");
+        if (cleanedValue) {
+          metaLines.push(`${label}: ${cleanedValue}`);
+        }
       }
       return;
     }
@@ -222,7 +242,11 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
   const audioUrls = [...audioUrlMap.values()];
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(shareUrl).then(() => {
+    const currentUrl = typeof window !== "undefined"
+      ? window.location.href
+      : `${server}/qna/answer/${answer.id}`;
+
+    navigator.clipboard.writeText(currentUrl).then(() => {
       setCopiedShare(true);
       if (shareTimeoutRef.current) clearTimeout(shareTimeoutRef.current);
       shareTimeoutRef.current = setTimeout(() => setCopiedShare(false), 2000);
@@ -385,10 +409,15 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                         )}
 
                         {metaText && (
-                          <div className="mt-5 sm:mt-6">
-                            <p className="text-xs sm:text-sm text-gray-500 leading-relaxed whitespace-pre-line">
-                              {metaText}
-                            </p>
+                          <div className="mt-8 sm:mt-10 space-y-1.5">
+                            {metaText.split('\n').filter(Boolean).map((line) => (
+                              <p
+                                key={line}
+                                className="text-xs sm:text-sm text-gray-500 leading-relaxed"
+                              >
+                                {line}
+                              </p>
+                            ))}
                           </div>
                         )}
 
@@ -408,7 +437,7 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                       <motion.a 
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                        href={`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(sharePageUrl)}&quote=${encodeURIComponent(answer.question || "Sheikh Assim Al Hakeem Q&A")}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 sm:p-2.5 bg-[#1877F2] text-white rounded-lg hover:bg-[#1877F2]/90 inline-flex items-center justify-center"
@@ -493,7 +522,6 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                     </div>
                     {/* Category Search */}
                     <div className="relative">
-                      <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" />
                       <input
                         type="text"
                         placeholder="Search categories..."

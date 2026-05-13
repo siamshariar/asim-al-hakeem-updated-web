@@ -250,14 +250,14 @@ export default function LectureList({ initialVideos, initPlaylistId, playlists, 
           </div> */}
 
           {datas.length > 0 && datas[0]?.videoLists?.videos?.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
               {datas.map((data) =>
                 data.videoLists.videos.map((video) => (
                   <motion.div
                     key={video.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    whileHover={{ y: -4 }}
+                    whileHover={{ y: -5 }}
 
                   >
                     <PostCardVideo2

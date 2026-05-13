@@ -26,6 +26,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
   const [isLoadingInitial, setIsLoadingInitial] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isSwitchingCategory, setIsSwitchingCategory] = useState(false);
+  const [isTransitioningCategory, setIsTransitioningCategory] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const loadMoreRef = useRef(null);
   const lastLoadTimeRef = useRef(0);
@@ -268,17 +269,20 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     fetchingRef.current = false;
     scrollAttemptRef.current = 0;
     
-    // Clear old data and show loading
-    setLoadedPages([]);
+    // Keep old data visible while loading new category - show transition
+    setIsTransitioningCategory(true);
     setCurrentPage(1);
     setTotalPages(1);
     loadedIdsRef.current = new Set();
-    setIsLoadingInitial(true);
     setIsSwitchingCategory(true);
 
     if (typeof window !== "undefined") {
       window.sessionStorage.setItem(LAST_QNA_CATEGORY_KEY, slug);
     }
+
+    // Update URL immediately (not after fetch completes)
+    const url = slug === "all" ? "/qna" : `/qna/${slug}`;
+    await router.replace(url, undefined, { shallow: true, scroll: false });
 
     try {
       const res = await fetch(`/api/qna?currentPage=1&cat_slug=${slug}&pageSize=${PAGE_SIZE}`);
@@ -301,9 +305,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         }
         setIsLoadingInitial(false);
         setIsSwitchingCategory(false);
-
-        const url = slug === "all" ? "/qna" : `/qna/${slug}`;
-        router.replace(url, undefined, { shallow: true, scroll: false });
+        setIsTransitioningCategory(false);
       }
     } catch (error) {
       console.error("Error fetching category data:", error);
@@ -313,16 +315,15 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         setTotalPages(1);
         setIsLoadingInitial(false);
         setIsSwitchingCategory(false);
-        const url = slug === "all" ? "/qna" : `/qna/${slug}`;
-        router.replace(url, undefined, { shallow: true, scroll: false });
+        setIsTransitioningCategory(false);
       }
     }
-  }, [selectedCategory, router, scrollToTopInstantly]);
+  }, [router, scrollToTopInstantly]);
 
   // Infinite scroll effect with fixed 1s loading and guaranteed next data
   useEffect(() => {
     // Don't load if: not visible, initial loading, switching category, or all pages loaded
-    if (!isLoadMoreVisible || isLoadingInitial || isSwitchingCategory) {
+    if (!isLoadMoreVisible || isLoadingInitial || isSwitchingCategory || isTransitioningCategory) {
       return;
     }
 
@@ -416,7 +417,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     return () => {
       cancelled = true;
     };
-  }, [isLoadMoreVisible, isLoadingInitial, isSwitchingCategory, currentPage, totalPages, selectedCategory]);
+  }, [isLoadMoreVisible, isLoadingInitial, isSwitchingCategory, isTransitioningCategory, currentPage, totalPages, selectedCategory]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -752,50 +753,73 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
             </aside>
 
             {/* Main Content */}
-            <div className="min-w-0" ref={mainContentRef}>
-              {(isLoadingInitial || isSwitchingCategory) && loadedQna.length === 0 ? (
+            <div className="min-w-0 relative" ref={mainContentRef}>
+              {isLoadingInitial && loadedQna.length === 0 && !isTransitioningCategory ? (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12 sm:py-16">
                   <div className="mx-auto mb-3 sm:mb-4 h-10 w-10 sm:h-12 sm:w-12 rounded-full border-4 border-[#10b981] border-t-transparent animate-spin" />
                   <p className="text-sm sm:text-base text-gray-500">Loading questions...</p>
                 </motion.div>
-              ) : filteredQna.length > 0 ? (
-                <motion.div key={selectedCategory} variants={listVariants} initial="hidden" animate="show" className="space-y-2.5 xs:space-y-3 sm:space-y-4">
-                  {isSwitchingCategory && loadedQna.length > 0 && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-center py-3">
-                      <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                        <div className="h-4 w-4 rounded-full border-2 border-[#10b981] border-t-transparent animate-spin" />
-                        <span className="text-xs text-gray-500">Updating...</span>
-                      </div>
-                    </motion.div>
-                  )}
-                  {filteredQna.map((item) => (
-                    <motion.div key={`${selectedCategory}-${item.id}`} variants={cardVariants} className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6">
-                      <div className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#10b981]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <MessageCircle size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] text-[#10b981]" />
+              ) : filteredQna.length > 0 || isTransitioningCategory ? (
+                <>
+                  <motion.div 
+                    key={selectedCategory}
+                    initial={{ opacity: 0.5 }}
+                    animate={{ opacity: isTransitioningCategory ? 0.4 : 1 }}
+                    transition={{ duration: 0.3 }}
+                    className={`space-y-2.5 xs:space-y-3 sm:space-y-4 ${isTransitioningCategory ? "pointer-events-none select-none" : ""}`}
+                    style={{ opacity: isTransitioningCategory ? 0.4 : 1 }}
+                  >
+                    {filteredQna.length > 0 && (
+                      <>
+                        {filteredQna.map((item) => (
+                          <motion.div key={`${selectedCategory}-${item.id}`} variants={cardVariants} className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6">
+                            <div className="flex items-start gap-2 sm:gap-3">
+                              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#10b981]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <MessageCircle size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] text-[#10b981]" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h3 className="text-sm xs:text-base sm:text-lg font-semibold text-[#1a1f2e] mb-1 sm:mb-2 line-clamp-2">{item.question}</h3>
+                                <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-1.5 sm:mb-3">{item.content || item.answer}</p>
+                                <Link href={`/qna/answer/${item.id}`} className="inline-flex items-center gap-1 text-[#10b981] text-xs sm:text-sm font-medium hover:gap-2 transition-all">
+                                  Read Full Answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
+                                </Link>
+                              </div>
+                            </div>
+                          </motion.div>
+                        ))}
+                        <div ref={loadMoreRef} className="flex items-center justify-center py-8 min-h-[80px]">
+                          {isLoadingMore && hasMoreToLoad && (
+                            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center gap-3">
+                              <svg className="animate-spin h-6 w-6 sm:h-7 sm:w-7 text-[#10b981]" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                              </svg>
+                              <span className="text-sm sm:text-base text-gray-500 font-medium">Loading more questions...</span>
+                            </motion.div>
+                          )}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="text-sm xs:text-base sm:text-lg font-semibold text-[#1a1f2e] mb-1 sm:mb-2 line-clamp-2">{item.question}</h3>
-                          <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3 mb-1.5 sm:mb-3">{item.content || item.answer}</p>
-                          <Link href={`/qna/answer/${item.id}?from=${selectedCategory}`} className="inline-flex items-center gap-1 text-[#10b981] text-xs sm:text-sm font-medium hover:gap-2 transition-all">
-                            Read Full Answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
-                          </Link>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                  <div ref={loadMoreRef} className="flex items-center justify-center py-8 min-h-[80px]">
-                    {isLoadingMore && hasMoreToLoad && (
-                      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center gap-3">
-                        <svg className="animate-spin h-6 w-6 sm:h-7 sm:w-7 text-[#10b981]" viewBox="0 0 24 24">
+                      </>
+                    )}
+                  </motion.div>
+                  
+                  {isTransitioningCategory && (
+                    <motion.div 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.1 }}
+                      className="fixed inset-0 flex items-center justify-center bg-black/5 backdrop-blur-sm rounded-lg pointer-events-none"
+                      style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+                    >
+                      <div className="flex flex-col items-center gap-3 bg-white rounded-xl p-6 shadow-lg">
+                        <svg className="animate-spin h-8 w-8 text-[#10b981]" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                         </svg>
-                        <span className="text-sm sm:text-base text-gray-500 font-medium">Loading more questions...</span>
-                      </motion.div>
-                    )}
-                  </div>
-                </motion.div>
+                        <span className="text-sm text-gray-700 font-medium">Switching category...</span>
+                      </div>
+                    </motion.div>
+                  )}
+                </>
               ) : (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }} className="text-center py-10 xs:py-12 sm:py-16 bg-white rounded-xl shadow-sm">
                   <FolderOpen size={36} className="xs:w-10 xs:h-10 sm:w-12 sm:h-12 text-gray-300 mx-auto mb-2.5 xs:mb-3 sm:mb-4" />

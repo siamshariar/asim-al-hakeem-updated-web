@@ -38,7 +38,7 @@ export default function MobileNav(props) {
 			anchor="left"
 			open={props.navOpen}
 			onClose={props.navControl(false)}
-			transitionDuration={{ enter: 140, exit: 100 }}
+			transitionDuration={{ enter: 80, exit: 60 }}
 			ModalProps={{
 				keepMounted: true,
 			}}

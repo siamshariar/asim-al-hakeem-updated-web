@@ -174,7 +174,7 @@ export default function RecentLecturesEnhanced({ lectures }) {
                 <div className="card-image">
                   <div className="image-r">
                     <img
-                      src={video.image || `/img/post/youtube-default.jpg`}
+                      src={video.id ? `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg` : `/img/post/youtube-default.jpg`}
                       alt={video.title}
                       className="w-full h-full object-cover"
                       loading="eager"

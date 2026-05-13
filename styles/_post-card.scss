@@ -16,8 +16,40 @@
 }
 .pc-video {
 }
+.pc-video .card-image {
+	padding: 0;
+}
 .pc-video .card-content {
-	padding: 1rem 1rem 1.5rem 1rem;
+	padding: 1.25rem 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.pc-video .heading-r {
+	color: #2d3748;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.4;
+	margin-bottom: 0.75rem;
+	height: auto;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+.pc-video .data-line {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	font-size: 0.85rem;
+	color: #718096;
+	gap: 0.5rem;
+}
+.pc-video .data-line span {
+	line-height: 1.4;
 }
 
 /* post card one */

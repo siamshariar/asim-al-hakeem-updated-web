@@ -16,6 +16,7 @@ import HeroBanner from "../components/home/hero-banner";
 import RecentLecturesEnhanced from "../components/home/recent-lectures-enhanced";
 import FeaturedBooks from "../components/home/featured-books";
 import ArticlesSection from "../components/home/articles-enhanced";
+import RecentQnaEnhanced from "../components/home/recent-qna-enhanced";
 import QASection from "../components/home/qa-section";
 import CounsellingCTA from "../components/home/counselling-cta";
 import TestimonialsSection from "../components/home/testimonials-section";
@@ -65,7 +66,8 @@ export default function Home({
         {/* Featured Books - Light Gray Background */}
         <FeaturedBooks books={books} />
 
-        <AskQuestionCounselling />
+        {/* Recent Q&A - Light Green Background */}
+        {/* <RecentQnaEnhanced qna={qna} /> */}
 
         {/* Q&A and Counselling - Distinct Light Blue Background */}
         <section className="py-12 lg:py-20 bg-gradient-to-br from-[#eef2ff] via-[#f7f7fe] to-white">

@@ -436,12 +436,8 @@ form.search input[type="text"]::-ms-input-placeholder {
 	}
 
 	.search-icon i,
-	.menu-burger i {
-		color: #93a1b3;
-	}
 
-	.search-icon:hover,
-	.menu-burger:hover {
+	.search-icon:hover {
 		background: var(--main-color);
 	}
 
@@ -507,14 +503,18 @@ form.search input[type="text"]::-ms-input-placeholder {
 		font-size: 24px;
 	}
 
-	.search-icon:hover,
-	.menu-burger:hover {
+	.search-icon:hover {
 		background: var(--app-theme-color);
 	}
 
 	.search-icon:hover i,
 	.menu-burger:hover i {
 		color: #fff;
+	}
+
+	.menu-burger:focus {
+		outline: none;
+		background-color: transparent;
 	}
 
 	form.search input[type="text"] {
