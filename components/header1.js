@@ -99,7 +99,7 @@ export default function Header2({ playlists, lectures, qna_categories, activePla
       href: "/qna", 
       icon: HelpCircle, 
       hasDropdown: true,
-      dropdownItems: qna_categories?.filter(c => c.slug !== "all").slice(0, 6).map(c => ({ name: c.title, href: `/qna?category=${c.slug}`, icon: MessageCircle })) || [],
+      dropdownItems: qna_categories?.filter(c => c.slug !== "all").slice(0, 6).map(c => ({ name: c.title, href: `/qna/${c.slug}`, icon: MessageCircle })) || [],
       viewAllLink: "/qna",
       viewAllText: "View All Q&A"
     },

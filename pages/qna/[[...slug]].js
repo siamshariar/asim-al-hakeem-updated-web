@@ -43,6 +43,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
   const initialDataLoadedRef = useRef(false);
   const previousCategoryRef = useRef(initialCategory || "all");
   const loadMoreRetryRef = useRef(null);
+  const categoryRequestIdRef = useRef(0);
   const isMountedRef = useRef(true);
   const lastScrollY = useRef(0);
   const backToTopRef = useRef(null);
@@ -243,6 +244,8 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       return;
     }
 
+    const requestId = ++categoryRequestIdRef.current;
+
     // Clear any pending timeouts and fetches
     if (loadingTimeoutRef.current) {
       clearTimeout(loadingTimeoutRef.current);
@@ -256,6 +259,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     scrollToTopInstantly();
     
     // Update UI immediately
+    currentCategoryRef.current = slug;
     setSelectedCategory(slug);
     previousCategoryRef.current = slug;
     setShowMobileFilters(false);
@@ -276,15 +280,12 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       window.sessionStorage.setItem(LAST_QNA_CATEGORY_KEY, slug);
     }
 
-    const url = slug === "all" ? "/qna" : `/qna/${slug}`;
-    router.push(url, undefined, { shallow: false });
-
     try {
       const res = await fetch(`/api/qna?currentPage=1&cat_slug=${slug}&pageSize=${PAGE_SIZE}`);
       const data = await res.json();
       
       // Only update if this is still the current category and component is mounted
-      if (currentCategoryRef.current === slug && isMountedRef.current) {
+      if (requestId === categoryRequestIdRef.current && currentCategoryRef.current === slug && isMountedRef.current) {
         if (data?.qaItems?.length) {
           setLoadedPages([data.qaItems]);
           setCurrentPage(data.currentPage || 1);
@@ -300,15 +301,20 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         }
         setIsLoadingInitial(false);
         setIsSwitchingCategory(false);
+
+        const url = slug === "all" ? "/qna" : `/qna/${slug}`;
+        router.replace(url, undefined, { shallow: true, scroll: false });
       }
     } catch (error) {
       console.error("Error fetching category data:", error);
-      if (currentCategoryRef.current === slug && isMountedRef.current) {
+      if (requestId === categoryRequestIdRef.current && currentCategoryRef.current === slug && isMountedRef.current) {
         setLoadedPages([]);
         setCurrentPage(1);
         setTotalPages(1);
         setIsLoadingInitial(false);
         setIsSwitchingCategory(false);
+        const url = slug === "all" ? "/qna" : `/qna/${slug}`;
+        router.replace(url, undefined, { shallow: true, scroll: false });
       }
     }
   }, [selectedCategory, router, scrollToTopInstantly]);
