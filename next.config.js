@@ -1,4 +1,11 @@
 module.exports = {
+  experimental: {
+    outputFileTracingIncludes: {
+      "/api/qna": ["./data/qna.json", "./data/qnCat.json"],
+      "/qna/[[...slug]]": ["./data/qna.json", "./data/qnCat.json"],
+      "/qna/answer/[id]": ["./data/qna.json", "./data/qnCat.json"],
+    },
+  },
   async redirects() {
     return [
       {
