@@ -133,11 +133,52 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
     /\|\s*[A-Za-z]+\s+\d{1,2},\s+\d{4}/,
   ];
   const citationLines = [];
+  const metaLines = [];
   const contentLines = [];
+  const noisyLinePatterns = [
+    /^\d+\s*[+\-]\s*\d+/,
+    /^\d+(\s+[+\-]\s*\d+)+$/,
+    /^Views?$/i,
+    /^Tags?:\s*/i,
+    /^Category:\s*/i,
+    /^\.?video-toolbar-item\./i,
+  ];
+
+  const pushMetaPair = (line) => {
+    const categoryMatch = line.match(/Category:\s*([^]+?)(?:\s+Tags?:|$)/i);
+    const tagsMatch = line.match(/Tags?:\s*([^]+?)(?:\s+\d+\s*[+\-]\s*\d+.*|$)/i);
+
+    if (categoryMatch?.[1]) {
+      const categoryText = categoryMatch[1].replace(/\s+/g, " ").trim().replace(/[,;\s]+$/g, "");
+      if (categoryText) metaLines.push(`Category: ${categoryText}`);
+    }
+
+    if (tagsMatch?.[1]) {
+      const tagsText = tagsMatch[1].replace(/\s+/g, " ").trim().replace(/[,;\s]+$/g, "");
+      if (tagsText) metaLines.push(`Tags: ${tagsText}`);
+    }
+  };
+
   answerLines.forEach((line) => {
     if (citationLinePatterns.some((pattern) => pattern.test(line))) {
       const cleanedLine = line.replace(/^QUESTION:\s*/i, "").trim();
       if (cleanedLine) citationLines.push(cleanedLine);
+      return;
+    }
+    if (/^Category:\s*/i.test(line) && /\bTags?:\s*/i.test(line)) {
+      pushMetaPair(line);
+      return;
+    }
+    if (noisyLinePatterns.some((pattern) => pattern.test(line))) {
+      const cleanedMeta = line
+        .replace(/\s{2,}/g, " ")
+        .replace(/^Category:\s*/i, "Category: ")
+        .replace(/^Tags?:\s*/i, "Tags: ")
+        .trim();
+
+      if (cleanedMeta.startsWith("Category:") || cleanedMeta.startsWith("Tags:")) {
+        metaLines.push(cleanedMeta);
+      }
       return;
     }
     contentLines.push(line);
@@ -145,6 +186,7 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
   const prominentAnswerLine = contentLines.length ? contentLines[0] : "";
   const remainingAnswerText = contentLines.length > 1 ? contentLines.slice(1).join('\n\n') : "";
   const citationText = citationLines.join('\n');
+  const metaText = metaLines.join('\n');
 
   const getCanonicalAudioUrl = (value) => {
     if (!value) return "";
@@ -325,7 +367,7 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                         </div>
 
                         {uniqueVideoSources.length > 0 && (
-                          <div className="mt-6 space-y-4">
+                          <div className="mt-4 space-y-4">
                             {uniqueVideoSources.map((src, idx) => (
                               <div key={src} className="w-full">
                                 <iframe
@@ -339,6 +381,14 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
                                 />
                               </div>
                             ))}
+                          </div>
+                        )}
+
+                        {metaText && (
+                          <div className="mt-5 sm:mt-6">
+                            <p className="text-xs sm:text-sm text-gray-500 leading-relaxed whitespace-pre-line">
+                              {metaText}
+                            </p>
                           </div>
                         )}
 
