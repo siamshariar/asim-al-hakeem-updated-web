@@ -109,6 +109,7 @@ export async function getStaticProps(context) {
       getAllPlaylists2().catch(() => ({ playlists: [], playlistsTitle: {} })),
       getHomeBooks().catch(() => []),
       getQnaByLimit(3).catch(() => []),
+      getQnaByLimit(3).catch(() => []),
       getAllQnaCategory().catch(() => []),
     ]);
 
