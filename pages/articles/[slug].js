@@ -171,7 +171,9 @@ export default function ArticleDetail({ article, playlists, headerLectures, qnaC
                 {hasRichBody ? (
                   <div
                     className="article-body-html text-sm sm:text-base text-gray-700 leading-relaxed [&_iframe]:w-full [&_iframe]:max-w-full [&_iframe]:aspect-video [&_iframe]:rounded-xl [&_iframe]:my-4 [&_img]:max-w-full [&_img]:h-auto [&_p]:mb-4 [&_figure]:my-4 [&_figure]:mx-0"
+
                     className="article-body-html text-sm sm:text-base text-gray-700 leading-relaxed [&_iframe]:w-full [&_iframe]:max-w-full [&_iframe]:aspect-video [&_iframe]:rounded-xl [&_iframe]:my-4 [&_img]:max-w-full [&_img]:h-auto [&_p]:mb-4 [&_figure]:my-4"
+                    dangerouslySetInnerHTML={{ __html: localizedBodyHtml }}
                   />
                 ) : (
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{article.description || article.excerpt || article.postExcerpt}</p>
