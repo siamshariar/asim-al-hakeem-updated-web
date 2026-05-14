@@ -196,14 +196,14 @@ export default function ArticleDetail({ article, playlists, headerLectures, qnaC
                   </a>
                   <button
                     onClick={handleCopyLink}
-                    className={`p-2 sm:p-2.5 rounded-lg transition-colors ${copiedShare ? 'bg-green-500' : 'bg-[#10b981] hover:bg-[#059669]'}`}
+                    className={`p-2 sm:p-2.5 text-white rounded-lg transition-colors ${copiedShare ? 'bg-green-500' : 'bg-[#10b981] hover:bg-[#059669]'}`}
                     title={copiedShare ? 'Copied to clipboard!' : 'Copy link to clipboard'}
                     aria-label={copiedShare ? 'Copied to clipboard!' : 'Copy link to clipboard'}
                   >
                     {copiedShare ? (
-                      <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
+                      <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px] !text-white" />
                     ) : (
-                      <Copy size={16} className="sm:w-[18px] sm:h-[18px]" />
+                      <Copy size={16} className="sm:w-[18px] sm:h-[18px] !text-white" />
                     )}
                   </button>
                 </div>
