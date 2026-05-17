@@ -17,24 +17,24 @@ export default function ArticlesSection({ articles }) {
   if (!articles?.length) return null;
 
   return (
-    <section className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-[#f8fafc] via-[#eff6ff] to-[#f0f9ff]">
-      <div className="container max-w-[1260px] mx-auto px-3 xs:px-4 sm:px-6">
+    <section className="py-12 lg:py-20 bg-gradient-to-br from-[#f8fafc] via-[#eff6ff] to-[#f0f9ff]">
+      <div className="container max-w-[1260px] mx-auto px-4 sm:px-6">
         <motion.div
           {...fadeInUp}
-          className="flex flex-col xs:flex-row xs:items-start xs:justify-between gap-3 xs:gap-4 mb-6 sm:mb-10"
+          className="flex items-start justify-between gap-4 mb-10"
         >
           <div className="min-w-0 flex-1">
-            <span className="text-accent font-semibold uppercase tracking-wider text-xs xs:text-sm">Insights & Knowledge</span>
-            <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold text-primary mt-1 xs:mt-2">Latest Articles</h2>
+            <span className="text-accent font-semibold uppercase tracking-wider text-sm">Insights & Knowledge</span>
+            <h2 className="section-title text-primary mt-2">Latest Articles</h2>
           </div>
-          <div className="shrink-0">
+          <div className="shrink-0 ml-auto">
             <Link href="/articles">
               <motion.button
                 whileHover={{ x: 5 }}
-                className="inline-flex items-center gap-1 xs:gap-2 text-accent font-medium hover:text-accent-secondary transition-colors text-xs xs:text-sm whitespace-nowrap"
+                className="inline-flex items-center gap-2 text-accent font-medium hover:text-accent-secondary transition-colors text-sm"
               >
-                <span>View All</span>
-                <ArrowRight size={14} className="xs:block hidden" />
+                <span>View All Articles</span>
+                <ArrowRight size={16} />
               </motion.button>
             </Link>
           </div>
@@ -43,12 +43,12 @@ export default function ArticlesSection({ articles }) {
         {featuredArticle && (
           <motion.div
             {...fadeInUp}
-            className="mb-6 sm:mb-8"
+            className="mb-8"
           >
             <Link href={`/articles/${featuredArticle.postSlug || featuredArticle.id}`}>
-              <div className="group bg-white rounded-lg sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="grid lg:grid-cols-2 gap-3 sm:gap-6">
-                  <div className="relative h-40 xs:h-48 sm:h-64 lg:h-full overflow-hidden">
+              <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="grid lg:grid-cols-2 gap-6">
+                  <div className="relative h-64 lg:h-full overflow-hidden">
                     <Image
                       src={featuredArticle.imageSrc || "/img/articles/default.jpg"}
                       alt={featuredArticle.postTitle || featuredArticle.title}
