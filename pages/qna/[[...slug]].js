@@ -50,9 +50,34 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
   const lastScrollY = useRef(0);
   const backToTopRef = useRef(null);
   const hasRestoredScrollRef = useRef(false);
+  const pendingScrollRestoreRef = useRef(null);
+  const initialScrollRestoreRequestedRef = useRef(false);
+  const [isRestoringScroll, setIsRestoringScroll] = useState(false);
+
+  if (typeof window !== "undefined" && !initialScrollRestoreRequestedRef.current) {
+    initialScrollRestoreRequestedRef.current = sessionStorage.getItem("qna_scroll_restore") === "true";
+  }
+
+  // Track link clicks to differentiate from back/forward navigation
+  const linkClickedRef = useRef(false);
+
+  useEffect(() => {
+    const handleLinkClick = (e) => {
+      const target = e.target.closest('a');
+      if (target && target.href) {
+        const targetUrl = new URL(target.href);
+        const currentUrl = new URL(window.location.href);
+        if (targetUrl.origin === currentUrl.origin) {
+          linkClickedRef.current = true;
+        }
+      }
+    };
+    document.addEventListener('click', handleLinkClick);
+    return () => document.removeEventListener('click', handleLinkClick);
+  }, []);
 
   // Initialize data only once when component mounts with initial data
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!initialDataLoadedRef.current && initialQnaPage) {
       // Check if we need to restore scroll position
       const needsRestore = sessionStorage.getItem("qna_scroll_restore") === "true";
@@ -80,22 +105,12 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           setIsLoadingInitial(false);
           initialDataLoadedRef.current = true;
           hasRestoredScrollRef.current = true;
+          initialScrollRestoreRequestedRef.current = true;
+          setIsRestoringScroll(true);
+          pendingScrollRestoreRef.current = parseInt(sessionStorage.getItem("qna_scroll_position") || "0", 10) || 0;
           
           // Clear the restore flag
           sessionStorage.removeItem("qna_scroll_restore");
-          
-          // Restore scroll position after a short delay to ensure DOM is ready
-          setTimeout(() => {
-            const savedPosition = sessionStorage.getItem("qna_scroll_position");
-            if (savedPosition) {
-              const scrollY = parseInt(savedPosition, 10);
-              window.scrollTo({
-                top: scrollY,
-                behavior: 'instant'
-              });
-              sessionStorage.removeItem("qna_scroll_position");
-            }
-          }, 100);
           
           return;
         } catch (e) {
@@ -136,8 +151,25 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       previousCategoryRef.current = initialCategory || "all";
       setIsLoadingInitial(false);
       initialDataLoadedRef.current = true;
+      setIsRestoringScroll(false);
     }
   }, [initialQnaPage, initialCategory]);
+
+  useIsomorphicLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    if (isLoadingInitial) return;
+
+    const scrollY = pendingScrollRestoreRef.current;
+    if (scrollY === null || scrollY === undefined) return;
+
+    window.scrollTo(0, scrollY);
+    document.documentElement.scrollTop = scrollY;
+    document.body.scrollTop = scrollY;
+    pendingScrollRestoreRef.current = null;
+    initialScrollRestoreRequestedRef.current = false;
+    sessionStorage.removeItem("qna_scroll_position");
+    setIsRestoringScroll(false);
+  }, [isLoadingInitial, loadedPages, currentPage, totalPages]);
 
   // Track mounted state
   useEffect(() => {
@@ -176,10 +208,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         lastScrollY.current = scrollY;
         if (isMountedRef.current) {
           setShowBackToTop(scrollY > 200);
-        }
-        // Store scroll position for restoration
-        if (!hasRestoredScrollRef.current) {
-          sessionStorage.setItem("qna_scroll_position", scrollY.toString());
         }
       }
     };
@@ -277,7 +305,8 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
 
   const scrollToTopInstantly = useCallback(() => {
     if (typeof window === "undefined") return;
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Instant jump to top without smooth behavior
+    window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
     if (containerRef.current) {
@@ -302,7 +331,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     }
 
     if (targetCategory !== selectedCategory || isInitialMountRef.current) {
-      if (!hasRestoredScrollRef.current) {
+      if (!hasRestoredScrollRef.current && !initialScrollRestoreRequestedRef.current && !isRestoringScroll) {
         scrollToTopInstantly();
       }
       
@@ -376,15 +405,11 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
 
     if (typeof window !== "undefined") {
       window.sessionStorage.setItem(LAST_QNA_CATEGORY_KEY, slug);
-      // Clear cached data when changing categories
-      sessionStorage.removeItem("qna_cached_data");
-      sessionStorage.removeItem("qna_cached_category");
-      sessionStorage.removeItem("qna_scroll_position");
     }
 
     // Update URL immediately (not after fetch completes)
     const url = slug === "all" ? "/qna" : `/qna/${slug}`;
-    await router.replace(url, undefined, { shallow: true, scroll: false });
+    router.push(url, undefined, { shallow: true, scroll: false });
 
     try {
       const res = await fetch(`/api/qna?currentPage=1&cat_slug=${slug}&pageSize=${PAGE_SIZE}`);
@@ -589,6 +614,8 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       sessionStorage.setItem("qna_cached_data", JSON.stringify(cacheData));
       sessionStorage.setItem("qna_cached_category", selectedCategory);
       sessionStorage.setItem("qna_scroll_position", window.scrollY.toString());
+      // Mark that we should restore when returning
+      sessionStorage.setItem("qna_scroll_restore", "true");
     }
   };
 
@@ -638,17 +665,18 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         }
       `}</style>
       
-      <Meta title="Q&A - Sheikh Assim Al Hakeem" description="Get answers to your Islamic questions from Sheikh Assim Al Hakeem" />
-      <Header2 playlists={playlists} lectures={headerLectures} qna_categories={visibleQnaCategories} />
+      <div style={{ visibility: isRestoringScroll ? "hidden" : "visible" }}>
+        <Meta title="Q&A - Sheikh Assim Al Hakeem" description="Get answers to your Islamic questions from Sheikh Assim Al Hakeem" />
+        <Header2 playlists={playlists} lectures={headerLectures} qna_categories={visibleQnaCategories} />
 
-      <PageHero
-        title="Questions & Answers"
-        subtitle="Find authentic Islamic answers from Sheikh Assim Al Hakeem"
-        Icon={HelpCircle}
-      />
+        <PageHero
+          title="Questions & Answers"
+          subtitle="Find authentic Islamic answers from Sheikh Assim Al Hakeem"
+          Icon={HelpCircle}
+        />
 
-      {/* Search and Filter Section */}
-      <section className="py-2.5 xs:py-3 sm:py-4 lg:py-6 bg-white border-b border-gray-100 sticky top-0 z-30">
+        {/* Search and Filter Section */}
+        <section className="py-2.5 xs:py-3 sm:py-4 lg:py-6 bg-white border-b border-gray-100 sticky top-0 z-30">
         <div className="max-w-[1260px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
           <div className="flex flex-col lg:flex-row gap-2.5 xs:gap-3 lg:gap-4 items-start lg:items-center">
             {/* Search Input */}
@@ -704,10 +732,10 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
             )}
           </div>
         </div>
-      </section>
+        </section>
 
       {/* Category Drawer - Mobile/Tablet (Bottom Sheet) */}
-      <AnimatePresence>
+        <AnimatePresence>
         {showCategoryDrawer && (
           <>
             <motion.div
@@ -798,10 +826,10 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
             </motion.div>
           </>
         )}
-      </AnimatePresence>
+        </AnimatePresence>
 
-      {/* Q&A List */}
-      <section className="py-8 xs:py-8 sm:py-10 lg:py-10 bg-gray-50 min-h-[60vh]" ref={containerRef}>
+        {/* Q&A List */}
+        <section className="py-8 xs:py-8 sm:py-10 lg:py-10 bg-gray-50 min-h-[60vh]" ref={containerRef}>
         <div className="max-w-[1260px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
           <div className="grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)]">
             {/* Desktop Sidebar */}
@@ -929,29 +957,27 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* Back to Top Floating Button - GREEN BG WITH WHITE ICON - FIXED */}
-      <button
-        ref={backToTopRef}
-        onClick={scrollToTop}
-        type="button"
-        className="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 lg:bottom-10 lg:right-8 w-11 h-11 sm:w-12 sm:h-12 bg-[#10b981] hover:bg-[#059669] rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 border-0 outline-none cursor-pointer active:scale-95 group"
-        style={{ 
-          WebkitTapHighlightColor: 'transparent',
-          boxShadow: '0 4px 20px rgba(16, 185, 129, 0.4)',
-          opacity: showBackToTop ? 1 : 0,
-          visibility: showBackToTop ? 'visible' : 'hidden',
-          transform: showBackToTop ? 'translateY(0)' : 'translateY(100px)',
-          pointerEvents: showBackToTop ? 'auto' : 'none',
-          transition: 'opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease',
-          zIndex: 9999,
-        }}
-        aria-label="Back to top"
-        title="Scroll to top"
-      >
-        <ArrowUp size={20} className="sm:w-[22px] sm:h-[22px] text-white group-hover:-translate-y-0.5 transition-transform" />
-      </button>
+        {/* Back to Top Floating Button - GREEN BG WITH WHITE ICON - FIXED */}
+        <button
+          ref={backToTopRef}
+          onClick={scrollToTop}
+          type="button"
+          className="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 lg:bottom-10 lg:right-8 w-11 h-11 sm:w-12 sm:h-12 bg-[#10b981] hover:bg-[#059669] rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 border-0 outline-none cursor-pointer active:scale-95 group"
+          style={{ 
+            WebkitTapHighlightColor: 'transparent',
+            boxShadow: '0 4px 20px rgba(16, 185, 129, 0.4)',
+            opacity: showBackToTop ? 1 : 0,
+            visibility: showBackToTop ? 'visible' : 'hidden',
+            transform: showBackToTop ? 'translateY(0)' : 'translateY(100px)',
+            pointerEvents: showBackToTop ? 'auto' : 'none',
+            transition: 'opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease',
+            zIndex: 9999,
+          }}
+        >
+          <ArrowUp size={20} className="sm:w-[22px] sm:h-[22px] text-white group-hover:-translate-y-0.5 transition-transform" />
+        </button>
 
       {/* Ask Question CTA */}
       <section className="py-8 xs:py-10 sm:py-12 bg-gradient-to-r from-[#10b981] to-[#059669]">
@@ -971,6 +997,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           </Link>
         </div>
       </section>
+      </div>
     </>
   );
 }
