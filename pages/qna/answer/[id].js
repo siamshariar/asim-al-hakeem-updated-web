@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { server } from "../../../lib/config";
 import { getAllPlaylists2, getHeaderLectures, getAllQnaCategory, getQnaByLimit } from "../../../lib/fetch";
 import Meta from "../../../components/meta";
@@ -46,6 +46,15 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
     return () => {
       if (shareTimeoutRef.current) clearTimeout(shareTimeoutRef.current);
     };
+  }, []);
+
+  // Ensure the answer page always opens at the top (run before paint)
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
+    // Direct jump to top to avoid smooth scrolling
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, []);
 
   if (router.isFallback) {
@@ -262,8 +271,8 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
     if (typeof window !== "undefined") {
       sessionStorage.setItem("qna_scroll_restore", "true");
     }
-    // Use router.push for client-side navigation
-    router.push(url);
+    // Use router.push for client-side navigation but prevent automatic scroll
+    router.push(url, undefined, { shallow: true, scroll: false });
   };
 
   // Filter categories for display
