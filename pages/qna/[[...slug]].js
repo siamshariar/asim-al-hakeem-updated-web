@@ -398,6 +398,8 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     
     // Keep old data visible while loading new category - show transition
     setIsTransitioningCategory(true);
+    // mark initial loading for the new category so other effects wait
+    setIsLoadingInitial(true);
     setCurrentPage(1);
     setTotalPages(1);
     loadedIdsRef.current = new Set();
@@ -430,9 +432,32 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           setCurrentPage(1);
           setTotalPages(1);
         }
+        // Reset loading flags
         setIsLoadingInitial(false);
+        setIsLoadingMore(false);
+        fetchingRef.current = false;
         setIsSwitchingCategory(false);
         setIsTransitioningCategory(false);
+
+        // If more pages exist and the load-more sentinel is present and visible,
+        // ensure the intersection observer gets a chance to trigger so users
+        // can scroll to load the next page without a full page reload.
+        try {
+          const hasMore = (data?.numberOfPages || 1) > (data?.currentPage || 1);
+          if (hasMore && loadMoreRef.current && typeof loadMoreRef.current.scrollIntoView === 'function') {
+            // small delay to let DOM update
+            setTimeout(() => {
+              // bring the sentinel into view briefly to trigger observer
+              loadMoreRef.current.scrollIntoView({ block: 'center', behavior: 'auto' });
+              // restore scroll a tiny bit so UX isn't disturbed
+              setTimeout(() => {
+                window.scrollBy(0, -8);
+              }, 120);
+            }, 250);
+          }
+        } catch (e) {
+          // ignore any errors from scroll manipulation
+        }
       }
     } catch (error) {
       console.error("Error fetching category data:", error);
