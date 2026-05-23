@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-const useOnScreen = (ref, options = {}) => {
+const useOnScreen = (ref, options = {}, resetKey) => {
     const [isIntersecting, setIntersecting] = useState(false)
     const observerRef = useRef(null)
 
@@ -34,7 +34,7 @@ const useOnScreen = (ref, options = {}) => {
                 observerRef.current = null
             }
         }
-    }, [ref.current, options.rootMargin, options.threshold])
+    }, [ref.current, options.rootMargin, options.threshold, resetKey])
 
     return isIntersecting
 }
