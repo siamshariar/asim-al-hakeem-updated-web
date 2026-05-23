@@ -39,7 +39,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
   const mainContentRef = useRef(null);
   const scrollAttemptRef = useRef(0);
   const deferredSearchTerm = useDeferredValue(searchTerm);
-  const isLoadMoreVisible = useOnScreen(loadMoreRef, { rootMargin: '300px', threshold: 0 });
+  const isLoadMoreVisible = useOnScreen(loadMoreRef, { rootMargin: '300px', threshold: 0 }, selectedCategory);
   const currentCategoryRef = useRef(selectedCategory);
   const loadedIdsRef = useRef(new Set());
   const initialDataLoadedRef = useRef(false);
@@ -954,7 +954,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
                             </div>
                           </motion.div>
                         ))}
-                        <div ref={loadMoreRef} className="flex items-center justify-center py-8 min-h-[80px]">
+                        <div key={selectedCategory} ref={loadMoreRef} className="flex items-center justify-center py-8 min-h-[80px]">
                           {isLoadingMore && hasMoreToLoad && (
                             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center gap-3">
                               <svg className="animate-spin h-6 w-6 sm:h-7 sm:w-7 text-[#10b981]" viewBox="0 0 24 24">
