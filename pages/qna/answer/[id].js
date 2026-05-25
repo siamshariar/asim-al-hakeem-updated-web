@@ -51,10 +51,23 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
   // Ensure the answer page always opens at the top (run before paint)
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return;
+    let previousScrollRestoration = null;
+    if ("scrollRestoration" in window.history) {
+      previousScrollRestoration = window.history.scrollRestoration;
+      window.history.scrollRestoration = "manual";
+    }
+    const previousBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = "auto";
     // Direct jump to top to avoid smooth scrolling
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    return () => {
+      document.documentElement.style.scrollBehavior = previousBehavior;
+      if (previousScrollRestoration !== null && "scrollRestoration" in window.history) {
+        window.history.scrollRestoration = previousScrollRestoration;
+      }
+    };
   }, []);
 
   if (router.isFallback) {
@@ -267,12 +280,20 @@ export default function QnaAnswerDetail({ answer, playlists, headerLectures, qna
   // Handle back navigation with router
   const handleBackNavigation = (e, url) => {
     e.preventDefault();
+    const canUseBrowserBack = typeof window !== "undefined" && !!sessionStorage.getItem("qna_scroll_state");
+
     // Store that we want to restore scroll position
     if (typeof window !== "undefined") {
       sessionStorage.setItem("qna_scroll_restore", "true");
     }
-    // Use router.push for client-side navigation but prevent automatic scroll
-    router.push(url, undefined, { shallow: true, scroll: false });
+
+    if (canUseBrowserBack && window.history.length > 1) {
+      router.back();
+      return;
+    }
+
+    // Fallback for direct visits or when history back is unavailable.
+    router.push(url, undefined, { scroll: false });
   };
 
   // Filter categories for display
