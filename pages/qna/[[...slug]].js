@@ -6,7 +6,6 @@ import Header2 from "../../components/header1";
 import PageHero from "../../components/page-hero";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import useOnScreen from "../../hooks/useOnScreen";
 import { HelpCircle, ChevronRight, FolderOpen, MessageCircle, X, Search, Grid3X3, ArrowUp, BookOpen, Filter, List, ChevronUp } from "lucide-react";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
@@ -14,7 +13,7 @@ const LAST_QNA_CATEGORY_KEY = "qna_last_category";
 const QNA_SCROLL_STATE_KEY = "qna_scroll_state";
 const SCROLL_RESTORE_FLAG_KEY = "qna_scroll_restore";
 const PAGE_SIZE = 10;
-const LOADING_DELAY = 1000;
+const LOADING_DELAY = 800;
 
 export default function QnaPage({ playlists, headerLectures, qnaCategories, initialQnaPage, initialCategory, initialTopQna }) {
   const router = useRouter();
@@ -31,22 +30,22 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
   const [isSwitchingCategory, setIsSwitchingCategory] = useState(false);
   const [isTransitioningCategory, setIsTransitioningCategory] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  
+  // Refs
   const loadMoreRef = useRef(null);
-  const lastLoadTimeRef = useRef(0);
+  const sentinelRef = useRef(null);
+  const observerRef = useRef(null);
   const isInitialMountRef = useRef(true);
   const fetchingRef = useRef(false);
   const loadingTimeoutRef = useRef(null);
   const containerRef = useRef(null);
   const categorySearchInputRef = useRef(null);
   const mainContentRef = useRef(null);
-  const scrollAttemptRef = useRef(0);
   const deferredSearchTerm = useDeferredValue(searchTerm);
-  const isLoadMoreVisible = useOnScreen(loadMoreRef, { rootMargin: '300px', threshold: 0 }, selectedCategory);
   const currentCategoryRef = useRef(selectedCategory);
   const loadedIdsRef = useRef(new Set());
   const initialDataLoadedRef = useRef(false);
   const previousCategoryRef = useRef(initialCategory || "all");
-  const loadMoreRetryRef = useRef(null);
   const categoryRequestIdRef = useRef(0);
   const isMountedRef = useRef(true);
   const lastScrollY = useRef(0);
@@ -60,9 +59,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
   const restoreTargetRef = useRef(null);
   const restoreScrollBehaviorRef = useRef(null);
   const historyScrollRestorationRef = useRef(null);
-  const contentMeasureRafRef = useRef(null);
   const [isRestoringScroll, setIsRestoringScroll] = useState(false);
-  const [isContentShort, setIsContentShort] = useState(false);
 
   const getCurrentScrollY = useCallback(() => {
     if (typeof window === "undefined") return 0;
@@ -144,7 +141,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     restoreRafRef.current = requestAnimationFrame(tick);
   }, [getCurrentScrollY]);
 
-  // Cache data when navigating to answer
   const cacheDataBeforeNavigation = useCallback(() => {
     if (typeof window === "undefined") return;
 
@@ -168,12 +164,10 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     sessionStorage.setItem("qna_cached_data", JSON.stringify(cacheData));
     sessionStorage.setItem("qna_cached_category", selectedCategory);
     sessionStorage.setItem("qna_scroll_position", scrollY.toString());
-    // Mark that we should restore when returning
     sessionStorage.setItem(SCROLL_RESTORE_FLAG_KEY, "true");
     sessionStorage.setItem(QNA_SCROLL_STATE_KEY, JSON.stringify(snapshot));
   }, [currentPage, getCurrentScrollY, loadedPages, selectedCategory, totalPages]);
 
-  // Track link clicks to differentiate from back/forward navigation
   const linkClickedRef = useRef(false);
 
   useIsomorphicLayoutEffect(() => {
@@ -225,14 +219,11 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     return () => router.events.off("routeChangeStart", handleRouteChangeStart);
   }, [router.events, cacheDataBeforeNavigation]);
 
-  // Initialize data only once when component mounts with initial data
+  // Initialize data
   useIsomorphicLayoutEffect(() => {
     if (!initialDataLoadedRef.current && initialQnaPage) {
-      // Check if we need to restore scroll position
       const needsRestore = sessionStorage.getItem(SCROLL_RESTORE_FLAG_KEY) === "true";
       const storedSnapshotRaw = sessionStorage.getItem(QNA_SCROLL_STATE_KEY);
-      
-      // Check if we have cached data in sessionStorage
       const cachedData = sessionStorage.getItem("qna_cached_data");
       const cachedCategory = sessionStorage.getItem("qna_cached_category");
 
@@ -261,7 +252,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
               ? snapshot.scrollY
               : parseInt(sessionStorage.getItem("qna_scroll_position") || "0", 10) || 0;
             setPendingScrollRestore(restoredScrollY);
-
             return;
           }
         } catch (e) {
@@ -276,7 +266,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           setCurrentPage(parsed.currentPage);
           setTotalPages(parsed.totalPages);
           
-          // Restore loaded IDs
           const ids = new Set();
           parsed.pages.flat().forEach(item => {
             if (item?.id) ids.add(item.id);
@@ -291,22 +280,18 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           initialScrollRestoreRequestedRef.current = true;
           const restoredScrollY = parseInt(sessionStorage.getItem("qna_scroll_position") || "0", 10) || 0;
           setPendingScrollRestore(restoredScrollY);
-          
           return;
         } catch (e) {
           console.error("Error parsing cached data:", e);
         }
       }
       
-      // Clear restore flag if it exists but we're not restoring
       if (needsRestore) {
         sessionStorage.removeItem(SCROLL_RESTORE_FLAG_KEY);
         initialScrollRestoreRequestedRef.current = false;
         setIsRestoringScroll(false);
       }
       
-      // If we have a special top-QnA list (first 3) for the "all" category,
-      // render them first and exclude them from the main page items to avoid duplicates.
       if (initialTopQna && Array.isArray(initialTopQna) && initialTopQna.length > 0 && (initialCategory === 'all' || !initialCategory)) {
         const topIds = new Set(initialTopQna.map(i => i?.id).filter(Boolean));
         const remaining = (initialQnaPage?.qaItems || []).filter(i => !topIds.has(i?.id));
@@ -343,11 +328,9 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     if (typeof window === "undefined") return;
     if (isLoadingInitial) return;
     if (!Number.isFinite(pendingScrollRestoreRef.current)) return;
-
     runScrollRestore();
   }, [isLoadingInitial, loadedPages, currentPage, totalPages, runScrollRestore]);
 
-  // Track mounted state
   useEffect(() => {
     isMountedRef.current = true;
     return () => {
@@ -367,19 +350,17 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     loadedIdsRef.current = ids;
   }, [loadedPages]);
 
-  // FIXED: Back to top visibility handler - Multiple detection methods
+  // Back to top visibility
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const checkScroll = () => {
-      // Try multiple ways to get scroll position
       const scrollY = window.scrollY || 
                       window.pageYOffset || 
                       document.documentElement.scrollTop || 
                       document.body.scrollTop || 
                       0;
       
-      // Only update if changed
       if (lastScrollY.current !== scrollY) {
         lastScrollY.current = scrollY;
         if (isMountedRef.current) {
@@ -388,15 +369,11 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       }
     };
 
-    // Add scroll listener to window
     window.addEventListener("scroll", checkScroll, { passive: true });
-    // Also add to document for compatibility
     document.addEventListener("scroll", checkScroll, { passive: true });
     
-    // Check every 300ms as fallback
     const interval = setInterval(checkScroll, 300);
     
-    // Initial check
     setTimeout(checkScroll, 100);
     setTimeout(checkScroll, 500);
     setTimeout(checkScroll, 1000);
@@ -408,7 +385,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     };
   }, []);
 
-  // Force body to be scrollable
   useEffect(() => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = 'auto';
@@ -421,14 +397,12 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     }
   }, []);
 
-  // Focus category search input when drawer opens
   useEffect(() => {
     if (showCategoryDrawer && categorySearchInputRef.current) {
       setTimeout(() => {
         categorySearchInputRef.current?.focus();
       }, 150);
     }
-    // Prevent body scroll when drawer is open
     if (showCategoryDrawer) {
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
@@ -445,7 +419,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     };
   }, [showCategoryDrawer]);
 
-  // Clean up old cache (older than 30 minutes)
   useEffect(() => {
     const cleanupCache = () => {
       const cachedTimestamp = sessionStorage.getItem("qna_cache_timestamp");
@@ -463,15 +436,12 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     };
     
     cleanupCache();
-    
-    // Store current timestamp
     sessionStorage.setItem("qna_cache_timestamp", Date.now().toString());
   }, []);
 
   const scrollToTop = useCallback(() => {
     if (typeof window === "undefined") return;
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Fallback
     setTimeout(() => {
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
@@ -481,7 +451,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
 
   const scrollToTopInstantly = useCallback(() => {
     if (typeof window === "undefined") return;
-    // Instant jump to top without smooth behavior
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -489,6 +458,139 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       containerRef.current.scrollTop = 0;
     }
   }, []);
+
+  // Load more data function
+  const loadMoreData = useCallback(async () => {
+    if (fetchingRef.current) return;
+    if (currentPage >= totalPages) return;
+    
+    const categoryAtStart = currentCategoryRef.current;
+    fetchingRef.current = true;
+    
+    if (isMountedRef.current) {
+      setIsLoadingMore(true);
+    }
+    
+    const loadStartedAt = Date.now();
+
+    try {
+      const nextPageNumber = currentPage + 1;
+      
+      const res = await fetch(`/api/qna?currentPage=${nextPageNumber}&cat_slug=${categoryAtStart}&pageSize=${PAGE_SIZE}`);
+      const data = await res.json();
+      
+      if (categoryAtStart !== currentCategoryRef.current || !isMountedRef.current) {
+        fetchingRef.current = false;
+        setIsLoadingMore(false);
+        return;
+      }
+
+      const elapsed = Date.now() - loadStartedAt;
+      if (elapsed < LOADING_DELAY) {
+        await new Promise((resolve) => {
+          loadingTimeoutRef.current = setTimeout(resolve, LOADING_DELAY - elapsed);
+        });
+        loadingTimeoutRef.current = null;
+      }
+
+      if (categoryAtStart !== currentCategoryRef.current || !isMountedRef.current) {
+        fetchingRef.current = false;
+        setIsLoadingMore(false);
+        return;
+      }
+
+      if (data?.qaItems?.length) {
+        setLoadedPages((prev) => {
+          const existingIds = loadedIdsRef.current;
+          const newItems = data.qaItems.filter(item => item?.id && !existingIds.has(item.id));
+          
+          if (newItems.length > 0) {
+            newItems.forEach(item => {
+              if (item?.id) loadedIdsRef.current.add(item.id);
+            });
+            return [...prev, newItems];
+          }
+          return prev;
+        });
+        setCurrentPage(data.currentPage || nextPageNumber);
+        setTotalPages(data.numberOfPages || totalPages);
+      } else {
+        setCurrentPage(totalPages);
+      }
+    } catch (error) {
+      console.error("Error loading more:", error);
+    } finally {
+      if (categoryAtStart === currentCategoryRef.current && isMountedRef.current) {
+        fetchingRef.current = false;
+        setIsLoadingMore(false);
+      }
+    }
+  }, [currentPage, totalPages]);
+
+  // Set up Intersection Observer for infinite scroll
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+    
+    if (isLoadingInitial || isSwitchingCategory || isTransitioningCategory || isRestoringScroll) {
+      return;
+    }
+    
+    if (currentPage >= totalPages) {
+      return;
+    }
+    
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !fetchingRef.current && currentPage < totalPages) {
+            loadMoreData();
+          }
+        });
+      },
+      {
+        rootMargin: '200px',
+        threshold: 0.1,
+      }
+    );
+    
+    observer.observe(sentinel);
+    observerRef.current = observer;
+    
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+    };
+  }, [isLoadingInitial, isSwitchingCategory, isTransitioningCategory, isRestoringScroll, currentPage, totalPages, selectedCategory, loadMoreData]);
+
+  // Check if content is short and needs to load more immediately
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (isLoadingInitial || isSwitchingCategory || isTransitioningCategory || isRestoringScroll) return;
+    if (currentPage >= totalPages) return;
+    if (fetchingRef.current) return;
+    
+    const checkContentHeight = () => {
+      const docHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight || 0;
+      
+      if (docHeight <= viewportHeight + 200) {
+        loadMoreData();
+      }
+    };
+    
+    const timeout = setTimeout(checkContentHeight, 500);
+    
+    return () => clearTimeout(timeout);
+  }, [loadedPages, isLoadingInitial, isSwitchingCategory, isTransitioningCategory, isRestoringScroll, currentPage, totalPages, loadMoreData]);
 
   useIsomorphicLayoutEffect(() => {
     if (!router.isReady) return;
@@ -541,7 +643,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
   }, [visibleQnaCategories, categorySearchTerm]);
 
   const handleCategoryChange = useCallback(async (slug) => {
-    // Don't reload if same category
     if (slug === selectedCategory && slug === previousCategoryRef.current) {
       setShowMobileFilters(false);
       setShowCategoryDrawer(false);
@@ -550,17 +651,11 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
 
     const requestId = ++categoryRequestIdRef.current;
 
-    // Clear any pending timeouts and fetches
     if (loadingTimeoutRef.current) {
       clearTimeout(loadingTimeoutRef.current);
       loadingTimeoutRef.current = null;
     }
-    if (loadMoreRetryRef.current) {
-      clearTimeout(loadMoreRetryRef.current);
-      loadMoreRetryRef.current = null;
-    }
 
-    // Ensure category switches always reset to top
     pendingScrollRestoreRef.current = null;
     restoreTargetRef.current = null;
     initialScrollRestoreRequestedRef.current = false;
@@ -571,10 +666,14 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       sessionStorage.removeItem("qna_scroll_position");
     }
 
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+      observerRef.current = null;
+    }
+
     scrollToTopInstantly();
     hasRestoredScrollRef.current = false;
     
-    // Update UI immediately
     currentCategoryRef.current = slug;
     setSelectedCategory(slug);
     previousCategoryRef.current = slug;
@@ -582,11 +681,8 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
     setShowCategoryDrawer(false);
     setCategorySearchTerm("");
     fetchingRef.current = false;
-    scrollAttemptRef.current = 0;
     
-    // Keep old data visible while loading new category - show transition
     setIsTransitioningCategory(true);
-    // mark initial loading for the new category so other effects wait
     setIsLoadingInitial(true);
     setCurrentPage(1);
     setTotalPages(1);
@@ -597,7 +693,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       window.sessionStorage.setItem(LAST_QNA_CATEGORY_KEY, slug);
     }
 
-    // Update URL immediately (not after fetch completes)
     const url = slug === "all" ? "/qna" : `/qna/${slug}`;
     router.push(url, undefined, { shallow: true, scroll: false });
 
@@ -605,13 +700,11 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       const res = await fetch(`/api/qna?currentPage=1&cat_slug=${slug}&pageSize=${PAGE_SIZE}`);
       const data = await res.json();
       
-      // Only update if this is still the current category and component is mounted
       if (requestId === categoryRequestIdRef.current && currentCategoryRef.current === slug && isMountedRef.current) {
         if (data?.qaItems?.length) {
           setLoadedPages([data.qaItems]);
           setCurrentPage(data.currentPage || 1);
           setTotalPages(data.numberOfPages || 1);
-          // Track loaded IDs
           data.qaItems.forEach(item => {
             if (item?.id) loadedIdsRef.current.add(item.id);
           });
@@ -620,14 +713,11 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           setCurrentPage(1);
           setTotalPages(1);
         }
-        // Reset loading flags
         setIsLoadingInitial(false);
         setIsLoadingMore(false);
         fetchingRef.current = false;
         setIsSwitchingCategory(false);
         setIsTransitioningCategory(false);
-
-        // Keep scroll position at the top after category switches.
       }
     } catch (error) {
       console.error("Error fetching category data:", error);
@@ -638,108 +728,10 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         setIsLoadingInitial(false);
         setIsSwitchingCategory(false);
         setIsTransitioningCategory(false);
+        fetchingRef.current = false;
       }
     }
   }, [router, scrollToTopInstantly]);
-
-  // Infinite scroll effect with fixed 1s loading and guaranteed next data
-  useEffect(() => {
-    // Don't load if: not visible, initial loading, switching category, or all pages loaded
-    if ((!isLoadMoreVisible && !isContentShort) || isLoadingInitial || isSwitchingCategory || isTransitioningCategory || isRestoringScroll) {
-      return;
-    }
-
-    if (currentPage >= totalPages) {
-      return;
-    }
-
-    if (fetchingRef.current) {
-      return;
-    }
-
-    let cancelled = false;
-
-    const loadNextPage = async () => {
-      const categoryAtStart = currentCategoryRef.current;
-      fetchingRef.current = true;
-      
-      // Show loading immediately
-      if (isMountedRef.current) {
-        setIsLoadingMore(true);
-      }
-      
-      const loadStartedAt = Date.now();
-
-      try {
-        const nextPageNumber = currentPage + 1;
-        
-        const res = await fetch(`/api/qna?currentPage=${nextPageNumber}&cat_slug=${categoryAtStart}&pageSize=${PAGE_SIZE}`);
-        const data = await res.json();
-        
-        // Check if category changed or component unmounted during fetch
-        if (cancelled || categoryAtStart !== currentCategoryRef.current || !isMountedRef.current) {
-          return;
-        }
-
-        // Ensure loading shows for at least 1 second
-        const elapsed = Date.now() - loadStartedAt;
-        if (elapsed < LOADING_DELAY) {
-          const remaining = LOADING_DELAY - elapsed;
-          await new Promise((resolve) => {
-            loadingTimeoutRef.current = setTimeout(resolve, remaining);
-          });
-          loadingTimeoutRef.current = null;
-        }
-
-        // Check again after delay
-        if (cancelled || categoryAtStart !== currentCategoryRef.current || !isMountedRef.current) {
-          return;
-        }
-
-        if (data?.qaItems?.length) {
-          setLoadedPages((prev) => {
-            // Filter out duplicates using the ref
-            const existingIds = loadedIdsRef.current;
-            const newItems = data.qaItems.filter(item => item?.id && !existingIds.has(item.id));
-            
-            if (newItems.length > 0) {
-              // Track new IDs
-              newItems.forEach(item => {
-                if (item?.id) loadedIdsRef.current.add(item.id);
-              });
-              return [...prev, newItems];
-            }
-            return prev;
-          });
-          setCurrentPage(data.currentPage || nextPageNumber);
-          setTotalPages(data.numberOfPages || totalPages);
-          scrollAttemptRef.current = 0;
-        } else {
-          // No more data - mark as complete
-          setCurrentPage(totalPages);
-        }
-      } catch (error) {
-        console.error("Error loading more:", error);
-        // Retry logic for network errors
-        scrollAttemptRef.current += 1;
-        if (scrollAttemptRef.current <= 3) {
-          // Will retry on next scroll trigger
-        }
-      } finally {
-        // Only reset if category hasn't changed and component is still mounted
-        if (categoryAtStart === currentCategoryRef.current && isMountedRef.current) {
-          fetchingRef.current = false;
-          setIsLoadingMore(false);
-        }
-      }
-    };
-
-    loadNextPage();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [isLoadMoreVisible, isContentShort, isLoadingInitial, isSwitchingCategory, isTransitioningCategory, isRestoringScroll, currentPage, totalPages, selectedCategory]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -747,8 +739,9 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       if (loadingTimeoutRef.current) {
         clearTimeout(loadingTimeoutRef.current);
       }
-      if (loadMoreRetryRef.current) {
-        clearTimeout(loadMoreRetryRef.current);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
       }
       if (restoreRafRef.current) {
         cancelAnimationFrame(restoreRafRef.current);
@@ -760,37 +753,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
       }
     };
   }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const updateShortContent = () => {
-      if (contentMeasureRafRef.current) {
-        cancelAnimationFrame(contentMeasureRafRef.current);
-      }
-      contentMeasureRafRef.current = requestAnimationFrame(() => {
-        if (!isMountedRef.current) return;
-        if (isLoadingInitial || isSwitchingCategory || isTransitioningCategory || isRestoringScroll) {
-          setIsContentShort(false);
-          return;
-        }
-        const docHeight = document.documentElement.scrollHeight;
-        const viewportHeight = window.innerHeight || 0;
-        setIsContentShort(docHeight <= viewportHeight + 120);
-      });
-    };
-
-    updateShortContent();
-    window.addEventListener("resize", updateShortContent);
-
-    return () => {
-      window.removeEventListener("resize", updateShortContent);
-      if (contentMeasureRafRef.current) {
-        cancelAnimationFrame(contentMeasureRafRef.current);
-        contentMeasureRafRef.current = null;
-      }
-    };
-  }, [isLoadingInitial, isSwitchingCategory, isTransitioningCategory, isRestoringScroll, loadedPages, currentPage, totalPages, selectedCategory]);
 
   const loadedQna = useMemo(() => loadedPages.flat(), [loadedPages]);
 
@@ -813,28 +775,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
 
   const hasMoreToLoad = currentPage < totalPages;
   const totalLoadedCount = loadedQna.length;
-
-  const listVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.04,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 15 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.25,
-        ease: "easeOut",
-      },
-    },
-  };
 
   return (
     <>
@@ -860,7 +800,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           -webkit-tap-highlight-color: transparent;
         }
 
-        /* Custom scrollbar for category list */
         .category-scrollbar::-webkit-scrollbar {
           width: 4px;
         }
@@ -875,7 +814,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
           background: #9ca3af;
         }
         
-        /* Ensure html/body are scrollable */
         html, body {
           height: auto !important;
           overflow-y: auto !important;
@@ -896,7 +834,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         <section className="py-2.5 xs:py-3 sm:py-4 lg:py-6 bg-white border-b border-gray-100 sticky top-0 z-30">
         <div className="max-w-[1260px] mx-auto px-3 xs:px-4 sm:px-5 lg:px-6 xl:px-8">
           <div className="flex flex-col lg:flex-row gap-2.5 xs:gap-3 lg:gap-4 items-start lg:items-center">
-            {/* Search Input */}
             <div className="relative w-full lg:w-80 xl:w-96">
               <input 
                 type="text" 
@@ -915,7 +852,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
               )}
             </div>
 
-            {/* Mobile/Tablet: Category Button - Full Green BG with White Icon & Text */}
             <div className="lg:hidden flex items-center gap-2 w-full">
               <button
                 onClick={() => setShowCategoryDrawer(true)}
@@ -934,7 +870,6 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
               </div>
             </div>
 
-            {/* Desktop: Active Category Badge */}
             <div className="hidden lg:flex items-center gap-2">
               <span className="text-sm text-gray-500">Category:</span>
               <span className="px-3 py-1 bg-[#10b981]/10 text-[#10b981] rounded-full text-sm font-medium">
@@ -951,7 +886,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         </div>
         </section>
 
-      {/* Category Drawer - Mobile/Tablet (Bottom Sheet) */}
+      {/* Category Drawer - Mobile/Tablet */}
         <AnimatePresence>
         {showCategoryDrawer && (
           <>
@@ -1126,8 +1061,14 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
                   >
                     {filteredQna.length > 0 && (
                       <>
-                        {filteredQna.map((item) => (
-                          <motion.div key={`${selectedCategory}-${item.id}`} variants={cardVariants} className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6">
+                        {filteredQna.map((item, index) => (
+                          <motion.div 
+                            key={`${selectedCategory}-${item.id}`} 
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.25, ease: "easeOut" }}
+                            className="bg-white rounded-lg xs:rounded-xl shadow-sm hover:shadow-md transition-all p-3.5 xs:p-4 sm:p-5 lg:p-6"
+                          >
                             <div className="flex items-start gap-2 sm:gap-3">
                               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#10b981]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <MessageCircle size={14} className="xs:w-4 xs:h-4 sm:w-[18px] sm:h-[18px] text-[#10b981]" />
@@ -1141,21 +1082,36 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
                                   onPointerDown={cacheDataBeforeNavigation}
                                   onClick={cacheDataBeforeNavigation}
                                 >
-                                  Read Full Answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
+                                  Read full answer <ChevronRight size={10} className="xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
                                 </Link>
                               </div>
                             </div>
                           </motion.div>
                         ))}
-                        <div key={selectedCategory} ref={loadMoreRef} className="flex items-center justify-center py-8 min-h-[80px]">
+                        
+                        {/* Sentinel element for Intersection Observer */}
+                        <div 
+                          ref={sentinelRef}
+                          className="w-full h-4"
+                        />
+                        
+                        {/* Loading Indicator - Original spinning circle style */}
+                        <div ref={loadMoreRef} className="flex items-center justify-center py-8 min-h-[80px]">
                           {isLoadingMore && hasMoreToLoad && (
-                            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center gap-3">
+                            <motion.div 
+                              initial={{ opacity: 0, y: 10 }} 
+                              animate={{ opacity: 1, y: 0 }} 
+                              className="flex flex-col items-center gap-3"
+                            >
                               <svg className="animate-spin h-6 w-6 sm:h-7 sm:w-7 text-[#10b981]" viewBox="0 0 24 24">
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                               </svg>
                               <span className="text-sm sm:text-base text-gray-500 font-medium">Loading more questions...</span>
                             </motion.div>
+                          )}
+                          {!hasMoreToLoad && loadedQna.length > 0 && !isLoadingMore && (
+                            <p className="text-sm text-gray-400">All questions loaded • {totalLoadedCount} total</p>
                           )}
                         </div>
                       </>
@@ -1177,7 +1133,7 @@ export default function QnaPage({ playlists, headerLectures, qnaCategories, init
         </div>
         </section>
 
-        {/* Back to Top Floating Button - GREEN BG WITH WHITE ICON - FIXED */}
+        {/* Back to Top Floating Button */}
         <button
           ref={backToTopRef}
           onClick={scrollToTop}
@@ -1228,7 +1184,6 @@ export async function getStaticProps({ params }) {
     const headerLectures = await getHeaderLectures();
     const qnaCategories = await getAllQnaCategory();
     const initialQnaPage = await getAllQuestions({ currentPage: 1, cat_slug: catSlug, pageSize: PAGE_SIZE });
-    // For the main "all" category, also fetch top 3 QnA to display prominently at the top
     let initialTopQna = [];
     if (catSlug === 'all') {
       initialTopQna = await getQnaByLimit(3);
